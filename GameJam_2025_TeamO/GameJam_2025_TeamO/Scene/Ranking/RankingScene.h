@@ -1,7 +1,24 @@
 #pragma once
 
 #include "../SceneType.h"
+#include"RankingData.h"
 
-void RankingSceneInit(void);
-eSceneType RankingSceneUpdate();
-void RankingSceneDraw(void);
+class RankingDispScene : public SceneType
+{
+private:
+
+private:
+	int background_image;  //”wŒi‰æ‘œ
+	RankingData* ranking;  //ƒ‰ƒ“ƒLƒ“ƒOî•ñ
+
+public:
+	RankingDispScene();
+	virtual ~RankingDispScene();
+
+	virtual void Initialize() override;
+	virtual eSceneType Update() override;
+	virtual void Draw() const override;
+	virtual void Finalize() override;
+
+	virtual eSceneType GetNowScene() const override;
+};
