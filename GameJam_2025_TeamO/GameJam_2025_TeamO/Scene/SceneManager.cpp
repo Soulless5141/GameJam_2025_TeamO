@@ -2,6 +2,8 @@
 #include "SceneType.h"
 #include "DxLib.h"
 
+#include "Title/Title.h"
+
 eSceneType current_scene_type;  //ƒV[ƒ“‚Ìó‘Ô
 int is_end_flag;                //I‚í‚è
 
