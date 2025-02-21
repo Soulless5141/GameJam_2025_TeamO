@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Objects\Mato\Mato.cpp" />
     <ClCompile Include="Objects\Gage\Gage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Objects\Mato\Mato.cpp" />
     <ClCompile Include="Objects\Player\Player.cpp" />
     <ClCompile Include="Scene\Title.cpp" />
     <ClCompile Include="Resource\test.cpp" />
