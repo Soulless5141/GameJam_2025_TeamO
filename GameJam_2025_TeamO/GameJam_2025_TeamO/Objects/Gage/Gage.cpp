@@ -54,8 +54,10 @@ void Gage::Update()
 // •`‰æˆ—
 void Gage::Draw()
 {
+	DrawBox(100, 200, 120, 200, GetColor(0, 0, 0), false);
+
 	// ƒQ[ƒW‚Ì“®‚­•”•ª‚ğ•`‰æ
-	DrawBox(100, 200, 100, 200 - meter, GetColor(255, 0, 0), false);
+	DrawBox(100, 200, 120, 200 - meter, GetColor(255, 0, 0), false);
 }
 
 // I—¹ˆ—
