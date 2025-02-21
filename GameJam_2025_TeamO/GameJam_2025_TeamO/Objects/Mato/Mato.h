@@ -10,6 +10,7 @@ class Mato
 {
 private:
 	int image;  //‰æ‘œ
+	int score;  //ƒXƒRƒA
 	//Vector2D box_size;
 	eHitState hit_state;
 
