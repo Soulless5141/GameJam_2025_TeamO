@@ -3,9 +3,11 @@
 enum eSceneType
 {
 	eTitle,
-	eInGame,
+	eSelectMode,
+	eForcusMode,
 	eResult,
 	eRanking,
+	eRanking_Input,
 	eHelp,
 	eEnd,
 };

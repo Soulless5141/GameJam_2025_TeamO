@@ -9,6 +9,8 @@ private:
     int playerCursorY;
     int speed;
 
+    int pushFlg;
+
 public:
     Player();
 

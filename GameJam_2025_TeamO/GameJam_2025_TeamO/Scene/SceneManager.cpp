@@ -27,11 +27,15 @@ void SceneManagerUpdate(void)
 	{
 	case eTitle:
 		break;
-	case eInGame:
+	case eSelectMode:
+		break;
+	case eForcusMode:
 		break;
 	case eResult:
 		break;
 	case eRanking:
+		break;
+	case eRanking_Input:
 		break;
 	case eHelp:
 		break;
@@ -61,11 +65,15 @@ void SceneManagerDraw(void)
 	{
 	case eTitle:
 		break;
-	case eInGame:
+	case eSelectMode:
+		break;
+	case eForcusMode:
 		break;
 	case eResult:
 		break;
 	case eRanking:
+		break;
+	case eRanking_Input:
 		break;
 	case eHelp:
 		break;
@@ -102,17 +110,22 @@ void SceneInit(eSceneType new_scene_type)
 {
 	switch (new_scene_type)
 	{
-	case eTitle:
-		break;
-	case eInGame:
-		break;
-	case eResult:
-		break;
-	case eRanking:
-		break;
-	case eHelp:
-		break;
-	case eEnd:
-		break;
+		switch (new_scene_type)
+		{
+		case eTitle:
+			break;
+		case eSelectMode:
+			break;
+		case eResult:
+			break;
+		case eRanking:
+			break;
+		case eRanking_Input:
+			break;
+		case eHelp:
+			break;
+		case eEnd:
+			break;
+		}
 	}
 }
