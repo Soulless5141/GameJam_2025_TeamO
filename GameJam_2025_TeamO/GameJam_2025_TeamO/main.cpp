@@ -1,8 +1,9 @@
 #include "DxLib.h"
 //#include "SceneManager.h"
-#include "scene/Title.h"
+#include "Scene/Title/Title.h"
 #include "Utility/PadInput.h"
 #include "Utility/FpsControl.h"
+#include "Scene/SceneManager.h"
 
 #define FRAMERATE 60.0 // フレームレート
 #define HEIGHT 720
@@ -51,6 +52,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//	return 0;
 	//}
 
+	//ゲームの初期化
+	SceneManagerInitialize();
+
 	// ゲームループ
 	while ((ProcessMessage() == 0) /* && (sceneMng->Update() != nullptr)*/)
 	{
@@ -77,6 +81,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		{
 			break;
 		}
+
+		//シーンのアップデート
+		SceneManagerUpdate();
 
 		// 画面の更新
 		ScreenFlip();
