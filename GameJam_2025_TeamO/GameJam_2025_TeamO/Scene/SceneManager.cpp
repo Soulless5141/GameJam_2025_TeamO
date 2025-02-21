@@ -110,22 +110,6 @@ void SceneInit(eSceneType new_scene_type)
 {
 	switch (new_scene_type)
 	{
-<<<<<<< HEAD
-	case eTitle:
-		break;
-	case eSelectMode:
-		break;
-	case eForcusMode:
-		break;
-	case eResult:
-		break;
-	case eRanking:
-		break;
-	case eHelp:
-		break;
-	case eEnd:
-		break;
-=======
 		switch (new_scene_type)
 		{
 		case eTitle:
@@ -143,6 +127,5 @@ void SceneInit(eSceneType new_scene_type)
 		case eEnd:
 			break;
 		}
->>>>>>> ec49b24344876ec19bf003c1e7bc8d2604c6dc79
 	}
 }
