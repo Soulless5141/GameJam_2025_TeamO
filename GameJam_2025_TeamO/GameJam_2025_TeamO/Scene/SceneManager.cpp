@@ -114,7 +114,7 @@ void SceneInit(eSceneType new_scene_type)
 		{
 		case eTitle:
 			break;
-		case eInGame:
+		case eSelectMode:
 			break;
 		case eResult:
 			break;
