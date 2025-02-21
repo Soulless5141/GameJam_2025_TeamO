@@ -19,7 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Objects\Gage\Gage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene\Title.cpp" />
+    <ClCompile Include="Resource\test.cpp" />
+    <ClCompile Include="Utility\PadInput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Objects\Gage\Gage.h" />
+    <ClInclude Include="Scene\Title.h" />
+    <ClInclude Include="Utility\PadInput.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
