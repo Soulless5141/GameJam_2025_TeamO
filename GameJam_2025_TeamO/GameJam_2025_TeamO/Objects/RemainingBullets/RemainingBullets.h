@@ -1,9 +1,12 @@
 #pragma once
+#include "../../Utility/ResourceManager.h"
+#include <string>
+
 class RemainingBullets
 {
 private:
 	int life_bullet; // Žc’e
-	//std::vector<int> image;
+	std::vector<int> image;
 
 public:
 	RemainingBullets();

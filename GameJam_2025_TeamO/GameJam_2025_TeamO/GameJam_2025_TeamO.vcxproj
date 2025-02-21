@@ -32,6 +32,7 @@
     <ClCompile Include="Utility\FPSControl.cpp" />
     <ClCompile Include="Utility\PadInput.cpp" />
     <ClCompile Include="Utility\ResourceManager.cpp" />
+    <ClCompile Include="Utility\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Objects\Mato\Mato.h" />
@@ -47,6 +48,7 @@
     <ClInclude Include="Utility\FPSControl.h" />
     <ClInclude Include="Utility\PadInput.h" />
     <ClInclude Include="Utility\ResourceManager.h" />
+    <ClInclude Include="Utility\Vector2D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
