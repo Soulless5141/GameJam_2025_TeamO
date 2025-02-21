@@ -13,11 +13,11 @@ public:
 	Gage();
 	~Gage();
 
-	void Initialize();
-	void Update();
-	void Draw();
-	void Finalize();
+	void Initialize();	// 初期化処理
+	void Update();		// 更新処理
+	void Draw();		// 描画処理
+	void Finalize();	// 終了処理
 
-	void ChangeMove();
+	void ChangeMove();	// ゲージの値の変動処理
 };
 
