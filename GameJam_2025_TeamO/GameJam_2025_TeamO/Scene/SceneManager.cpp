@@ -35,8 +35,6 @@ void SceneManagerUpdate(void)
 		break;
 	case eEnd:
 		break;
-	default:
-		break;
 	}
 
 	SceneManagerDraw();
@@ -70,8 +68,6 @@ void SceneManagerDraw(void)
 	case eHelp:
 		break;
 	case eEnd:
-		break;
-	default:
 		break;
 	}
 }
@@ -115,8 +111,6 @@ void SceneInit(eSceneType new_scene_type)
 	case eHelp:
 		break;
 	case eEnd:
-		break;
-	default:
 		break;
 	}
 }
