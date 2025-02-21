@@ -3,6 +3,7 @@ class RemainingBullets
 {
 private:
 	int life_bullet; // Žc’e
+	std::vector<int> image;
 
 public:
 	RemainingBullets();

@@ -35,11 +35,11 @@ void Gage::Initialize()
 // 更新処理
 void Gage::Update()
 {
-	// 入力更新
-	PAD_INPUT::UpdateKey();
+	// 入力情報取得
+	int Key = GetJoypadInputState(DX_INPUT_PAD1);
 
 	// Aボタンが押されたら値を変動しないようにする
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+	if (Key & PAD_INPUT_A)
 	{
 		decision = true;
 	}
