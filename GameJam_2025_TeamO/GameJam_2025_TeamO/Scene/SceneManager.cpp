@@ -109,9 +109,7 @@ void ChangeScene(eSceneType new_scene_type)
 void SceneInit(eSceneType new_scene_type)
 {
 	switch (new_scene_type)
-	{
-		switch (new_scene_type)
-		{
+	{		
 		case eTitle:
 			break;
 		case eSelectMode:
@@ -126,6 +124,5 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 		case eEnd:
 			break;
-		}
 	}
 }
