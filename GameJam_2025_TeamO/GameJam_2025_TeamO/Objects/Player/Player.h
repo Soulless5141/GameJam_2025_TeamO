@@ -1,3 +1,18 @@
 #pragma once
-#include "DxLib.h"
-#include "PadInput.h"
+class Player
+{
+private:
+private:
+    int background;
+    int player;
+    int playerCursorX;
+    int playerCursorY;
+    int speed;
+
+public:
+    Player();
+
+public:
+    void Update();
+    void Draw() const;
+};
