@@ -26,7 +26,11 @@ void SceneManagerUpdate(void)
 	switch (current_scene_type)
 	{
 	case eTitle:
+
+		TitleSceneUpdate();
+
 		break;
+
 	case eSelectMode:
 		break;
 	case eForcusMode:
@@ -64,7 +68,11 @@ void SceneManagerDraw(void)
 	switch (current_scene_type)
 	{
 	case eTitle:
+
+		TitleSceneDraw();
+
 		break;
+
 	case eSelectMode:
 		break;
 	case eForcusMode:
@@ -111,7 +119,11 @@ void SceneInit(eSceneType new_scene_type)
 	switch (new_scene_type)
 	{		
 		case eTitle:
+
+			TitleSceneInit();
+
 			break;
+
 		case eSelectMode:
 			break;
 		case eResult:
