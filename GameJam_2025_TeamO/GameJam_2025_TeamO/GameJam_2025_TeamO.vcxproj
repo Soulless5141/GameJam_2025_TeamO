@@ -26,7 +26,9 @@
     <ClCompile Include="Objects\RemainingBullets\RemainingBullets.cpp" />
     <ClCompile Include="Scene\GameScene\SelectTarget.cpp" />
     <ClCompile Include="Scene\Help\HelpScene.cpp" />
+    <ClCompile Include="Scene\RankingInput\RankingInput.cpp" />
     <ClCompile Include="Scene\Ranking\RankingScene.cpp" />
+    <ClCompile Include="Scene\Result\Result.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="Scene\Title\Title.cpp" />
     <ClCompile Include="Utility\FPSControl.cpp" />
@@ -40,7 +42,9 @@
     <ClInclude Include="Objects\RemainingBullets\RemainingBullets.h" />
     <ClInclude Include="Scene\GameScene\SelectTarget.h" />
     <ClInclude Include="Scene\Help\HelpScene.h" />
+    <ClInclude Include="Scene\RankingInput\RankingInput.h" />
     <ClInclude Include="Scene\Ranking\RankingScene.h" />
+    <ClInclude Include="Scene\Result\Result.h" />
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="Scene\SceneType.h" />
     <ClInclude Include="Scene\Title\Title.h" />
