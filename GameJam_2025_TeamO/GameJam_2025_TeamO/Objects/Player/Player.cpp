@@ -10,6 +10,7 @@ Player::Player()
 	playerCursorX = 570;
 	playerCursorY = 680;
 	speed = 10;
+	pushFlg = FALSE;
 }
 
 void Player::Update()

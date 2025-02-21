@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	// ウィンドウタイトルの設定
-	SetMainWindowText("Russian Roulette");
+	SetMainWindowText("");
 
 	// ウィンドウモードで起動
 	ChangeWindowMode(TRUE);
