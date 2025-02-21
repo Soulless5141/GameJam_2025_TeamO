@@ -14,7 +14,7 @@ void RemainingBullets::Initialize()
 	ResourceManager* rm = ResourceManager::GetInstance();
 	life_bullet = 5;
 
-	image = rm->GetImages("Resource/Images/bullet.png", 1, 1, 1, 32, 32);
+	//image = rm->GetImages("Resource/Images/bullet.png", 1, 1, 1, 32, 32);
 	
 }
 
