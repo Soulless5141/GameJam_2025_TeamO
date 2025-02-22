@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene\End\End.cpp" />
+    <ClCompile Include="Scene\GameScene\ForcusTarget.cpp" />
     <ClCompile Include="Scene\Ranking\RankingData.cpp" />
     <ClCompile Include="Utility\Collision.cpp" />
     <ClCompile Include="Objects\Mato\Mato.cpp" />
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene\End\End.h" />
+    <ClInclude Include="Scene\GameScene\ForcusTarget.h" />
     <ClInclude Include="Scene\Ranking\RankingData.h" />
     <ClInclude Include="Utility\Collision.h" />
     <ClInclude Include="Objects\Mato\Mato.h" />

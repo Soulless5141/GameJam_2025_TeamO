@@ -3,9 +3,15 @@
 #include "DxLib.h"
 
 #include "Title/Title.h"
+#include "GameScene/SelectTarget.h"
+#include "GameScene/ForcusTarget.h"
 
 eSceneType current_scene_type;  //シーンの状態
 int is_end_flag;                //終わり
+
+//SelectTargetとForcusTargetのインスタンスを追加
+SelectTarget* selectTarget = nullptr;
+ForcusTarget* forcusTarget = nullptr;
 
 void SceneManagerDraw(void);
 void ChangeScene(eSceneType new_scene_type);
@@ -32,8 +38,16 @@ void SceneManagerUpdate(void)
 		break;
 
 	case eSelectMode:
+		if (selectTarget)
+		{
+			next_scene_type = selectTarget->SelectSceneUpdate();
+		}
 		break;
 	case eForcusMode:
+		if (forcusTarget)
+		{
+			next_scene_type = forcusTarget->ForcusSceneUpdate();
+		}
 		break;
 	case eResult:
 		break;
@@ -74,8 +88,16 @@ void SceneManagerDraw(void)
 		break;
 
 	case eSelectMode:
+		if (selectTarget)
+		{
+			selectTarget->SelectSceneDraw();
+		}
 		break;
 	case eForcusMode:
+		if (forcusTarget)
+		{
+			forcusTarget->ForcusSceneDraw();
+		}
 		break;
 	case eResult:
 		break;
@@ -108,6 +130,19 @@ void ChangeScene(eSceneType new_scene_type)
 		return;
 	}
 
+	//シーンが切り替わる前にインスタンスを削除
+	if (current_scene_type == eSelectMode)
+	{
+		delete selectTarget;
+		selectTarget = nullptr;
+	}
+	else if (current_scene_type == eForcusMode)
+	{
+		delete forcusTarget;
+		forcusTarget = nullptr;
+	}
+
+
 	//新しいシーンに切り替える
 	SceneInit(new_scene_type);
 	current_scene_type = new_scene_type;
@@ -125,6 +160,19 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 
 		case eSelectMode:
+			if (!selectTarget)
+			{
+				// インスタンスの作成
+				selectTarget = new SelectTarget();
+			}
+			break;
+
+		case eForcusMode:
+			if (!forcusTarget)
+			{
+				// インスタンスの作成
+				forcusTarget = new ForcusTarget();
+			}
 			break;
 		case eResult:
 			break;
