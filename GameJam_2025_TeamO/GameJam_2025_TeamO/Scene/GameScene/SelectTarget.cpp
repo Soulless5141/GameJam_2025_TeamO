@@ -23,7 +23,7 @@ eSceneType SelectTarget::SelectSceneUpdate()
 	//選択した的からシーン遷移
 	if (ForcusFlg == TRUE)
 	{
-
+		return eForcusMode;
 	}
 
 	return eSelectMode;
