@@ -18,14 +18,16 @@ void SelectSceneInit()
 {
 }
 
-//eSceneType SelectTarget::SelectSceneUpdate()
-//{
-//	//選択した的からシーン遷移
-//	if (ForcusFlg == TRUE)
-//	{
-//
-//	}
-//}
+eSceneType SelectTarget::SelectSceneUpdate()
+{
+	//選択した的からシーン遷移
+	if (ForcusFlg == TRUE)
+	{
+
+	}
+
+	return eSelectMode;
+}
 
 void SelectTarget::SelectSceneDraw(void)
 {
