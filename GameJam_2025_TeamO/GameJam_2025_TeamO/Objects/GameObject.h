@@ -16,7 +16,7 @@ public:
 	template <class OBJECT>
 	OBJECT* CreateObject(const Vector2D& generate_location)
 	{
-		//return current_scene_type->CreateObject<OBJECT>(generate_location);
+		return owner_scene->CreateObject<OBJECT>(generate_location);
 	}
 
 	/// <summary>
@@ -25,7 +25,7 @@ public:
 	/// <param name="target">破棄を行うゲームオブジェクトのポインタ</param>
 	void DestroyObject(GameObjectBase* target)
 	{
-		//current_scene_type->DestroyObject(target);
+		owner_scene->DestroyObject(target);
 	}
 
 	/// <summary>
@@ -34,6 +34,6 @@ public:
 	/// <returns>スクリーンオフセット値</returns>
 	const Vector2D GetScreenOffset() const
 	{
-		//return current_scene_type->GetScreenOffset();
+		return owner_scene->GetScreenOffset();
 	}
 };
