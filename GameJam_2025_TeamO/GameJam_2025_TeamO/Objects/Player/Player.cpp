@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
 #include "../../Utility/PadInput.h"
+#include "math.h"
 
 #define PLAYER_SCREEN_WIDTH 1200
 #define PLAYER_SCREEN_HEIGHT 640
@@ -8,51 +9,108 @@
 Player::Player()
 {
     player = LoadGraph("Resource/Images/scope.png");
-    playerCursorX = 570;
-    playerCursorY = 320;  // 画面中央に変更
-    speed = 10;
     pushFlg = FALSE;
+
+    playerX = 570.0f;
+    playerY = 320.0f;
+    mv = 0.7f;
+    px = 0.0f;
+    py = 0.0f;
+
+    angle = 0;
+
+
+    for (int i = 0; i < 360; i++)
+    {
+        //0度から359度までのsin・cosの値を事前計算し、配列に保存
+        fsin[i] = (float)sin(i * 3.1415926535 / 180);
+        fcos[i] = (float)cos(i * 3.1415926535 / 180);
+    }
 }
 
 void Player::Update()
 {
     int Key = GetJoypadInputState(DX_INPUT_PAD1);
 
-    // X軸の移動処理
-    if (Key & PAD_INPUT_RIGHT) {
-        playerCursorX += speed;
+    angle = -1;
+
+    if ((Key & PAD_INPUT_RIGHT) && (Key & PAD_INPUT_UP))
+    {
+        //右上
+        angle = 45;
     }
-    else if (Key & PAD_INPUT_LEFT) {
-        playerCursorX -= speed;
+    else if((Key &PAD_INPUT_LEFT) && (Key & PAD_INPUT_UP))
+    {
+        //左上
+        angle = 135;
     }
+    else if ((Key & PAD_INPUT_LEFT) &&(Key & PAD_INPUT_DOWN))
+    {
+        //左下
+        angle = 225;
+    }
+    else if ((Key & PAD_INPUT_RIGHT) && (Key & PAD_INPUT_DOWN))
+    {
+        //右上
+        angle = 315;
+    }
+    else if (Key & PAD_INPUT_UP)
+    {
+        //上
+        angle = 90;
+    }
+    else if (Key & PAD_INPUT_DOWN)
+    {
+        //下
+        angle = 270;
+    }
+    else if (Key & PAD_INPUT_LEFT)
+    {
+        //左
+        angle = 180;
+    }
+    else if (Key & PAD_INPUT_RIGHT)
+    {
+        //右
+        angle = 0;
+    }
+
+    //angleの値が変わっていたら移動量を変更する
+    if (angle != -1)
+    {
+        px += fcos[angle] * mv;
+        py -= fsin[angle] * mv;
+    }
+
+    playerX += px;
+    playerY += py;
 
     // 画面外に出ないようにする
-    if (playerCursorX > PLAYER_SCREEN_WIDTH) {
-        playerCursorX = PLAYER_SCREEN_WIDTH;
+    if (playerX > PLAYER_SCREEN_WIDTH) {
+        playerX = PLAYER_SCREEN_WIDTH;
+        px = 0.0f;
     }
-    if (playerCursorX < 80) {
-        playerCursorX = 80;
+    if (playerX < 80) {
+        playerX = 80;
+        px = 0.0f;
     }
 
-    // Y軸の移動処理
-    if (Key & PAD_INPUT_UP) {
-        playerCursorY -= speed;  // 上に移動
-    }
-    else if (Key & PAD_INPUT_DOWN) {
-        playerCursorY += speed;  // 下に移動
-    }
 
     // 画面外に出ないようにする
-    if (playerCursorY > PLAYER_SCREEN_HEIGHT) {
-        playerCursorY = PLAYER_SCREEN_HEIGHT;
+    if (playerY > PLAYER_SCREEN_HEIGHT) {
+        playerY = PLAYER_SCREEN_HEIGHT;
+        py = 0.0f;
     }
-    if (playerCursorY < 80) {
-        playerCursorY = 80;
+    if (playerY < 80) {
+        playerY = 80;
+        py = 0.0f;
     }
+
 }
 
 void Player::Draw() const
 {
     DrawGraph(0, 0, background, FALSE);  // 背景を描画
-    DrawGraph(playerCursorX, playerCursorY, player, TRUE);  // プレイヤー画像を描画
+    //DrawGraph(playerCursorX, playerCursorY, player, TRUE);  // プレイヤー画像を描画
+    DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 255, 255), TRUE);
 }

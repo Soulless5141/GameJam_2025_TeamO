@@ -34,6 +34,7 @@ eSceneType SelectTarget::SelectSceneUpdate()
 void SelectTarget::SelectSceneDraw(void)
 {
 	player->Draw();
+	DrawFormatString(0, 0, 0xffffff, "select scene");
 	DrawGraph(0, 0, background, TRUE);
 }
 
