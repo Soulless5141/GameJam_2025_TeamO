@@ -3,7 +3,8 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-int Result_background_image;
+int result_background_image;  //”wŒiİ’è—p‚Ì•Ï”
+int result_bgm;               //BGMİ’è—p‚Ì•Ï”
 
 void ResultSceneInit(void)
 {

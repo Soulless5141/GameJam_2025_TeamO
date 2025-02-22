@@ -4,6 +4,7 @@
 #include "DxLib.h"
 
 int title_background_image;  //背景設定用の変数
+int title_bgm;               //BGM設定用の変数
 
 //タイトル画面の初期化
 void TitleSceneInit(void)
