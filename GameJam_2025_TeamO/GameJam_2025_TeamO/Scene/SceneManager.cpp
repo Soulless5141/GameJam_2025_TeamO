@@ -5,6 +5,11 @@
 #include "Title/Title.h"
 #include "GameScene/SelectTarget.h"
 #include "GameScene/ForcusTarget.h"
+#include "Result/Result.h"
+#include "Help/HelpScene.h"
+#include "Ranking/RankingScene.h"
+#include "RankingInput/RankingInput.h"
+#include "End/End.h"
 
 eSceneType current_scene_type;  //ÉVÅ[ÉìÇÃèÛë‘
 int is_end_flag;                //èIÇÌÇË
@@ -50,15 +55,23 @@ void SceneManagerUpdate(void)
 		}
 		break;
 	case eResult:
+
+		ResultSceneUpdate();
+
 		break;
+
 	case eRanking:
 		break;
 	case eRanking_Input:
 		break;
 	case eHelp:
+
+		HelpSceneUpdate();
+
 		break;
-	case eEnd:
-		break;
+
+	//case eEnd:
+		//break;
 	}
 
 	SceneManagerDraw();
@@ -100,14 +113,25 @@ void SceneManagerDraw(void)
 		}
 		break;
 	case eResult:
+
+		ResultSceneDraw();
+
 		break;
+
 	case eRanking:
 		break;
 	case eRanking_Input:
 		break;
 	case eHelp:
+
+		HelpSceneDraw();
+
 		break;
+
 	case eEnd:
+
+		EndSceneDraw();
+
 		break;
 	}
 }
@@ -175,14 +199,25 @@ void SceneInit(eSceneType new_scene_type)
 			}
 			break;
 		case eResult:
+
+			ResultSceneInit();
+
 			break;
+
 		case eRanking:
 			break;
 		case eRanking_Input:
 			break;
 		case eHelp:
+
+			HelpSceneInit();
+
 			break;
+
 		case eEnd:
+
+			EndSceneInit();
+
 			break;
 	}
 }
