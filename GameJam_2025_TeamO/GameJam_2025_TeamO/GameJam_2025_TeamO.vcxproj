@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\End\End.cpp" />
     <ClCompile Include="Scene\Ranking\RankingData.cpp" />
     <ClCompile Include="Utility\Collision.cpp" />
     <ClCompile Include="Objects\Mato\Mato.cpp" />
@@ -39,6 +40,7 @@
     <ClCompile Include="Utility\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\End\End.h" />
     <ClInclude Include="Scene\Ranking\RankingData.h" />
     <ClInclude Include="Utility\Collision.h" />
     <ClInclude Include="Objects\Mato\Mato.h" />
