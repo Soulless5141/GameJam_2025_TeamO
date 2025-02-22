@@ -145,6 +145,7 @@ void ChangeScene(eSceneType new_scene_type)
 	{
 		is_once = FALSE;
 		SceneInit(new_scene_type);
+		current_scene_type = new_scene_type;
 		return;
 	}
 
