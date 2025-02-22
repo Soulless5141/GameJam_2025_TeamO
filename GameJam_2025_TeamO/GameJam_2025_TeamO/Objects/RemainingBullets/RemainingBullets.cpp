@@ -29,7 +29,7 @@ void RemainingBullets::Draw()
 {
 	for (int i = 0; i < life_bullet; i++)
 	{
-		DrawRotaGraphF(20 + (i * 20), 400, 1.0, 0, image[0], TRUE);
+		DrawRotaGraph(20 + (i * 20), 400, 1.0, 0, image[0], TRUE);
 	}
 	
 }
