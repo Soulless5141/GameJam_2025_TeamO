@@ -47,6 +47,7 @@
     <ClInclude Include="Scene\End\End.h" />
     <ClInclude Include="Scene\GameScene\ForcusTarget.h" />
     <ClInclude Include="Scene\Ranking\RankingData.h" />
+    <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Utility\Collision.h" />
     <ClInclude Include="Objects\Mato\Mato.h" />
     <ClInclude Include="Objects\Gage\Gage.h" />
