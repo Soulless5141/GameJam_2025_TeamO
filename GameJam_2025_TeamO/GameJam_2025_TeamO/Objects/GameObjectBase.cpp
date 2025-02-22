@@ -1,5 +1,3 @@
-#pragma once
-
 #include "GameObjectBase.h"
 #include"../Scene/SceneManager.h"
 

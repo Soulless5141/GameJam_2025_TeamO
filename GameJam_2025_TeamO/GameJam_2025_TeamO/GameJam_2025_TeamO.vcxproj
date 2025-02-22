@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Objects\GameObjectBase.cpp" />
     <ClCompile Include="Scene\End\End.cpp" />
     <ClCompile Include="Scene\GameScene\ForcusTarget.cpp" />
     <ClCompile Include="Scene\Ranking\RankingData.cpp" />
@@ -41,6 +42,8 @@
     <ClCompile Include="Utility\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Objects\GameObject.h" />
+    <ClInclude Include="Objects\GameObjectBase.h" />
     <ClInclude Include="Scene\End\End.h" />
     <ClInclude Include="Scene\GameScene\ForcusTarget.h" />
     <ClInclude Include="Scene\Ranking\RankingData.h" />
