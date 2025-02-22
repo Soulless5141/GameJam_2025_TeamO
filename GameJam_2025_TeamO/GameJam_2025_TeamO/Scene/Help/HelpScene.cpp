@@ -3,7 +3,8 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-int Help_background_image;  //”wŒiİ’è—p‚Ì•Ï”
+int help_background_image;  //”wŒiİ’è—p‚Ì•Ï”
+int help_bgm;               //BGMİ’è—p‚Ì•Ï”
 
 //ƒwƒ‹ƒv‰æ–Ê‚Ì‰Šú‰»
 void HelpSceneInit(void)
