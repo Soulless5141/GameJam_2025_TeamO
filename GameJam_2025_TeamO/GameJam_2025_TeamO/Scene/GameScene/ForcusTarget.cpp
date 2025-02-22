@@ -20,6 +20,8 @@ void ForcusSceneInit()
 
 eSceneType ForcusTarget::ForcusSceneUpdate()
 {
+	player->Update();
+
 	//’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
 	/*if ( == TRUE)
 	{
@@ -42,5 +44,7 @@ eSceneType ForcusTarget::ForcusSceneUpdate()
 
 void ForcusTarget::ForcusSceneDraw(void)
 {
+	player->Draw();
+
 	DrawGraph(0, 0, background, TRUE);
 }
