@@ -1,4 +1,5 @@
 #pragma once
+#include"../GameObject.h"
 
 enum eHitState
 {
@@ -6,11 +7,13 @@ enum eHitState
 	none,
 };
 
-class Mato
+class Mato:public GameObject
 {
 private:
-	int image;  //画像
+	int image[3];  //画像
+	int a_image;
 	int score;  //スコア
+	int s_score; //
 	//Vector2D box_size;
 	eHitState hit_state;
 
@@ -23,8 +26,8 @@ public:
 	void Draw();
 	void Finalize();
 
-	virtual void OnHitCollision();
+	virtual void OnHitCollision(GameObjectBase* hit_object) override;
 
 private:
-	void AnimationControl();
+	void AnimationControl(); //アニメーション
 };
