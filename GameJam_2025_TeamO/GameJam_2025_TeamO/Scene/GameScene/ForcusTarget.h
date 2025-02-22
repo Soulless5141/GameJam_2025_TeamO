@@ -4,7 +4,7 @@
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
 
-class ForcusTarget
+class ForcusTarget : public SceneType
 {
 public:
 	Player* player;
@@ -22,4 +22,5 @@ public:
 	eSceneType ForcusSceneUpdate();
 	void ForcusSceneDraw(void);
 
+	virtual eSceneType GetNowScene() const override;
 };

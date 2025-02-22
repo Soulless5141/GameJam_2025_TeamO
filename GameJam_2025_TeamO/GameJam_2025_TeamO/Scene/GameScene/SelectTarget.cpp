@@ -36,3 +36,8 @@ void SelectTarget::SelectSceneDraw(void)
 	player->Draw();
 	DrawGraph(0, 0, background, TRUE);
 }
+
+eSceneType SelectTarget::GetNowScene() const
+{
+	return eSceneType::eSelectMode;
+}

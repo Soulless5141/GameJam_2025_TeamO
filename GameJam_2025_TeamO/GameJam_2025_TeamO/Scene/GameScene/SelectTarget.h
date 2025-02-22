@@ -4,7 +4,7 @@
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
 
-class SelectTarget
+class SelectTarget : public SceneType
 {
 public:
 	Player* player;
@@ -23,4 +23,5 @@ public:
 	eSceneType SelectSceneUpdate();
 	void SelectSceneDraw(void);
 	
+	virtual eSceneType GetNowScene() const override;
 };
