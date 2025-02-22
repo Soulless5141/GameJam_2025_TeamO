@@ -20,6 +20,8 @@ void SelectSceneInit()
 
 eSceneType SelectTarget::SelectSceneUpdate()
 {
+	player->Update();
+
 	//選択した的からシーン遷移
 	if (ForcusFlg == TRUE)
 	{
@@ -31,5 +33,6 @@ eSceneType SelectTarget::SelectSceneUpdate()
 
 void SelectTarget::SelectSceneDraw(void)
 {
+	player->Draw();
 	DrawGraph(0, 0, background, TRUE);
 }
