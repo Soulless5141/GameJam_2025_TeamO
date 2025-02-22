@@ -37,15 +37,16 @@ eSceneType ForcusTarget::ForcusSceneUpdate()
 	//Žc’e‚ª‚È‚­‚È‚Á‚½‚çƒŠƒUƒ‹ƒg‚É‘JˆÚ
 	/*if (== TRUE)
 	{
-	}*/
 		return eResult;
-	
+	}*/
+		
+	return eForcusMode;
 }
 
 void ForcusTarget::ForcusSceneDraw(void)
 {
 	player->Draw();
-
+	DrawFormatString(0, 0, 0xffffff, "forcus scene");
 	DrawGraph(0, 0, background, TRUE);
 }
 

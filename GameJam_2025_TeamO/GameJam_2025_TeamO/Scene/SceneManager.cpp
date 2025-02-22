@@ -26,7 +26,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eSelectMode);
+	ChangeScene(eTitle);
 }
 
 //シーンのアップデート

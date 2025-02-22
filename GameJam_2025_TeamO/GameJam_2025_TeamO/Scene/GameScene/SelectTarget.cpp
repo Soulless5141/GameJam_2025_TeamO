@@ -23,7 +23,7 @@ eSceneType SelectTarget::SelectSceneUpdate()
 	player->Update();
 
 	//選択した的からシーン遷移
-	if (ForcusFlg == TRUE)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		return eForcusMode;
 	}
