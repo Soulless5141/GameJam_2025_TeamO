@@ -3,8 +3,6 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-const eSceneType GetNowSceneType(void);
-
 RankingDispScene::RankingDispScene() : background_image(NULL), ranking(nullptr)
 {
 

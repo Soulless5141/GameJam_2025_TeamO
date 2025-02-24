@@ -17,6 +17,7 @@ int is_end_flag;                //終わり
 //SelectTargetとForcusTargetのインスタンスを追加
 SelectTarget* selectTarget = nullptr;
 ForcusTarget* forcusTarget = nullptr;
+RankingDispScene* rakingscene = nullptr;
 
 void SceneManagerDraw(void);
 void ChangeScene(eSceneType new_scene_type);
@@ -26,7 +27,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eSelectMode);
+	ChangeScene(eTitle);
 }
 
 //シーンのアップデート
@@ -61,7 +62,14 @@ void SceneManagerUpdate(void)
 		break;
 
 	case eRanking:
+
+		if (rakingscene)
+		{
+			next_scene_type = rakingscene->Update(0.0f);
+		}
+
 		break;
+
 	case eRanking_Input:
 		break;
 	case eHelp:
@@ -122,7 +130,14 @@ void SceneManagerDraw(void)
 		break;
 
 	case eRanking:
+
+		if (rakingscene)
+		{
+			rakingscene->Draw();
+		}
+
 		break;
+
 	case eRanking_Input:
 		break;
 	case eHelp:
@@ -169,6 +184,12 @@ void ChangeScene(eSceneType new_scene_type)
 		delete forcusTarget;
 		forcusTarget = nullptr;
 	}
+	
+	if (current_scene_type == eRanking)
+	{
+		delete rakingscene;
+		rakingscene = nullptr;
+	}
 
 
 	//新しいシーンに切り替える
@@ -210,7 +231,16 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 
 		case eRanking:
+
+			if (!rakingscene)
+			{
+				rakingscene = new RankingDispScene();
+			}
+
+			rakingscene->Initialize();
+
 			break;
+
 		case eRanking_Input:
 			break;
 		case eHelp:
