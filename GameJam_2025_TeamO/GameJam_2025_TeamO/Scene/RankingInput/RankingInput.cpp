@@ -35,37 +35,37 @@ RankingInputScene::~RankingInputScene()
 //初期化処理
 void RankingInputScene::Initialize()
 {
-	//画像の読み込み
-	background_image = LoadGraph("Resource/images/Ranking.png");
+	////画像の読み込み
+	//background_image = LoadGraph("Resource/images/Ranking.png");
 
-	//BGMの読み込み
-	rankinginput_bgm = LoadSoundMem("Resource/bgm/RankingInputBGM.wav");
+	////BGMの読み込み
+	//rankinginput_bgm = LoadSoundMem("Resource/bgm/RankingInputBGM.wav");
 
-	//カーソル音読み込み
-	select_se = LoadSoundMem("Resource/se/select.wav");
-	//決定音読み込み
-	decision_se = LoadSoundMem("Resource/se/decision.wav");
+	////カーソル音読み込み
+	//select_se = LoadSoundMem("Resource/se/select.wav");
+	////決定音読み込み
+	//decision_se = LoadSoundMem("Resource/se/decision.wav");
 
-	//エラーチェック
-	if (background_image == -1)
-	{
-		throw("Resource/images/Ranking.pngがありません\n");
-	}
+	////エラーチェック
+	//if (background_image == -1)
+	//{
+	//	throw("Resource/images/Ranking.pngがありません\n");
+	//}
 
-	if (rankinginput_bgm == -1)
-	{
-		throw("Resource/bgm/RankingInputBGM.wavがありません\n");
-	}
+	//if (rankinginput_bgm == -1)
+	//{
+	//	throw("Resource/bgm/RankingInputBGM.wavがありません\n");
+	//}
 
-	if (select_se == -1)
-	{
-		throw("Resource/bgm/select.wavがありません\n");
-	}
+	//if (select_se == -1)
+	//{
+	//	throw("Resource/bgm/select.wavがありません\n");
+	//}
 
-	if (decision_se == -1)
-	{
-		throw("Resource/se/decision.wav.wavがありません\n");
-	}
+	//if (decision_se == -1)
+	//{
+	//	throw("Resource/se/decision.wav.wavがありません\n");
+	//}
 
 
 	//メモリの動的確保
