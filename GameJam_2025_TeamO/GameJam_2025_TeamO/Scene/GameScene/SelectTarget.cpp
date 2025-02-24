@@ -4,6 +4,7 @@
 SelectTarget::SelectTarget()
 {
 	player = new Player;
+	bullet = new RemainingBullets;
 	ForcusFlg = FALSE;
 	background = LoadGraph("background.png");  // 画像のパスを指定
 	
@@ -12,6 +13,7 @@ SelectTarget::SelectTarget()
 SelectTarget::~SelectTarget()
 {
 	delete player;
+	delete bullet;
 	DeleteGraph(background);
 }
 
@@ -27,6 +29,7 @@ void SelectTarget::Initialize()
 eSceneType SelectTarget::SelectSceneUpdate()
 {
 	player->Update();
+	bullet->Update();
 
 	//選択した的からシーン遷移
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
@@ -52,6 +55,7 @@ eSceneType SelectTarget::SelectSceneUpdate()
 void SelectTarget::Draw() const
 {
 	player->Draw();
+	bullet->Draw();
 	DrawFormatString(0, 0, 0xffffff, "select scene");
 	DrawGraph(0, 0, background, TRUE);
 

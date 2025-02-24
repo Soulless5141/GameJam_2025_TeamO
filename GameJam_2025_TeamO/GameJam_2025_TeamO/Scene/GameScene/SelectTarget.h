@@ -3,12 +3,14 @@
 #include "../SceneType.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
+#include "../../Objects/RemainingBullets/RemainingBullets.h"
 #include"../SceneBase.h"
 
 class SelectTarget : public SceneBase
 {
 public:
 	Player* player;
+	RemainingBullets* bullet;
 
 	int background;
 	int score;

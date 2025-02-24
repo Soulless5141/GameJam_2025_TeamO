@@ -4,12 +4,14 @@
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
 #include "../../Objects/Gage/Gage.h"
+#include "../../Objects/RemainingBullets/RemainingBullets.h"
 
 class ForcusTarget : public SceneBase
 {
 public:
 	Player* player;
 	Gage* gage;
+	RemainingBullets* bullet;
 
 	int background;
 
