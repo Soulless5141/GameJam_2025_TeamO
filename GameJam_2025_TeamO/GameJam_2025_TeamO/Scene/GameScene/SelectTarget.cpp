@@ -3,6 +3,7 @@
 
 SelectTarget::SelectTarget()
 {
+	player = new Player;
 	ForcusFlg = FALSE;
 	background = LoadGraph("background.png");  // 画像のパスを指定
 	
@@ -10,6 +11,7 @@ SelectTarget::SelectTarget()
 
 SelectTarget::~SelectTarget()
 {
+	delete player;
 	DeleteGraph(background);
 }
 
@@ -19,18 +21,32 @@ SelectTarget::~SelectTarget()
 
 void SelectTarget::Initialize()
 {
-	CreateObject<Mato>(Vector2D(100, 100));
+	CreateObject<Mato>(Vector2D(700, 400));
 }
+
+//eSceneType SelectTarget::SelectSceneUpdate()
+//{
+//	player->Update();
+//
+//	//選択した的からシーン遷移
+//	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+//	{
+//		return eForcusMode;
+//	}
+//
+//	return eSelectMode;
+//}
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
-	SceneBase::Update(delta_second);
-	//mato->Update();
+	player->Update();
+
 	//選択した的からシーン遷移
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		return eForcusMode;
 	}
+
 	return eSelectMode;
 }
 
@@ -43,7 +59,7 @@ eSceneType SelectTarget::Update(const float& delta_second)
 
 void SelectTarget::Draw() const
 {
-	SceneBase::Draw();
+	player->Draw();
 	DrawFormatString(0, 0, 0xffffff, "select scene");
 	DrawGraph(0, 0, background, TRUE);
 

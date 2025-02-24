@@ -3,11 +3,13 @@
 #include "../SceneType.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Mato/Mato.h"
+#include "../../Objects/Player/Player.h"
 #include"../SceneBase.h"
 
 class SelectTarget : public SceneBase
 {
 public:
+	Player* player;
 	Mato* mato;
 
 	int background;
