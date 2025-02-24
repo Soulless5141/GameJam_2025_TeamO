@@ -1,5 +1,5 @@
 #include "Result.h"
-#include "../SceneType.h"
+#include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
@@ -11,7 +11,7 @@ void ResultSceneInit(void)
 
 }
 
-eSceneType ResultSceneUpdate(void)
+eSceneType ResuleUpdate(void)
 {
 	return eResult;
 }

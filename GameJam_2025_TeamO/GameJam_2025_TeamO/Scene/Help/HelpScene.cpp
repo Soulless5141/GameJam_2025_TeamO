@@ -1,5 +1,5 @@
 #include "HelpScene.h"
-#include "../SceneType.h"
+#include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 

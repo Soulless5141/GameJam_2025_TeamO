@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../SceneType.h"
+#include "../SceneBase.h"
 #include"RankingData.h"
 
-class RankingDispScene : public SceneType
+class RankingDispScene : public SceneBase
 {
 private:
 
@@ -16,9 +16,9 @@ public:
 	virtual ~RankingDispScene();
 
 	virtual void Initialize() override;
-	virtual eSceneType Update() override;
+	virtual eSceneType Update(const float& delta_second);
 	virtual void Draw() const override;
 	virtual void Finalize() override;
 
-	virtual eSceneType GetNowScene() const override;
+	virtual const eSceneType GetNowSceneType() const;
 };

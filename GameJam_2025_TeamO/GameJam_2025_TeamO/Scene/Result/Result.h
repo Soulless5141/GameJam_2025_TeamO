@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../SceneType.h"
+#include "../SceneBase.h"
 
 void ResultSceneInit(void);
-eSceneType ResultSceneUpdate();
+eSceneType ResuleUpdate();
 void ResultSceneDraw(void);

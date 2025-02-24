@@ -50,7 +50,11 @@ void ForcusTarget::ForcusSceneDraw(void)
 	DrawGraph(0, 0, background, TRUE);
 }
 
-eSceneType ForcusTarget::GetNowScene() const
+const eSceneType ForcusTarget::GetNowSceneType() const
 {
 	return eSceneType::eForcusMode;
 }
+//const eSceneType GetNowSceneType()
+//{
+//	return eSceneType::eForcusMode;
+//}

@@ -1,10 +1,10 @@
 #pragma once
 #include "../SceneManager.h"
-#include "../SceneType.h"
+#include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
 
-class ForcusTarget : public SceneType
+class ForcusTarget : public SceneBase
 {
 public:
 	Player* player;
@@ -22,5 +22,5 @@ public:
 	eSceneType ForcusSceneUpdate();
 	void ForcusSceneDraw(void);
 
-	virtual eSceneType GetNowScene() const override;
+	virtual const eSceneType GetNowSceneType() const override;
 };

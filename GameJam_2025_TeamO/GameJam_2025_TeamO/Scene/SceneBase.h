@@ -4,6 +4,18 @@
 #include <vector>
 #include <string>
 
+enum eSceneType
+{
+	eTitle,
+	eSelectMode,
+	eForcusMode,
+	eResult,
+	eRanking,
+	eRanking_Input,
+	eRanking_Scene,
+	eHelp,
+	eEnd,
+};
 
 /// <summary>
 /// シーン基底クラス

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../SceneType.h"
+#include "../SceneBase.h"
 
 #include"../Ranking/RankingData.h"
 
-class RankingInputScene : public SceneType
+class RankingInputScene : public SceneBase
 {
 private:
 	int background_image;    //”wŒi‰æ‘œ
@@ -23,11 +23,11 @@ public:
 	virtual ~RankingInputScene();
 
 	virtual void Initialize() override;
-	virtual eSceneType Update() override;
+	virtual eSceneType Update();
 	virtual void Draw() const override;
 	virtual void Finalize() override;
 
-	virtual eSceneType GetNowScene() const override;
+	virtual const eSceneType GetNowSceneType() const override;
 
 private:
 	//–¼‘O“ü—Íˆ—
