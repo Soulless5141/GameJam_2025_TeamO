@@ -22,7 +22,7 @@ SelectTarget::~SelectTarget()
 void SelectTarget::Initialize()
 {
 	//“I‚Ì•`‰æ
-	CreateObject<Mato>(Vector2D(300, 300));
+	Mato* m = CreateObject<Mato>(Vector2D(300, 300));
 	CreateObject<Mato>(Vector2D(300, 550));
 	CreateObject<Mato>(Vector2D(550, 300));
 	CreateObject<Mato>(Vector2D(550, 550));

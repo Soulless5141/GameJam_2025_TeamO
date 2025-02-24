@@ -30,6 +30,8 @@ public:
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
 
+	void SetTargetData(int value);
+
 private:
 	void AnimationControl(float delta_second); //アニメーション
 };
