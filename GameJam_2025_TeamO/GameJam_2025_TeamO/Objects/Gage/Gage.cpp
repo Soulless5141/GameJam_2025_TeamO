@@ -15,7 +15,7 @@ Gage::Gage() :
 	meter = 0;
 
 	// 変動値のランダム取得
-	fluctuation = rand() % 6 + 3;
+	fluctuation = rand() % 4 + 3;
 
 	change_flip_flag = false;
 
@@ -103,4 +103,9 @@ void Gage::ChangeMove()
 			change_flip_flag = false;	// ゲージを上昇にする
 		}
 	}
+}
+
+int Gage::GetMeter() const
+{
+	return meter;
 }
