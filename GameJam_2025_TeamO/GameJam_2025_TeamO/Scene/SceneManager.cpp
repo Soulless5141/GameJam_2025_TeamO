@@ -26,7 +26,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eTitle);
+	ChangeScene(eSelectMode);
 }
 
 //シーンのアップデート
@@ -45,7 +45,7 @@ void SceneManagerUpdate(void)
 	case eSelectMode:
 		if (selectTarget)
 		{
-			next_scene_type = selectTarget->SelectSceneUpdate();
+			next_scene_type = selectTarget->Update(0.0f);
 		}
 		break;
 	case eForcusMode:
@@ -190,6 +190,7 @@ void SceneInit(eSceneType new_scene_type)
 				// インスタンスの作成
 				selectTarget = new SelectTarget();
 			}
+			selectTarget->Initialize();
 			break;
 
 		case eForcusMode:

@@ -10,10 +10,12 @@ enum eHitState
 class Mato:public GameObject
 {
 private:
-	int image[3];  //画像
+	//std::vector<int> image[3];
+	int mato_image[3];  //画像
 	int a_image;
-	int score;  //スコア
-	int s_score; //
+	int score;    //スコア
+	int s_score;  //
+	int hp;       //的のHP
 	Vector2D box_size;
 	eHitState hit_state;
 
@@ -22,7 +24,7 @@ public:
 	virtual ~Mato();
 
 	virtual void Initialize();
-	virtual void Update(float delta_second);
+	virtual void Update(/*float delta_second*/);
 	virtual void Draw(const Vector2D& screen_offset) const override;
 	void Finalize() override;
 
