@@ -3,11 +3,13 @@
 #include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
+#include "../../Objects/Gage/Gage.h"
 
 class ForcusTarget : public SceneBase
 {
 public:
 	Player* player;
+	Gage* gage;
 
 	int background;
 

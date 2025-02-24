@@ -70,8 +70,11 @@ void SceneManagerUpdate(void)
 
 		break;
 
-	//case eEnd:
-		//break;
+	case eEnd:
+
+		next_scene_type = eEnd;
+
+		break;
 	}
 
 	SceneManagerDraw();

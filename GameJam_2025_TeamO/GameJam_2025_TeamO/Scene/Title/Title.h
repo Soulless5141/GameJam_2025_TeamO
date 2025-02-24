@@ -10,5 +10,6 @@ enum eTitle
 {
 	eStart_Title,
 	eHelp_Title,
+	eRanking_title,
 	eEnd_title,
 };

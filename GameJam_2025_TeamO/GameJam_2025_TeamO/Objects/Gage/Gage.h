@@ -19,5 +19,6 @@ public:
 	void Finalize();	// 終了処理
 
 	void ChangeMove();	// ゲージの値の変動処理
+	int GetMeter() const;	// ゲージの値の変動処理
 };
 

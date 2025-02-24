@@ -22,7 +22,12 @@ void RemainingBullets::Initialize()
 
 void RemainingBullets::Update()
 {
-	
+	int Key = GetJoypadInputState(DX_INPUT_PAD1);
+
+	if (Key & PAD_INPUT_A)
+	{
+		life_bullet--;
+	}
 }
 
 void RemainingBullets::Draw()
