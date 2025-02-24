@@ -3,6 +3,7 @@
 
 SelectTarget::SelectTarget()
 {
+	player = new Player;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // 画像のパスを指定
 	
@@ -10,6 +11,7 @@ SelectTarget::SelectTarget()
 
 SelectTarget::~SelectTarget()
 {
+	delete player;
 	DeleteGraph(background);
 }
 
@@ -30,6 +32,19 @@ void SelectTarget::Initialize()
 	//CreateObject<Mato>(Vector2D(900, 550));
 }
 
+//eSceneType SelectTarget::SelectSceneUpdate()
+//{
+//	player->Update();
+//
+//	//選択した的からシーン遷移
+//	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+//	{
+//		return eForcusMode;
+//	}
+//
+//	return eSelectMode;
+//}
+
 eSceneType SelectTarget::Update(const float& delta_second)
 {
 	//mato->Update(delta_second);
@@ -40,6 +55,7 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	{
 		return eForcusMode;
 	}
+
 	return eSelectMode;
 }
 

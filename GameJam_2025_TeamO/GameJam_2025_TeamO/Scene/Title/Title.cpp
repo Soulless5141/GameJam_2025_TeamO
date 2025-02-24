@@ -5,12 +5,12 @@
 
 int title_background_image;  //背景設定用の変数
 int title_bgm;               //BGM設定用の変数
-int cursor_number;
+int cursor_number = eStart_Title;
 
 //タイトル画面の初期化
 void TitleSceneInit(void)
 {
-	cursor_number = eStart_Title;
+	
 }
 
 //タイトル画面のアップデート
