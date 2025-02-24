@@ -22,7 +22,7 @@ void Mato::Initialize()
 	//eObjectType::mato; //オブジェクトの設定
 }
 
-void Mato::Update()
+void Mato::Update(float delta_second)
 {
 	srand((unsigned int)time(NULL)); //ランダム生成初期化
 	int a;
@@ -53,10 +53,10 @@ void Mato::Update()
 	//}
 }
 
-void Mato::Draw()
+void Mato::Draw(const Vector2D& screen_offset) const
 {
 	// 親クラスの描画処理を呼び出す
-	//__super::Draw(screen_offset);
+	__super::Draw(screen_offset);
 }
 
 void Mato::Finalize()
@@ -69,7 +69,7 @@ void Mato::OnHitCollision(GameObjectBase* hit_object)
 
 }
 
-void Mato::AnimationControl()
+void Mato::AnimationControl(float delta_second)
 {
 
 }

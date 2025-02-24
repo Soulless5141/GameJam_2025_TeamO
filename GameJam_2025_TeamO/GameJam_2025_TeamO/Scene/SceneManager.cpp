@@ -26,7 +26,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eTitle);
+	ChangeScene(eSelectMode);
 }
 
 //シーンのアップデート
@@ -38,7 +38,7 @@ void SceneManagerUpdate(void)
 	{
 	case eTitle:
 
-		TitleSceneUpdate();
+		next_scene_type = TitleSceneUpdate();
 
 		break;
 
@@ -55,8 +55,8 @@ void SceneManagerUpdate(void)
 		}
 		break;
 	case eResult:
-
-		ResultSceneUpdate();
+		
+		next_scene_type = ResultSceneUpdate();
 
 		break;
 
@@ -66,7 +66,7 @@ void SceneManagerUpdate(void)
 		break;
 	case eHelp:
 
-		HelpSceneUpdate();
+		next_scene_type = HelpSceneUpdate();
 
 		break;
 

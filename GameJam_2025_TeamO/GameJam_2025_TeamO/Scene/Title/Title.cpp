@@ -13,8 +13,15 @@ void TitleSceneInit(void)
 }
 
 //タイトル画面のアップデート
-eSceneType TitleSceneUpdate(void)
+eSceneType TitleSceneUpdate()
 {
+	int key_title = GetJoypadInputState(DX_INPUT_PAD1);
+
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+	{
+		return eHelp;
+	}
+
 	return eTitle;
 }
 

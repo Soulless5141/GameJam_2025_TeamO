@@ -18,5 +18,5 @@ eSceneType ResultSceneUpdate(void)
 
 void ResultSceneDraw(void)
 {
-
+	DrawFormatString(100, 100, GetColor(255, 255, 255), "ƒŠƒUƒ‹ƒg‰æ–Ê");
 }
