@@ -14,6 +14,7 @@ private:
 	int mato_image[3];  //画像
 	int a_image;
 	int score;    //スコア
+	int i_image[3];
 	int s_score;  //
 	int hp;       //的のHP
 	Vector2D box_size;
