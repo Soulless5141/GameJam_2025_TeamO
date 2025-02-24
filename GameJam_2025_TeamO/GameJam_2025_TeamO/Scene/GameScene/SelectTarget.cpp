@@ -25,7 +25,7 @@ void SelectTarget::Initialize()
 eSceneType SelectTarget::Update(const float& delta_second)
 {
 	SceneBase::Update(delta_second);
-	mato->Update();
+	//mato->Update();
 	//選択した的からシーン遷移
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
