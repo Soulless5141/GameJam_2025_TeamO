@@ -24,7 +24,7 @@ public:
 	virtual ~Mato();
 
 	virtual void Initialize();
-	virtual void Update(/*float delta_second*/);
+	virtual void Update(float delta_second);
 	virtual void Draw(const Vector2D& screen_offset) const override;
 	void Finalize() override;
 
