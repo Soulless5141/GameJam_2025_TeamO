@@ -71,3 +71,8 @@ const eSceneType ForcusTarget::GetNowSceneType() const
 //{
 //	return eSceneType::eForcusMode;
 //}
+
+bool ForcusTarget::IsHitCheck(Player* p, Mato* m)
+{
+	
+}
