@@ -5,12 +5,12 @@
 
 int title_background_image;  //背景設定用の変数
 int title_bgm;               //BGM設定用の変数
-int cursor_number;
+int cursor_number = eStart_Title;
 
 //タイトル画面の初期化
 void TitleSceneInit(void)
 {
-	cursor_number = eStart_Title;
+	
 }
 
 //タイトル画面のアップデート
@@ -29,13 +29,21 @@ eSceneType TitleSceneUpdate()
 		{
 			return eHelp;
 		}
+		else if (cursor_number == eRanking_title)
+		{
+			return eRanking;
+		}
+		else if (cursor_number == eEnd_title)
+		{
+			return eEnd;
+		}
 	}
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN))
 	{
 		cursor_number++;
 
-		if (cursor_number > 1)
+		if (cursor_number > 3)
 		{
 			cursor_number = eStart_Title;
 		}
@@ -47,7 +55,7 @@ eSceneType TitleSceneUpdate()
 
 		if (cursor_number < 0)
 		{
-			cursor_number = eHelp_Title;
+			cursor_number = eEnd_title;
 		}
 	}
 
