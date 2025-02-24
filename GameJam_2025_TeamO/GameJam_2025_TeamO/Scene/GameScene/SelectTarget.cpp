@@ -4,7 +4,6 @@
 SelectTarget::SelectTarget()
 {
 	player = new Player;
-	bullet = new RemainingBullets;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // ‰æ‘œ‚ÌƒpƒX‚ðŽw’è
 	
@@ -13,7 +12,6 @@ SelectTarget::SelectTarget()
 SelectTarget::~SelectTarget()
 {
 	delete player;
-	delete bullet;
 	DeleteGraph(background);
 }
 
@@ -49,7 +47,7 @@ void SelectTarget::Initialize()
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
-	//mato->Update(delta_second);
+	mato->Update(delta_second);
 	SceneBase::Update(delta_second);
 	
 	//‘I‘ð‚µ‚½“I‚©‚çƒV[ƒ“‘JˆÚ
@@ -70,10 +68,8 @@ eSceneType SelectTarget::Update(const float& delta_second)
 
 void SelectTarget::Draw() const
 {
-	player->Draw();
-	bullet->Draw();
-	DrawFormatString(0, 0, 0xffffff, "select scene");
-	DrawGraph(0, 0, background, TRUE);
+	//”wŒi‰æ‘œ‚Ì•`‰æ
+	DrawRotaGraph(640, 375, 0.6, 0.0, background, TRUE);
 
 	// “I‚Ì‰¼•`‰æ
 	SceneBase::Draw();

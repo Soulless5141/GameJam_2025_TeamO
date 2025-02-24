@@ -11,12 +11,12 @@ class Mato:public GameObject
 {
 private:
 	//std::vector<int> image[3];
-	int mato_image[3];  //画像
-	int a_image;
-	int score;    //スコア
-	int i_image[3];
-	int s_score;  //
-	int hp;       //的のHP
+	static int mato_image[3];  //画像
+	static int score;    //スコア
+	static int i_image[3];
+	static int s_score;  //
+	static int hp;       //的のHP
+	Vector2D location;
 	Vector2D box_size;
 	eHitState hit_state;
 
@@ -30,6 +30,9 @@ public:
 	void Finalize() override;
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
+
+	Vector2D GetLocation()const;
+	Vector2D GetBoxsize() const;
 
 	void SetTargetData(int value);
 
