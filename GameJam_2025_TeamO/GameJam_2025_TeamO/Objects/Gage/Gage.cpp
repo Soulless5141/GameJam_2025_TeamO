@@ -11,6 +11,15 @@ Gage::Gage() :
 	change_flip_flag(false),
 	decision(false)
 {
+	// メーターの初期化
+	meter = 0;
+
+	// 変動値のランダム取得
+	fluctuation = rand() % 6 + 3;
+
+	change_flip_flag = false;
+
+	decision = false;
 }
 
 Gage::~Gage()
@@ -20,16 +29,7 @@ Gage::~Gage()
 // 初期化処理
 void Gage::Initialize()
 {
-	// メーターの初期化
-	meter = 0;
-
-	// 変動値のランダム取得
-	//fluctuation = rand() % 6 + 1;
-	fluctuation = 1;
-
-	change_flip_flag = false;
-
-	decision = false;
+	
 }
 
 // 更新処理
@@ -44,6 +44,12 @@ void Gage::Update()
 		decision = true;
 	}
 
+	// デバッグ用
+	if (Key & PAD_INPUT_B)
+	{
+		decision = false;
+	}
+
 	// Aボタンが押されていなかったらゲージを動かす
 	if (!decision)
 	{
@@ -54,10 +60,14 @@ void Gage::Update()
 // 描画処理
 void Gage::Draw()
 {
-	DrawBox(100, 200, 120, 200, GetColor(0, 0, 0), false);
+	// ゲージの後ろの黒い四角
+	DrawBox(280, 650, 200, 120, GetColor(0, 0, 0), true);
+
+	// ゲージの枠線
+	DrawBox(280, 650, 200, 120, GetColor(255, 0, 0), false);
 
 	// ゲージの動く部分を描画
-	DrawBox(100, 200, 120, 200 - meter, GetColor(255, 0, 0), false);
+	DrawBox(280, 650, 200, 650 - (530 * (0.01 * meter)), GetColor(255, 0, 0), true);
 }
 
 // 終了処理
