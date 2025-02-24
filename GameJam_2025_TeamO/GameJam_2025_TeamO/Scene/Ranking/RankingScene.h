@@ -20,5 +20,5 @@ public:
 	virtual void Draw() const override;
 	virtual void Finalize() override;
 
-	virtual const eSceneType GetNowSceneType() const;
+	virtual const eSceneType GetNowSceneType() const override;
 };
