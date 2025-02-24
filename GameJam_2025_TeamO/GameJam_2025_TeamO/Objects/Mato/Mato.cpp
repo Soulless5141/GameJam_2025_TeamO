@@ -22,35 +22,15 @@ void Mato::Initialize()
 	mato_image[2] = rm->GetImages("Resource/Images/keihin3.png")[0];
 	//hit_state = eHitState::none; //ヒット状態なし
 	//eObjectType::mato; //オブジェクトの設定
-	//a_image = NULL;
 
-	image = mato_image[0];
+	int a = GetRand(2); //ランダム生成10個くらい
+	SetTargetData(a);
+
 }
 
-void Mato::Update(/*float delta_second*/)
+void Mato::Update(float delta_second)
 {
-	srand((unsigned int)time(NULL)); //ランダム生成初期化
-	int a;
-	a = rand() % 3; //ランダム生成10個くらい
-
-	switch (a)
-	{
-	case 1:
-		score = 10; //10点
-		image = mato_image[0];
-		break;
-	case 2:
-		score = 50; //50
-		image = mato_image[1];
-		break;
-	case 3:
-		score = 100; //100
-		image = mato_image[2];
-		break;
-	default:
-		break;
-	}
-
+	
 	//if (hit_state==eHitState::hit) //当たった時の処理
 	//{
 	//	Mato::AnimationControl(); //アニメーション
@@ -72,6 +52,33 @@ void Mato::Finalize()
 void Mato::OnHitCollision(GameObjectBase* hit_object)
 {
 
+}
+
+void Mato::SetTargetData(int value)
+{
+	switch (value)
+	{
+	case 0:
+		score = 10; //10点
+		i_image[0] = score;
+		image = mato_image[0];
+		hp = 10;
+		break;
+	case 1:
+		score = 50; //50
+		i_image[1] = score;
+		image = mato_image[1];
+		hp = 20;
+		break;
+	case 2:
+		score = 100; //100
+		i_image[2] = score;
+		image = mato_image[2];
+		hp = 30;
+		break;
+	default:
+		break;
+	}
 }
 
 void Mato::AnimationControl(float delta_second)
