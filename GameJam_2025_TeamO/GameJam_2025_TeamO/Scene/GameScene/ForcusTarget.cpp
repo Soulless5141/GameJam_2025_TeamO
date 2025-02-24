@@ -3,6 +3,7 @@
 ForcusTarget::ForcusTarget()
 {
 	player = new Player;
+	gage = new Gage;
 	SelectFlg = FALSE;
 	background = LoadGraph("background.png");  // ‰æ‘œ‚ÌƒpƒX‚ðŽw’è
 
@@ -21,6 +22,7 @@ void ForcusSceneInit()
 eSceneType ForcusTarget::ForcusSceneUpdate()
 {
 	player->Update();
+	gage->Update();
 
 	//’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
 	/*if ( == TRUE)
@@ -46,6 +48,7 @@ eSceneType ForcusTarget::ForcusSceneUpdate()
 void ForcusTarget::ForcusSceneDraw(void)
 {
 	player->Draw();
+	gage->Draw();
 	DrawFormatString(0, 0, 0xffffff, "forcus scene");
 	DrawGraph(0, 0, background, TRUE);
 }
