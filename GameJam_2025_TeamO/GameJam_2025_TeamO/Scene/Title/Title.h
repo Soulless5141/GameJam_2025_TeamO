@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../SceneType.h"
+#include "../SceneBase.h"
 
 void TitleSceneInit(void);
 eSceneType TitleSceneUpdate();

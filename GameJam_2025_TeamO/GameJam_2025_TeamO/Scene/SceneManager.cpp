@@ -56,7 +56,7 @@ void SceneManagerUpdate(void)
 		break;
 	case eResult:
 		
-		next_scene_type = ResultSceneUpdate();
+		//next_scene_type = ResultSceneUpdate();
 
 		break;
 
@@ -103,7 +103,7 @@ void SceneManagerDraw(void)
 	case eSelectMode:
 		if (selectTarget)
 		{
-			selectTarget->SelectSceneDraw();
+			selectTarget->Draw();
 		}
 		break;
 	case eForcusMode:

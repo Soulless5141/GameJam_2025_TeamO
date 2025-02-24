@@ -1,5 +1,5 @@
 #include "RankingInput.h"
-#include "../SceneType.h"
+#include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
@@ -109,7 +109,7 @@ eSceneType RankingInputScene::Update()
 	}
 	else
 	{
-		return GetNowScene();
+		return GetNowSceneType();
 	}
 }
 
@@ -183,7 +183,7 @@ void RankingInputScene::Finalize()
 }
 
 //Œ»İ‚ÌƒV[ƒ“î•ñ‚ğæ“¾
-eSceneType RankingInputScene::GetNowScene() const
+const eSceneType RankingInputScene::GetNowSceneType() const
 {
 	return eSceneType::eRanking_Input;
 }

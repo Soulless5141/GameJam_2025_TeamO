@@ -3,8 +3,9 @@
 #include "../SceneType.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
+#include"../SceneBase.h"
 
-class SelectTarget : public SceneType
+class SelectTarget : public SceneBase
 {
 public:
 	Player* player;
@@ -19,9 +20,12 @@ public:
 	SelectTarget();
 	~SelectTarget();
 
-	void SelectSceneInit(void);
+	//void SelectSceneInit(void);
+	virtual void Initialize();
 	eSceneType SelectSceneUpdate();
-	void SelectSceneDraw(void);
-	
-	virtual eSceneType GetNowScene() const override;
+	//virtual eSceneType Update(const float& delta_second);
+	//void SelectSceneDraw(void);
+	virtual void Draw() const;
+
+	virtual const eSceneType GetNowSceneType() const override;
 };

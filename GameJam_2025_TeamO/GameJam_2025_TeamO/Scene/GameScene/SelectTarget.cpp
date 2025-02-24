@@ -1,4 +1,5 @@
 #include "SelectTarget.h"
+#include "../../Objects/Mato/Mato.h"
 
 SelectTarget::SelectTarget()
 {
@@ -14,8 +15,13 @@ SelectTarget::~SelectTarget()
 	DeleteGraph(background);
 }
 
-void SelectSceneInit()
+//void SelectSceneInit()
+//{
+//}
+
+void SelectTarget::Initialize()
 {
+	CreateObject<Mato>(Vector2D(700, 400));
 }
 
 eSceneType SelectTarget::SelectSceneUpdate()
@@ -31,14 +37,24 @@ eSceneType SelectTarget::SelectSceneUpdate()
 	return eSelectMode;
 }
 
-void SelectTarget::SelectSceneDraw(void)
+//eSceneType SelectTarget::Update(const float& delta_second)
+//{
+//	return eSelectMode;
+//}
+
+//void SelectTarget::SelectSceneDraw(void)
+//{
+//	player->Draw();
+//	DrawFormatString(0, 0, 0xffffff, "select scene");
+//	DrawGraph(0, 0, background, TRUE);
+//}
+
+void SelectTarget::Draw() const
 {
-	player->Draw();
-	DrawFormatString(0, 0, 0xffffff, "select scene");
-	DrawGraph(0, 0, background, TRUE);
+
 }
 
-eSceneType SelectTarget::GetNowScene() const
+const eSceneType SelectTarget::GetNowSceneType() const
 {
 	return eSceneType::eSelectMode;
 }
