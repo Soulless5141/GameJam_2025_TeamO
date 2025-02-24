@@ -3,5 +3,5 @@
 #include "../SceneType.h"
 
 void HelpSceneInit(void);
-eSceneType HelpSceneUpdate();
+eSceneType HelpSceneUpdate(void);
 void HelpSceneDraw(void);

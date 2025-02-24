@@ -21,5 +21,5 @@ eSceneType HelpSceneUpdate(void)
 //ƒwƒ‹ƒv‰æ–Ê‚Ì•`‰æ
 void HelpSceneDraw(void)
 {
-
+	DrawFormatString(100, 100, GetColor(255, 255, 255), "ƒwƒ‹ƒv‰æ–Ê");
 }

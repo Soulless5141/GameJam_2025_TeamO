@@ -38,7 +38,7 @@ void SceneManagerUpdate(void)
 	{
 	case eTitle:
 
-		TitleSceneUpdate();
+		next_scene_type = TitleSceneUpdate();
 
 		break;
 
@@ -66,7 +66,7 @@ void SceneManagerUpdate(void)
 		break;
 	case eHelp:
 
-		HelpSceneUpdate();
+		next_scene_type = HelpSceneUpdate();
 
 		break;
 
