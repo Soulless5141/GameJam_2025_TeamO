@@ -28,4 +28,5 @@ eSceneType HelpSceneUpdate(void)
 void HelpSceneDraw(void)
 {
 	DrawFormatString(100, 100, GetColor(255, 255, 255), "ÉwÉãÉvâÊñ ");
+	DrawFormatString(900, 600, GetColor(255, 255, 255), "AÅFñﬂÇÈ");
 }

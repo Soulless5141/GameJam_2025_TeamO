@@ -47,7 +47,7 @@ void SelectTarget::Initialize()
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
-	//mato->Update(delta_second);
+	mato->Update(delta_second);
 	SceneBase::Update(delta_second);
 	
 	//選択した的からシーン遷移

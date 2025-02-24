@@ -6,7 +6,7 @@ void TitleSceneInit(void);
 eSceneType TitleSceneUpdate();
 void TitleSceneDraw(void);
 
-enum eTitle
+enum eTitle_Select
 {
 	eStart_Title,
 	eHelp_Title,

@@ -4,12 +4,14 @@
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Mato/Mato.h"
 #include "../../Objects/Player/Player.h"
+#include "../../Objects/RemainingBullets/RemainingBullets.h"
 #include"../SceneBase.h"
 
 class SelectTarget : public SceneBase
 {
 public:
 	Player* player;
+	RemainingBullets* bullet;
 	Mato* mato;
 
 	int background;
