@@ -14,20 +14,20 @@ private:
 	int a_image;
 	int score;  //スコア
 	int s_score; //
-	//Vector2D box_size;
+	Vector2D box_size;
 	eHitState hit_state;
 
 public:
 	Mato();
-	~Mato();
+	virtual ~Mato();
 
-	void Initialize();
-	void Update();
-	void Draw();
-	void Finalize();
+	virtual void Initialize();
+	virtual void Update(float delta_second);
+	virtual void Draw(const Vector2D& screen_offset) const override;
+	void Finalize() override;
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
 
 private:
-	void AnimationControl(); //アニメーション
+	void AnimationControl(float delta_second); //アニメーション
 };
