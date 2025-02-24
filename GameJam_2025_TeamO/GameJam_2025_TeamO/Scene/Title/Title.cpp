@@ -29,13 +29,21 @@ eSceneType TitleSceneUpdate()
 		{
 			return eHelp;
 		}
+		else if (cursor_number == eRanking_title)
+		{
+			
+		}
+		else if (cursor_number == eEnd_title)
+		{
+			return eEnd;
+		}
 	}
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN))
 	{
 		cursor_number++;
 
-		if (cursor_number > 1)
+		if (cursor_number > 3)
 		{
 			cursor_number = eStart_Title;
 		}
@@ -47,7 +55,7 @@ eSceneType TitleSceneUpdate()
 
 		if (cursor_number < 0)
 		{
-			cursor_number = eHelp_Title;
+			cursor_number = eEnd_title;
 		}
 	}
 

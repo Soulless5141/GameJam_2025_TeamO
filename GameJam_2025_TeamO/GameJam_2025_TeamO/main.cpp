@@ -56,7 +56,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	SceneManagerInitialize();
 
 	// ゲームループ
-	while ((ProcessMessage() == 0) /* && (sceneMng->Update() != nullptr)*/)
+	while ((ProcessMessage() == 0) && IsFinish() != TRUE/* && (sceneMng->Update() != nullptr)*/)
 	{
 		// フレームレート制御
 		FpsControll_Update();
