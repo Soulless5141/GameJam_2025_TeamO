@@ -28,12 +28,17 @@ eSceneType HelpSceneUpdate(void)
 		return eTitle;
 	}
 
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_RIGHT))
+	{
+		return eHelp2;
+	}
+
 	return eHelp;
 }
 
 //ヘルプ画面の描画
 void HelpSceneDraw(void)
 {
-	DrawFormatString(100, 100, GetColor(255, 255, 255), "ヘルプ画面");
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
+	DrawFormatString(640, 600, GetColor(255, 255, 255), "1　→");
 }
