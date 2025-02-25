@@ -6,6 +6,10 @@ SelectTarget::SelectTarget()
 	player = new Player;
 	gage = new Gage;
 	bullet = new RemainingBullets;
+	mato = new Mato;
+
+	//SelectTarget selector;
+
 	SelectFlg = FALSE;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // 画像のパスを指定
@@ -52,7 +56,6 @@ void SelectTarget::Initialize()
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
-	//mato->Update(delta_second);
 	gage->Update();
 	bullet->Update();
 	SceneBase::Update(delta_second);
@@ -60,6 +63,12 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && SelectFlg == FALSE)
 	{
 		SelectFlg = TRUE;
+	}
+
+
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && IsHitCheck(player, mato) == true)
+	{
+		return eForcusMode;
 	}
 
 	//弾を撃って外したら残弾を減算してシーン遷移
@@ -74,13 +83,6 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	//if (bullet->GetLife() <= 0)
 	//{
 	//	return eResult;
-	//}
-
-	
-	////選択した的からシーン遷移
-	//if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
-	//{
-	//	return eForcusMode;
 	//}
 
 	return eSelectMode;
@@ -104,6 +106,24 @@ void SelectTarget::Draw() const
 
 	gage->Draw();
 	bullet->Draw();
+}
+
+bool SelectTarget::IsHitCheck(Player* p, Mato* m)
+{
+	Vector2D playerPos = p->GetLocation();
+	Vector2D matoPos = m->GetLocation();
+	Vector2D playerSize = p->GetSize();
+	Vector2D matoSize = m->GetSize();
+
+	Vector2D box_ex = playerSize + matoSize;
+
+	if (fabs(playerPos.x - matoPos.x) < box_ex.x / 2 &&
+		fabs(playerPos.y - matoPos.y) < box_ex.y / 2)
+	{
+		return true;
+	}
+
+		return false;
 }
 
 const eSceneType SelectTarget::GetNowSceneType() const

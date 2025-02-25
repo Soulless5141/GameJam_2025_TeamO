@@ -34,7 +34,7 @@ public:
 	{
 		return location;
 	}
-	Vector2D GetBoxsize() const
+	Vector2D GetSize() const
 	{
 		return box_size;
 	}

@@ -74,5 +74,5 @@ void TitleSceneDraw(void)
 	DrawFormatString(580,500, GetColor(0, 0, 0),"ヘルプ");
 	DrawFormatString(580,530, GetColor(0, 0, 0),"ランキング");
 	DrawFormatString(580,560, GetColor(0, 0, 0),"エンド");
-	DrawCircle(530, 480 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
+	DrawCircle(550, 480 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
 }
