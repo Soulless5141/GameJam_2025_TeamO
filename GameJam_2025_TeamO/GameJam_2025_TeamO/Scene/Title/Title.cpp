@@ -10,7 +10,7 @@ int cursor_number = eStart_Title;
 //タイトル画面の初期化
 void TitleSceneInit(void)
 {
-	
+	title_background_image = LoadGraph("Title.png");
 }
 
 //タイトル画面のアップデート
@@ -72,4 +72,7 @@ void TitleSceneDraw(void)
 	DrawFormatString(500,530, GetColor(255, 255, 255),"ランキング");
 	DrawFormatString(500,560, GetColor(255, 255, 255),"エンド");
 	DrawCircle(450, 480 + cursor_number * 30, 15, GetColor(255, 255, 255), TRUE);
+
+	/*描画する画像*/
+	DrawGraph(0, 0, title_background_image, TRUE);
 }

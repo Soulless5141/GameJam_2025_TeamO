@@ -3,5 +3,5 @@
 #include "../SceneBase.h"
 
 void ResultSceneInit(void);
-eSceneType ResuleUpdate();
+eSceneType ResultSceneUpdate();
 void ResultSceneDraw(void);
