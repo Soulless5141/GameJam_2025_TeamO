@@ -30,7 +30,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eRanking_Input);
+	ChangeScene(eSelectMode);
 }
 
 //シーンのアップデート

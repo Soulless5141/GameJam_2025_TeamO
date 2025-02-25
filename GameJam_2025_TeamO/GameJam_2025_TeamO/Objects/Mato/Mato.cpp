@@ -89,3 +89,8 @@ void Mato::AnimationControl(float delta_second)
 {
 
 }
+
+void Mato::DecreaseHp(int value)
+{
+	this->hp -= value;
+}

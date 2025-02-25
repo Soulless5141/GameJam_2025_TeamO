@@ -10,6 +10,8 @@ Player* Player::instance = nullptr;
 
 Player::Player()
 {
+    gage = new Gage;
+
     pushFlg = FALSE;
 
     //playerX = 570.0f;
@@ -20,6 +22,7 @@ Player::Player()
 
     angle = 0;
 
+    damage = 1;
 
     for (int i = 0; i < 360; i++)
     {
@@ -27,6 +30,11 @@ Player::Player()
         fsin[i] = (float)sin(i * 3.1415926535 / 180);
         fcos[i] = (float)cos(i * 3.1415926535 / 180);
     }
+}
+
+Player::~Player()
+{
+    delete gage;
 }
 
 void Player::Initialize()
@@ -147,4 +155,11 @@ Player* Player::GetInstance()
     }
 
     return instance;
+}
+
+int Player::GivesDamage()
+{
+    damage = damage * gage->GetMeter() * 10;
+
+    return damage;
 }

@@ -37,6 +37,8 @@ public:
 
 	void SetTargetData(int value);
 
+	void DecreaseHp(int value);
+
 private:
 	void AnimationControl(float delta_second); //アニメーション
 };

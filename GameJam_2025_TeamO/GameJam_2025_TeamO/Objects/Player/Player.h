@@ -2,11 +2,15 @@
 #include "../../Utility/Vector2D.h"
 #include"../GameObject.h"
 #include"../../Utility/ResourceManager.h"
+#include "../../Objects/Gage/Gage.h"
 
 
 class Player: public GameObject 
 {
 private:
+
+    Gage* gage;
+
     int background;
     int playerImg;
 
@@ -16,6 +20,8 @@ private:
     float mv;           //加速度
 
     int angle;          //角度
+
+    int damage;         //与えるダメージ
 
     Vector2D plocation;
     Vector2D box_size;
@@ -29,6 +35,7 @@ private:
 
 public:
     Player();
+    ~Player();
 
 public:
     virtual void Initialize();
@@ -47,5 +54,6 @@ public:
 
     static Player* GetInstance();
 
+    int GivesDamage();
     void SetLocation(Vector2D new_location);
 };

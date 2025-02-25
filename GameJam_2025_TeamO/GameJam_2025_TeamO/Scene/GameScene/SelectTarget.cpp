@@ -83,11 +83,13 @@ eSceneType SelectTarget::Update(const float& delta_second)
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
+
 		for (int i = 0; i < 8; i++)
 		{
 			if (IsHitCheck(player, mato[i]) == true)
 			{
-				return eForcusMode;
+				mato[i]->DecreaseHp(player->GivesDamage());
+				score += 10;
 			}
 		};
 	}
@@ -130,6 +132,10 @@ void SelectTarget::Draw() const
 	SceneBase::Draw();
 
 	//player->Draw();
+
+	DrawFormatString(0, 0, 0xffffff, "%d\n", score);
+	DrawFormatString(10, 50, 0xffffff, "%d\n", gage->GetMeter());
+	DrawFormatString(100, 100, 0xffffff, "%d\n", player->GivesDamage());
 
 	gage->Draw();
 	bullet->Draw();
