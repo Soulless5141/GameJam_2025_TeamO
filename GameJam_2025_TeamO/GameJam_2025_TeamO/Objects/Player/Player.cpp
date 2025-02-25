@@ -112,7 +112,7 @@ void Player::Draw() const
 {
     DrawGraph(0, 0, background, FALSE);  // ”wŒi‚ğ•`‰æ
     //DrawGraph(playerCursorX, playerCursorY, player, TRUE);  // ƒvƒŒƒCƒ„[‰æ‘œ‚ğ•`‰æ
-    DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 255, 255), TRUE);
+    DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 0, 0), TRUE);
 }
 
 void Player::SetLocation(Vector2D new_location)
