@@ -14,6 +14,7 @@ enum eSceneType
 	eRanking_Input,
 	eRanking_Scene,
 	eHelp,
+	eHelp2,
 	eEnd,
 };
 

@@ -31,7 +31,7 @@ eSceneType TitleSceneUpdate()
 		}
 		else if (cursor_number == eRanking_title)
 		{
-			return eRanking;
+			return eRanking_Scene;
 		}
 		else if (cursor_number == eEnd_title)
 		{
@@ -66,13 +66,13 @@ eSceneType TitleSceneUpdate()
 void TitleSceneDraw(void)
 {
 	/*描画する画像*/
-	DrawGraph(230, 0, title_background_image, TRUE);
+	DrawGraph(0, 0, title_background_image, TRUE);
 
 	/*描画する文字*/
 	SetFontSize(30);
-	DrawFormatString(580,470,GetColor(0,0,0), "スタート");
-	DrawFormatString(580,500, GetColor(0, 0, 0),"ヘルプ");
-	DrawFormatString(580,530, GetColor(0, 0, 0),"ランキング");
-	DrawFormatString(580,560, GetColor(0, 0, 0),"エンド");
-	DrawCircle(550, 480 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
+	DrawFormatString(580,500,GetColor(0,0,0), "スタート");
+	DrawFormatString(580,530, GetColor(0, 0, 0),"ヘルプ");
+	DrawFormatString(580,560, GetColor(0, 0, 0),"ランキング");
+	DrawFormatString(580,590, GetColor(0, 0, 0),"エンド");
+	DrawCircle(550, 510 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
 }

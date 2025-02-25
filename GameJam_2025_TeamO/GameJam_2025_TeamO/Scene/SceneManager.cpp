@@ -1,12 +1,14 @@
 #include "SceneManager.h"
 #include "SceneType.h"
 #include "DxLib.h"
+#include <string.h>
 
 #include "Title/Title.h"
 #include "GameScene/SelectTarget.h"
 #include "GameScene/ForcusTarget.h"
 #include "Result/Result.h"
 #include "Help/HelpScene.h"
+#include "Help/HelpScene2.h"
 #include "Ranking/RankingScene.h"
 #include "RankingInput/RankingInput.h"
 #include "End/End.h"
@@ -17,7 +19,8 @@ int is_end_flag;                //終わり
 //SelectTargetとForcusTargetのインスタンスを追加
 SelectTarget* selectTarget = nullptr;
 ForcusTarget* forcusTarget = nullptr;
-RankingDispScene* rakingscene = nullptr;
+RankingScene* rakingscene = nullptr;
+RankingInputScene* rankinginput = nullptr;
 
 void SceneManagerDraw(void);
 void ChangeScene(eSceneType new_scene_type);
@@ -27,7 +30,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eSelectMode);
+	ChangeScene(eRanking_Input);
 }
 
 //シーンのアップデート
@@ -57,11 +60,11 @@ void SceneManagerUpdate(void)
 		break;
 	case eResult:
 		
-		next_scene_type = ResultSceneUpdate();
+		//next_scene_type = ResultSceneUpdate();
 
 		break;
 
-	case eRanking:
+	case eRanking_Scene:
 
 		if (rakingscene)
 		{
@@ -71,10 +74,23 @@ void SceneManagerUpdate(void)
 		break;
 
 	case eRanking_Input:
+
+		if (rankinginput)
+		{
+			next_scene_type = rankinginput->Update();
+		}
 		break;
+
 	case eHelp:
 
 		next_scene_type = HelpSceneUpdate();
+
+		break;
+
+
+	case eHelp2:
+
+		next_scene_type = HelpScene2Update();
 
 		break;
 
@@ -125,11 +141,11 @@ void SceneManagerDraw(void)
 		break;
 	case eResult:
 
-		ResultSceneDraw();
+		//ResultSceneDraw();
 
 		break;
 
-	case eRanking:
+	case eRanking_Scene:
 
 		if (rakingscene)
 		{
@@ -139,10 +155,22 @@ void SceneManagerDraw(void)
 		break;
 
 	case eRanking_Input:
+
+		if (rankinginput)
+		{
+			rankinginput->Draw();
+		}
+
 		break;
 	case eHelp:
 
 		HelpSceneDraw();
+
+		break;
+
+	case eHelp2:
+
+		HelpScene2Draw();
 
 		break;
 
@@ -187,10 +215,15 @@ void ChangeScene(eSceneType new_scene_type)
 		forcusTarget = nullptr;
 	}
 	
-	if (current_scene_type == eRanking)
+	else if (current_scene_type == eRanking_Scene)
 	{
 		rakingscene->Finalize();
 		delete rakingscene;
+		rakingscene = nullptr;
+	}
+	else if (current_scene_type == eRanking_Input)
+	{
+		delete rankinginput;
 		rakingscene = nullptr;
 	}
 
@@ -229,15 +262,15 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 		case eResult:
 
-			ResultSceneInit();
+			//ResultSceneInit();
 
 			break;
 
-		case eRanking:
+		case eRanking_Scene:
 
 			if (!rakingscene)
 			{
-				rakingscene = new RankingDispScene();
+				rakingscene = new RankingScene();
 			}
 
 			rakingscene->Initialize();
@@ -245,10 +278,24 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 
 		case eRanking_Input:
+
+			if (!rankinginput)
+			{
+				rankinginput = new RankingInputScene();
+			}
+
+			rankinginput->Initialize();
+
 			break;
 		case eHelp:
 
 			HelpSceneInit();
+
+			break;
+
+		case eHelp2:
+
+			HelpScene2Init();
 
 			break;
 

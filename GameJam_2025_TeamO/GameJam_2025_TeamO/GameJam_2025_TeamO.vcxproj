@@ -22,6 +22,7 @@
     <ClCompile Include="Objects\GameObjectBase.cpp" />
     <ClCompile Include="Scene\End\End.cpp" />
     <ClCompile Include="Scene\GameScene\ForcusTarget.cpp" />
+    <ClCompile Include="Scene\Help\HelpScene2.cpp" />
     <ClCompile Include="Scene\Ranking\RankingData.cpp" />
     <ClCompile Include="Utility\Collision.cpp" />
     <ClCompile Include="Objects\Mato\Mato.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Objects\GameObjectBase.h" />
     <ClInclude Include="Scene\End\End.h" />
     <ClInclude Include="Scene\GameScene\ForcusTarget.h" />
+    <ClInclude Include="Scene\Help\HelpScene2.h" />
     <ClInclude Include="Scene\Ranking\RankingData.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Utility\Collision.h" />

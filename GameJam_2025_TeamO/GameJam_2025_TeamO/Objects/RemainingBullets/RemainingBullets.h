@@ -17,8 +17,8 @@ public:
 	void Draw();		// •`‰æˆ—
 	void Finalize();	// I—¹ˆ—
 
-	int GetLife();
-	void LifeReduce();
+	int GetLife();		// c’e”æ“¾ˆ—
+	void LifeReduce();	// c’e‚ÌŒ¸­ˆ—
 
 };
 
