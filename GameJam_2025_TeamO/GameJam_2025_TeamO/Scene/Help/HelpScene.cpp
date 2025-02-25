@@ -39,6 +39,7 @@ eSceneType HelpSceneUpdate(void)
 //ヘルプ画面の描画
 void HelpSceneDraw(void)
 {
+	DrawFormatString(50, 50, GetColor(255, 255, 255), "ヘルプ画面");
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
 	DrawFormatString(640, 600, GetColor(255, 255, 255), "1　→");
 }
