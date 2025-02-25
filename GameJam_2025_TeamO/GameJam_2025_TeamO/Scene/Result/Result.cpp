@@ -126,12 +126,12 @@ void Result::ReadResultData()
 {
 	//ファイルオープン
 	FILE* fp = nullptr;
-	errno_t result = fopen_s(&fp, "Resource/dat/result_data.csv", "r");
+	errno_t result = fopen_s(&fp, "Resource/dat/result.csv", "r");
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("Resource/dat/result_data.csvが読み込めません\n");
+		throw("Resource/dat/result.csvが読み込めません\n");
 	}
 
 	//結果を読み込む
