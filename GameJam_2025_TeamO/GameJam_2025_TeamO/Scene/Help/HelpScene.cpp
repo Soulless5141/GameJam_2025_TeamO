@@ -6,10 +6,16 @@
 int help_background_image;  //背景設定用の変数
 int help_bgm;               //BGM設定用の変数
 
+int help_scope;
+int help_nuigurumi;
+int help_bullet;
+
 //ヘルプ画面の初期化
 void HelpSceneInit(void)
 {
-
+	help_scope = LoadGraph("Resource/Images/scope.png");
+	help_nuigurumi = LoadGraph("Resource/Images/keihin1.png");
+	help_bullet = LoadGraph("Resource/Images/bullet.png");
 }
 
 //ヘルプ画面のアップデート
