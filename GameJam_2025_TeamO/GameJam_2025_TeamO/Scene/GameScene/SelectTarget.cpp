@@ -27,14 +27,14 @@ SelectTarget::~SelectTarget()
 void SelectTarget::Initialize()
 {
 	//“I‚Ì•`‰æ
-	Mato* m = CreateObject<Mato>(Vector2D(300, 300));
+	Mato* m = CreateObject<Mato>(Vector2D(300, 320));
 	CreateObject<Mato>(Vector2D(300, 550));
-	CreateObject<Mato>(Vector2D(550, 300));
-	CreateObject<Mato>(Vector2D(550, 550));
-	//CreateObject<Mato>(Vector2D(800, 300));
-	//CreateObject<Mato>(Vector2D(800, 550));
-	//CreateObject<Mato>(Vector2D(900, 300));
-	//CreateObject<Mato>(Vector2D(900, 550));
+	CreateObject<Mato>(Vector2D(530, 320));
+	CreateObject<Mato>(Vector2D(530, 550));
+	CreateObject<Mato>(Vector2D(750, 320));
+	CreateObject<Mato>(Vector2D(750, 550));
+	CreateObject<Mato>(Vector2D(980, 320));
+	CreateObject<Mato>(Vector2D(980, 550));
 }
 
 //eSceneType SelectTarget::SelectSceneUpdate()
