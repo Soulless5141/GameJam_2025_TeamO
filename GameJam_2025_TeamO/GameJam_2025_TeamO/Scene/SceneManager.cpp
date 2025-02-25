@@ -21,6 +21,7 @@ SelectTarget* selectTarget = nullptr;
 ForcusTarget* forcusTarget = nullptr;
 RankingScene* rakingscene = nullptr;
 RankingInputScene* rankinginput = nullptr;
+Result* result = nullptr;
 
 void SceneManagerDraw(void);
 void ChangeScene(eSceneType new_scene_type);
@@ -60,8 +61,12 @@ void SceneManagerUpdate(void)
 		break;
 	case eResult:
 		
-		//next_scene_type = ResultSceneUpdate();
+		//if (selectTarget)
+		//{
+		//	next_scene_type = result->Update(0.0f);
 
+		//}
+		
 		break;
 
 	case eRanking_Scene:

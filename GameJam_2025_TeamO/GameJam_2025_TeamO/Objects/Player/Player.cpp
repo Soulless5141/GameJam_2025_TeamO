@@ -159,7 +159,5 @@ Player* Player::GetInstance()
 
 int Player::GivesDamage()
 {
-    damage = damage * gage->GetMeter() * 10;
-
-    return damage;
+    return damage * gage->GetMeter();
 }
