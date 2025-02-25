@@ -68,6 +68,9 @@
     <ClInclude Include="Utility\ResourceManager.h" />
     <ClInclude Include="Utility\Vector2D.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Users\kbc12305182\Desktop\Help.jpg" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

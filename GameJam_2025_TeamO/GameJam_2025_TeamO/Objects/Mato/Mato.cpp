@@ -76,9 +76,9 @@ void Mato::SetTargetData(int value)
 		hp = 30;
 		break;
 	case 3:
-		score = 200; //200
+		score = 25; //25
 		image = mato_image[3];
-		hp = 40;
+		hp = 10;
 		break;
 	default:
 		break;
