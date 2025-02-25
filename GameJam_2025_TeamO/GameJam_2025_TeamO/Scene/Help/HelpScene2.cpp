@@ -29,8 +29,8 @@ eSceneType HelpScene2Update(void)
 
 void HelpScene2Draw(void)
 {
-	//DrawRotaGraph(640, 360, 0.77, 0, help2_img, 0, 0);
+	DrawRotaGraph(640, 360, 0.77, 0, help2_img, 0, 0);
 	DrawFormatString(50, 50, GetColor(255, 255, 255),"操作説明");
-	DrawFormatString(580, 600, GetColor(255, 255, 255), "←　2");
-	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
+	DrawFormatString(580, 680, GetColor(255, 255, 255), "←　2");
+	DrawFormatString(900, 680, GetColor(255, 255, 255), "B：戻る");
 }

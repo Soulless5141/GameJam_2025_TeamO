@@ -44,7 +44,7 @@ void HelpSceneDraw(void)
 	//背景画像描画
 	DrawRotaGraph(640, 360, 0.77, 0, help_img, 0, 0);
 
-	DrawFormatString(50, 50, GetColor(255, 255, 255), "ヘルプ画面");
-	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
-	DrawFormatString(640, 600, GetColor(255, 255, 255), "1　→");
+	//DrawFormatString(50, 50, GetColor(0, 0, 0), "ヘルプ画面");
+	DrawFormatString(900, 680, GetColor(0, 0, 0), "B：戻る");
+	DrawFormatString(640, 680, GetColor(0, 0, 0), "1　→");
 }
