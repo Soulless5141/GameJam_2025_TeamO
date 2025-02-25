@@ -3,24 +3,26 @@
 
 SelectTarget::SelectTarget()
 {
-	player = new Player;
 	gage = new Gage;
 	bullet = new RemainingBullets;
-	mato = new Mato;
-
-	//SelectTarget selector;
 
 	SelectFlg = FALSE;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // ‰æ‘œ‚ÌƒpƒX‚ðŽw’è
 	
+	for (int i = 0; i < 8; i++)
+	{
+		mato[i] = nullptr;
+	}
+
 }
 
 SelectTarget::~SelectTarget()
 {
-	delete player;
+	
 	delete gage;
 	delete bullet;
+	
 	DeleteGraph(background);
 }
 
@@ -30,15 +32,28 @@ SelectTarget::~SelectTarget()
 
 void SelectTarget::Initialize()
 {
+	Vector2D positions[8] =
+	{
+		{300,320},{300,550},{530,320},{530, 550},
+		{750, 320},{750, 550},{980, 320},{980,550}
+	};
+
+	for (int i = 0; i < 8; i++)
+	{
+		mato[i] = CreateObject<Mato>(positions[i]);
+	}
+
 	//“I‚Ì•`‰æ
-	Mato* m = CreateObject<Mato>(Vector2D(300, 320));
-	CreateObject<Mato>(Vector2D(300, 550));
-	CreateObject<Mato>(Vector2D(530, 320));
-	CreateObject<Mato>(Vector2D(530, 550));
-	CreateObject<Mato>(Vector2D(750, 320));
-	CreateObject<Mato>(Vector2D(750, 550));
-	CreateObject<Mato>(Vector2D(980, 320));
-	CreateObject<Mato>(Vector2D(980, 550));
+	//CreateObject<Mato>(Vector2D(300, 320));
+	//CreateObject<Mato>(Vector2D(300, 550));
+	//CreateObject<Mato>(Vector2D(530, 320));
+	//CreateObject<Mato>(Vector2D(530, 550));
+	//CreateObject<Mato>(Vector2D(750, 320));
+	//CreateObject<Mato>(Vector2D(750, 550));
+	//CreateObject<Mato>(Vector2D(980, 320));
+	//CreateObject<Mato>(Vector2D(980, 550));
+
+	player = CreateObject<Player>(Vector2D(570, 320));
 }
 
 //eSceneType SelectTarget::SelectSceneUpdate()
@@ -66,10 +81,18 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	}
 
 
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && IsHitCheck(player, mato) == true)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
-		return eForcusMode;
+		for (int i = 0; i < 8; i++)
+		{
+			if (IsHitCheck(player, mato[i]) == true)
+			{
+				return eForcusMode;
+			}
+		};
 	}
+		
+	
 
 	//’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
 	if (SelectFlg == TRUE)
@@ -85,6 +108,8 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	//	return eResult;
 	//}
 
+	old_location = player->GetLocation();
+
 	return eSelectMode;
 }
 
@@ -99,10 +124,12 @@ void SelectTarget::Draw() const
 {
 
 	//”wŒi‰æ‘œ‚Ì•`‰æ
-	DrawRotaGraph(640, 375, 0.6, 0.0, background, TRUE);
+	DrawRotaGraph(640, 375, 1.0, 0.0, background, TRUE);
 
 	// “I‚Ì‰¼•`‰æ
 	SceneBase::Draw();
+
+	//player->Draw();
 
 	gage->Draw();
 	bullet->Draw();
@@ -112,8 +139,8 @@ bool SelectTarget::IsHitCheck(Player* p, Mato* m)
 {
 	Vector2D playerPos = p->GetLocation();
 	Vector2D matoPos = m->GetLocation();
-	Vector2D playerSize = p->GetSize();
-	Vector2D matoSize = m->GetSize();
+	Vector2D playerSize = p->GetboxSize();
+	Vector2D matoSize = m->GetboxSize();
 
 	Vector2D box_ex = playerSize + matoSize;
 

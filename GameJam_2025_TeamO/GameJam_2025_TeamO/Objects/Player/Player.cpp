@@ -6,13 +6,14 @@
 #define PLAYER_SCREEN_WIDTH 1200
 #define PLAYER_SCREEN_HEIGHT 640
 
+Player* Player::instance = nullptr;
+
 Player::Player()
 {
-    player = LoadGraph("Resource/Images/scope.png");
     pushFlg = FALSE;
 
-    playerX = 570.0f;
-    playerY = 320.0f;
+    //playerX = 570.0f;
+    //playerY = 320.0f;
     mv = 0.7f;
     px = 0.0f;
     py = 0.0f;
@@ -28,7 +29,16 @@ Player::Player()
     }
 }
 
-void Player::Update()
+void Player::Initialize()
+{
+    ResourceManager* rm = ResourceManager::GetInstance();
+    playerImg = rm->GetImages("Resource/Images/scope.png")[0];
+    image = playerImg;
+
+    box_size = Vector2D(577.0f, 577.0f) * 0.2f;
+}
+
+void Player::Update(float delta_second)
 {
     int Key = GetJoypadInputState(DX_INPUT_PAD1);
 
@@ -82,40 +92,59 @@ void Player::Update()
         py -= fsin[angle] * mv;
     }
 
-    playerX += px;
-    playerY += py;
+    location.x += px;
+    location.y += py;
 
     // 画面外に出ないようにする
-    if (playerX > PLAYER_SCREEN_WIDTH) {
-        playerX = PLAYER_SCREEN_WIDTH;
+    if (location.x > PLAYER_SCREEN_WIDTH) {
+        location.x = PLAYER_SCREEN_WIDTH;
         px = 0.0f;
     }
-    if (playerX < 80) {
-        playerX = 80;
+    if (location.x < 80) {
+        location.x = 80;
         px = 0.0f;
     }
 
 
     // 画面外に出ないようにする
-    if (playerY > PLAYER_SCREEN_HEIGHT) {
-        playerY = PLAYER_SCREEN_HEIGHT;
+    if (location.y > PLAYER_SCREEN_HEIGHT) {
+        location.y = PLAYER_SCREEN_HEIGHT;
         py = 0.0f;
     }
-    if (playerY < 80) {
-        playerY = 80;
+    if (location.y < 80) {
+        location.y = 80;
         py = 0.0f;
     }
 
 }
 
-void Player::Draw() const
+void Player::Draw(const Vector2D& screen_offset) const
 {
     DrawGraph(0, 0, background, FALSE);  // 背景を描画
     //DrawGraph(playerCursorX, playerCursorY, player, TRUE);  // プレイヤー画像を描画
-    DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 0, 0), TRUE);
+    //DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 0, 0), TRUE);
+
+    //DrawGraphF(playerX, playerY, playerImg, FALSE);
+
+    //// オフセット値を基に画像の描画を行う
+    //Vector2D graph_location = this->location + screen_offset;
+    //DrawRotaGraphF(playerX, playerY, 1.0, 0.0, image, TRUE, this->flip_flag);
+
+    __super::Draw(screen_offset);
 }
 
 void Player::SetLocation(Vector2D new_location)
 {
     location = new_location;
+}
+
+Player* Player::GetInstance()
+{
+    // インスタンスが生成されていない場合、生成する
+    if (instance == nullptr)
+    {
+        instance = new Player();
+    }
+
+    return instance;
 }
