@@ -66,7 +66,7 @@ eSceneType TitleSceneUpdate()
 void TitleSceneDraw(void)
 {
 	/*•`‰æ‚·‚é‰æ‘œ*/
-	DrawGraph(230, 0, title_background_image, TRUE);
+	DrawGraph(0, 0, title_background_image, TRUE);
 
 	/*•`‰æ‚·‚é•¶Žš*/
 	SetFontSize(30);
