@@ -11,7 +11,7 @@ void ResultSceneInit(void)
 
 }
 
-eSceneType ResuleUpdate(void)
+eSceneType ResultSceneUpdate(void)
 {
 	return eResult;
 }

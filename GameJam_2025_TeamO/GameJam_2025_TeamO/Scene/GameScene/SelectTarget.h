@@ -4,6 +4,7 @@
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Mato/Mato.h"
 #include "../../Objects/Player/Player.h"
+#include "../../Objects/Gage/Gage.h"
 #include "../../Objects/RemainingBullets/RemainingBullets.h"
 #include"../SceneBase.h"
 
@@ -11,6 +12,7 @@ class SelectTarget : public SceneBase
 {
 public:
 	Player* player;
+	Gage* gage;
 	RemainingBullets* bullet;
 	Mato* mato;
 
@@ -19,6 +21,8 @@ public:
 	
 private:
 	int ForcusFlg;
+private:
+	int SelectFlg;
 
 public:
 	SelectTarget();

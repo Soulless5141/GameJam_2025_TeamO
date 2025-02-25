@@ -61,13 +61,17 @@ void Gage::Update()
 void Gage::Draw()
 {
 	// ゲージの後ろの黒い四角
-	DrawBox(280, 650, 200, 120, GetColor(0, 0, 0), true);
+	//DrawBox(280, 650, 200, 120, GetColor(0, 0, 0), true);
+	DrawBox(30, 50, 630, 100, GetColor(0, 0, 0), true);
+
 
 	// ゲージの枠線
-	DrawBox(280, 650, 200, 120, GetColor(255, 0, 0), false);
+	//DrawBox(280, 650, 200, 120, GetColor(255, 0, 0), false);
+	DrawBox(30, 50, 630, 100, GetColor(255, 0, 0), false);
 
 	// ゲージの動く部分を描画
-	DrawBox(280, 650, 200, 650 - (530 * (0.01 * meter)), GetColor(255, 0, 0), true);
+	//DrawBox(280, 650, 200, 650 - (530 * (0.01 * meter)), GetColor(255, 0, 0), true);
+	DrawBox(30, 50, 30 + (600 * (0.01 * meter)), 100, GetColor(255, 0, 0), true);
 }
 
 // 終了処理
