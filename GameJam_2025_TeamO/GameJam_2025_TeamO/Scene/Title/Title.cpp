@@ -70,9 +70,9 @@ void TitleSceneDraw(void)
 
 	/*描画する文字*/
 	SetFontSize(30);
-	DrawFormatString(580,470,GetColor(0,0,0), "スタート");
-	DrawFormatString(580,500, GetColor(0, 0, 0),"ヘルプ");
-	DrawFormatString(580,530, GetColor(0, 0, 0),"ランキング");
-	DrawFormatString(580,560, GetColor(0, 0, 0),"エンド");
-	DrawCircle(550, 480 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
+	DrawFormatString(580,500,GetColor(0,0,0), "スタート");
+	DrawFormatString(580,530, GetColor(0, 0, 0),"ヘルプ");
+	DrawFormatString(580,560, GetColor(0, 0, 0),"ランキング");
+	DrawFormatString(580,590, GetColor(0, 0, 0),"エンド");
+	DrawCircle(550, 510 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
 }
