@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "SceneType.h"
 #include "DxLib.h"
+#include <string.h>
 
 #include "Title/Title.h"
 #include "GameScene/SelectTarget.h"
@@ -17,7 +18,7 @@ int is_end_flag;                //終わり
 //SelectTargetとForcusTargetのインスタンスを追加
 SelectTarget* selectTarget = nullptr;
 ForcusTarget* forcusTarget = nullptr;
-RankingDispScene* rakingscene = nullptr;
+RankingScene* rakingscene = nullptr;
 
 void SceneManagerDraw(void);
 void ChangeScene(eSceneType new_scene_type);
@@ -61,7 +62,7 @@ void SceneManagerUpdate(void)
 
 		break;
 
-	case eRanking:
+	case eRanking_Scene:
 
 		if (rakingscene)
 		{
@@ -125,11 +126,11 @@ void SceneManagerDraw(void)
 		break;
 	case eResult:
 
-		ResultSceneDraw();
+		//ResultSceneDraw();
 
 		break;
 
-	case eRanking:
+	case eRanking_Scene:
 
 		if (rakingscene)
 		{
@@ -185,11 +186,16 @@ void ChangeScene(eSceneType new_scene_type)
 		forcusTarget = nullptr;
 	}
 	
-	if (current_scene_type == eRanking)
+	else if (current_scene_type == eRanking)
 	{
 		delete rakingscene;
 		rakingscene = nullptr;
 	}
+	/*else if (current_scene_type == eRanking)
+	{
+		delete rakingscene;
+		rakingscene = nullptr;
+	}*/
 
 
 	//新しいシーンに切り替える
@@ -226,15 +232,15 @@ void SceneInit(eSceneType new_scene_type)
 			break;
 		case eResult:
 
-			ResultSceneInit();
+			//ResultSceneInit();
 
 			break;
 
-		case eRanking:
+		case eRanking_Scene:
 
 			if (!rakingscene)
 			{
-				rakingscene = new RankingDispScene();
+				rakingscene = new RankingScene();
 			}
 
 			rakingscene->Initialize();

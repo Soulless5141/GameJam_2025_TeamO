@@ -3,7 +3,7 @@
 #include "../SceneBase.h"
 #include"RankingData.h"
 
-class RankingDispScene : public SceneBase
+class RankingScene : public SceneBase
 {
 private:
 
@@ -12,8 +12,8 @@ private:
 	RankingData* ranking;  //ƒ‰ƒ“ƒLƒ“ƒOî•ñ
 
 public:
-	RankingDispScene();
-	virtual ~RankingDispScene();
+	RankingScene();
+	virtual ~RankingScene();
 
 	virtual void Initialize() override;
 	virtual eSceneType Update(const float& delta_second);
