@@ -8,6 +8,7 @@
 #include "GameScene/ForcusTarget.h"
 #include "Result/Result.h"
 #include "Help/HelpScene.h"
+#include "Help/HelpScene2.h"
 #include "Ranking/RankingScene.h"
 #include "RankingInput/RankingInput.h"
 #include "End/End.h"

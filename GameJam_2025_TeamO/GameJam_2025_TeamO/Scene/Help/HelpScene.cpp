@@ -3,8 +3,8 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-int help_background_image;  //”wŒiİ’è—p‚Ì•Ï”
-int help_bgm;               //BGMİ’è—p‚Ì•Ï”
+//int help_background_image;  //”wŒiİ’è—p‚Ì•Ï”
+//int help_bgm;               //BGMİ’è—p‚Ì•Ï”
 
 int help_scope;
 int help_nuigurumi;
