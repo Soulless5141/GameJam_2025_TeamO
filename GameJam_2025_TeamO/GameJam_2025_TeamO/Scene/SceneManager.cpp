@@ -61,11 +61,11 @@ void SceneManagerUpdate(void)
 		break;
 	case eResult:
 		
-		//if (selectTarget)
-		//{
-		//	next_scene_type = result->Update(0.0f);
+		if (result)
+		{
+			next_scene_type = result->Update(0.0f);
 
-		//}
+		}
 		
 		break;
 
