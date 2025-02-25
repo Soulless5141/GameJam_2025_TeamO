@@ -57,7 +57,7 @@ void SceneManagerUpdate(void)
 		break;
 	case eResult:
 		
-		//next_scene_type = ResultSceneUpdate();
+		next_scene_type = ResultSceneUpdate();
 
 		break;
 
