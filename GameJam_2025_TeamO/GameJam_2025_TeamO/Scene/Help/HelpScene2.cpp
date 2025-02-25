@@ -3,9 +3,11 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
+int help2_img;
+
 void HelpScene2Init(void)
 {
-
+	help2_img = LoadGraph("Resource/Images/Help2.jpg");
 }
 
 eSceneType HelpScene2Update(void)
@@ -27,6 +29,7 @@ eSceneType HelpScene2Update(void)
 
 void HelpScene2Draw(void)
 {
+	//DrawRotaGraph(640, 360, 0.77, 0, help2_img, 0, 0);
 	DrawFormatString(50, 50, GetColor(255, 255, 255),"ëÄçÏê‡ñæ");
 	DrawFormatString(580, 600, GetColor(255, 255, 255), "Å©Å@2");
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "BÅFñﬂÇÈ");

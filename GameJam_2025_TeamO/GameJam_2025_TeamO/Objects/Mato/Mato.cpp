@@ -27,6 +27,7 @@ void Mato::Initialize()
 	int a = GetRand(3); //ƒ‰ƒ“ƒ_ƒ€¶¬10ŒÂ‚­‚ç‚¢
 	SetTargetData(a);
 
+	box_size = Vector2D(700, 800) * 0.2f;
 }
 
 void Mato::Update(float delta_second)
@@ -75,9 +76,9 @@ void Mato::SetTargetData(int value)
 		hp = 30;
 		break;
 	case 3:
-		score = 200; //200
+		score = 25; //25
 		image = mato_image[3];
-		hp = 40;
+		hp = 10;
 		break;
 	default:
 		break;
@@ -87,4 +88,9 @@ void Mato::SetTargetData(int value)
 void Mato::AnimationControl(float delta_second)
 {
 
+}
+
+void Mato::DecreaseHp(int value)
+{
+	this->hp -= value;
 }

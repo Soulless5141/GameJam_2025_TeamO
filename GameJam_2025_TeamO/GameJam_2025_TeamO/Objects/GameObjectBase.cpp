@@ -5,6 +5,7 @@
 GameObjectBase::GameObjectBase() :
 	owner_scene(nullptr),
 	location(0.0f),
+	size(1.0f, 1.0f),
 	image(NULL),
 	z_layer(0),
 	flip_flag(false)
@@ -78,6 +79,15 @@ void GameObjectBase::SetOwnerScene(SceneBase* scene)
 const Vector2D& GameObjectBase::GetLocation() const
 {
 	return location;
+}
+
+/// <summary>
+/// サイズ取得処理
+/// </summary>
+/// <returns>サイズ座標情報</returns>
+const Vector2D& GameObjectBase::GetSize() const
+{
+	return size;
 }
 
 /// <summary>

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define GAGE_MAX (100)			// ゲージの上限
-#define GAGE_MIN (0)			// ゲージの下限
+#define GAGE_MIN (1)			// ゲージの下限
 
 Gage::Gage() :
 	meter(0),
@@ -12,7 +12,7 @@ Gage::Gage() :
 	decision(false)
 {
 	// メーターの初期化
-	meter = 0;
+	meter = 1;
 
 	// 変動値のランダム取得
 	fluctuation = rand() % 4 + 3;
@@ -39,9 +39,14 @@ void Gage::Update()
 	int Key = GetJoypadInputState(DX_INPUT_PAD1);
 
 	// Aボタンが押されたら値を変動しないようにする
-	if (Key & PAD_INPUT_A)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		decision = true;
+	}
+
+	if (PAD_INPUT::OnRelease(XINPUT_BUTTON_A))
+	{
+		decision = false;
 	}
 
 	// デバッグ用

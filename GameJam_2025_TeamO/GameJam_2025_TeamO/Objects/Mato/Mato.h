@@ -15,7 +15,7 @@ private:
 	int score;    //スコア
 	int s_score;  //
 	int hp;       //的のHP
-	Vector2D location;
+
 	Vector2D box_size;
 	eHitState hit_state;
 
@@ -30,16 +30,14 @@ public:
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
 
-	Vector2D GetLocation()const
+	Vector2D GetboxSize() const
 	{
-		return location;
-	}
-	Vector2D GetSize() const
-	{
-		return box_size;
+		return this->box_size;
 	}
 
 	void SetTargetData(int value);
+
+	void DecreaseHp(int value);
 
 private:
 	void AnimationControl(float delta_second); //アニメーション
