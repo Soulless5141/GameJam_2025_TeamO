@@ -75,12 +75,12 @@ void RankingInputScene::Initialize()
 	//リザルトデータを取得する
 	FILE* fp = nullptr;
 	//ファイルオープン
-	errno_t result = fopen_s(&fp, "Resource/dat/result_data.csv", "r");
+	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "r");
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("Resource/dat/result_data.csvが読み込めません\n");
+		throw("Resource/Data/ranking_data.csvが読み込めません\n");
 	}
 
 	//結果を読み込む
@@ -96,7 +96,7 @@ eSceneType RankingInputScene::Update()
 	bool is_change = false;
 
 	//BGM再生
-	PlaySoundMem(rankinginput_bgm, DX_PLAYTYPE_LOOP, FALSE);
+	//PlaySoundMem(rankinginput_bgm, DX_PLAYTYPE_LOOP, FALSE);
 
 	//名前入力処理
 	is_change = InputName();
@@ -105,7 +105,7 @@ eSceneType RankingInputScene::Update()
 	if (is_change)
 	{
 		//ランキング表示に遷移
-		return eSceneType::eRanking_Input;
+		return eSceneType::eRanking_Scene;
 	}
 	else
 	{
@@ -117,7 +117,8 @@ eSceneType RankingInputScene::Update()
 void RankingInputScene::Draw() const
 {
 	//背景画像の描画
-	DrawGraph(0, 0, background_image, TRUE);
+	//DrawGraph(0, 0, background_image, TRUE);
+	DrawBox(0, 0, 1000, 700, GetColor(255, 255, 255), true);
 
 	//名前入力指示文字列
 
@@ -195,10 +196,10 @@ bool RankingInputScene::InputName()
 	int Key = GetJoypadInputState(DX_INPUT_PAD1);
 
 	//カーソル操作処理
-	if (Key & XINPUT_BUTTON_DPAD_LEFT)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		// カーソル音鳴らす
-		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_x > 0)
 		{
 			cursor_x--;
@@ -208,10 +209,10 @@ bool RankingInputScene::InputName()
 			cursor_x = 12;
 		}
 	}
-	if (Key & XINPUT_BUTTON_DPAD_RIGHT)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_RIGHT))
 	{
 		// カーソル音鳴らす
-		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_x < 12)
 		{
 			cursor_x++;
@@ -223,21 +224,21 @@ bool RankingInputScene::InputName()
 	}
 	// 入力文字数が14文字未満だったら
 	if (name_num < 14) {
-		if (Key & XINPUT_BUTTON_DPAD_UP)
+		if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_UP))
 		{
 			if (cursor_y > 0)
 			{
 				// カーソル音鳴らす
-				PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+				//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 				cursor_y--;
 			}
 		}
-		if (Key & XINPUT_BUTTON_DPAD_DOWN)
+		if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN))
 		{
 			if (cursor_y < 4)
 			{
 				// カーソル音鳴らす
-				PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+				//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 				cursor_y++;
 				if (cursor_y == 4)
 				{
@@ -248,10 +249,10 @@ bool RankingInputScene::InputName()
 	}
 
 	//カーソル位置の文字を決定する
-	if (Key & Key & PAD_INPUT_A)
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		// 決定音鳴らす
-		PlaySoundMem(decision_se, DX_PLAYTYPE_BACK, TRUE);
+		//PlaySoundMem(decision_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_y < 2)
 		{
 			name[name_num++] = 'a' + cursor_x + (cursor_y * 13);
