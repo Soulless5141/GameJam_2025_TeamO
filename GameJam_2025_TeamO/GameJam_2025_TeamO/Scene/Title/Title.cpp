@@ -10,7 +10,7 @@ int cursor_number = eStart_Title;
 //タイトル画面の初期化
 void TitleSceneInit(void)
 {
-	title_background_image = LoadGraph("Title.png");
+	title_background_image = LoadGraph("Resource/Images/Title.png");
 }
 
 //タイトル画面のアップデート
@@ -65,14 +65,14 @@ eSceneType TitleSceneUpdate()
 //タイトル画面の描画
 void TitleSceneDraw(void)
 {
+	/*描画する画像*/
+	DrawGraph(230, 0, title_background_image, TRUE);
+
 	/*描画する文字*/
 	SetFontSize(30);
-	DrawFormatString(500,470,GetColor(255,255,255), "スタート");
-	DrawFormatString(500,500, GetColor(255, 255, 255),"ヘルプ");
-	DrawFormatString(500,530, GetColor(255, 255, 255),"ランキング");
-	DrawFormatString(500,560, GetColor(255, 255, 255),"エンド");
-	DrawCircle(450, 480 + cursor_number * 30, 15, GetColor(255, 255, 255), TRUE);
-
-	/*描画する画像*/
-	DrawGraph(0, 0, title_background_image, TRUE);
+	DrawFormatString(580,470,GetColor(0,0,0), "スタート");
+	DrawFormatString(580,500, GetColor(0, 0, 0),"ヘルプ");
+	DrawFormatString(580,530, GetColor(0, 0, 0),"ランキング");
+	DrawFormatString(580,560, GetColor(0, 0, 0),"エンド");
+	DrawCircle(550, 480 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
 }

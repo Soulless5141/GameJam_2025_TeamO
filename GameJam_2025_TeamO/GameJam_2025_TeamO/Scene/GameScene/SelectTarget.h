@@ -33,5 +33,7 @@ public:
 	virtual eSceneType Update(const float& delta_second) override;
 	virtual void Draw() const override;
 
+	bool IsHitCheck(Player* p, Mato* m);
+
 	virtual const eSceneType GetNowSceneType() const override;
 };

@@ -11,9 +11,8 @@ class Mato:public GameObject
 {
 private:
 	//std::vector<int> image[3];
-	int mato_image[3];  //画像
+	int mato_image[4];  //画像
 	int score;    //スコア
-	int i_image[3];
 	int s_score;  //
 	int hp;       //的のHP
 	Vector2D location;
@@ -35,7 +34,7 @@ public:
 	{
 		return location;
 	}
-	Vector2D GetBoxsize() const
+	Vector2D GetSize() const
 	{
 		return box_size;
 	}
