@@ -31,7 +31,7 @@ eSceneType TitleSceneUpdate()
 		}
 		else if (cursor_number == eRanking_title)
 		{
-			return eRanking;
+			return eRanking_Scene;
 		}
 		else if (cursor_number == eEnd_title)
 		{
