@@ -57,18 +57,18 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	bullet->Update();
 	SceneBase::Update(delta_second);
 
-	//if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && SelectFlg == FALSE)
-	//{
-	//	SelectFlg = TRUE;
-	//}
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && SelectFlg == FALSE)
+	{
+		SelectFlg = TRUE;
+	}
 
-	////’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
-	//if (SelectFlg == TRUE)
-	//{
-	//	SelectFlg = FALSE;
-	//	bullet->LifeReduce();
-	//	return eForcusMode;
-	//}
+	//’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
+	if (SelectFlg == TRUE)
+	{
+		SelectFlg = FALSE;
+		bullet->LifeReduce();
+		//return eForcusMode;
+	}
 
 	////Žc’e‚ª‚È‚­‚È‚Á‚½‚çƒŠƒUƒ‹ƒg‚É‘JˆÚ
 	//if (bullet->GetLife() <= 0)
@@ -77,11 +77,11 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	//}
 
 	
-	//‘I‘ð‚µ‚½“I‚©‚çƒV[ƒ“‘JˆÚ
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
-	{
-		return eForcusMode;
-	}
+	////‘I‘ð‚µ‚½“I‚©‚çƒV[ƒ“‘JˆÚ
+	//if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+	//{
+	//	return eForcusMode;
+	//}
 
 	return eSelectMode;
 }
