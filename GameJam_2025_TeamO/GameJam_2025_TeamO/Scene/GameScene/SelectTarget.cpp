@@ -91,11 +91,12 @@ eSceneType SelectTarget::Update(const float& delta_second)
 				damage *= gage->GetMeter();
 				//mato[i]->GetHp();
 				mato[i]->DecreaseHp(damage);
-				/*if (mato[i]->hp==0)
+
+				if (mato[i]->GetHp() == 0)
 				{
+					score += mato[i]->GetScore();
 					mato[i]->Finalize();
-					score += 10;
-				}*/
+				}
 				
 				
 			}
@@ -149,7 +150,8 @@ void SelectTarget::Draw() const
 	DrawFormatString(0, 0, 0xffffff, "%d\n", score);
 	DrawFormatString(10, 50, 0xffffff, "%d\n", gage->GetMeter());
 	SetFontSize(48);
-	DrawFormatString(100, 100, 0xffffff, "%d\n", player->GivesDamage());
+	DrawFormatString(100, 100, 0xff0000, "%d\n", mato[0]->GetHp());
+	DrawFormatString(100, 150, 0xff0000, "%d\n", mato[0]->GetScore());
 	DrawFormatString(200, 200, 0xff0000, "%d\n", damage);
 
 	gage->Draw();

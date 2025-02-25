@@ -4,8 +4,6 @@
 #include<stdlib.h>
 #include<time.h>
 
-MatoInt image[8] = {};
-
 Mato::Mato()
 {
 
@@ -26,16 +24,11 @@ void Mato::Initialize()
 	//hit_state = eHitState::none; //ヒット状態なし
 	//eObjectType::mato; //オブジェクトの設定
 
-
-	for (int i = 0; i < 8; i++)
-	{
-		int a = GetRand(3); //ランダム生成10個くらい
-		//image[i] = a;
-		SetTargetData(a);
-	}
-	
+	int a = GetRand(3); //ランダム生成10個くらい
+	SetTargetData(a);
 
 	box_size = Vector2D(700, 800) * 0.2f;
+	//hp = NULL;
 }
 
 void Mato::Update(float delta_second)
@@ -64,25 +57,24 @@ void Mato::SetTargetData(int value)
 	switch (value)
 	{
 	case 0:
-		//m_score = 10; //10点
+		info.m_score = 10; //10点
 		image = mato_image[0];
-		//hp = 30;
+		info.hp = 30;
 		break;
 	case 1:
-	
+		info.m_score = 50; //50
 		image = mato_image[1];
-		//image= m_score = 50; //50
-		//hp = 70;
+		info.hp = 70;
 		break;
 	case 2:
-		//m_score = 100; //100
+		info.m_score = 100; //100
 		image = mato_image[2];
-		//hp = 90;
+		info.hp = 90;
 		break;
 	case 3:
-		//m_score = 25; //25
+		info.m_score = 25; //25
 		image = mato_image[3];
-		//hp = 50;
+		info.hp = 50;
 		break;
 	default:
 		break;
@@ -96,10 +88,19 @@ void Mato::AnimationControl(float delta_second)
 
 void Mato::DecreaseHp(int value)
 {
-	//this->hp -= value;
+	info.hp -= value;
+	if (info.hp < 0)
+	{
+		info.hp = 0;
+	}
 }
 
-//int Mato::GetHp()
-//{
-//	//return hp;
-//}
+int Mato::GetHp() const
+{
+	return info.hp;
+}
+
+int Mato::GetScore() const
+{
+	return info.m_score;
+}

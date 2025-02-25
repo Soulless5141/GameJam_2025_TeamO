@@ -14,6 +14,7 @@ public:
 	Player* player;
 	Gage* gage;
 	RemainingBullets* bullet;
+	MatoInfo matoinfo[8];
 	Mato* mato[8];
 
 	int damage = 1;
