@@ -16,6 +16,8 @@ public:
 	RemainingBullets* bullet;
 	Mato* mato[8];
 
+	int damage = 1;
+
 	int background;
 	int score;
 	

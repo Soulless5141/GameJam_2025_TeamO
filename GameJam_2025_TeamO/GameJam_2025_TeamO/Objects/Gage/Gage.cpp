@@ -114,7 +114,7 @@ void Gage::ChangeMove()
 	}
 }
 
-int Gage::GetMeter() const
+int Gage::GetMeter()
 {
 	return meter;
 }
