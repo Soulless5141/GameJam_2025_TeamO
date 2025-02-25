@@ -40,9 +40,17 @@ void Result::Initialize()
 {
 	//画像の読み込み
 	//back_ground = LoadGraph("Resource/images/back.bmp");
-	//enemy_image[0] = LoadGraph("Resource/images/Enemy1.png");
-	//enemy_image[1] = LoadGraph("Resource/images/Enemy2.png");
-	//enemy_image[2] = LoadGraph("Resource/images/Enemy3.png");
+
+	num_img[0] = LoadGraph("Resource/Images/Number/0.png");
+	num_img[1] = LoadGraph("Resource/Images/Number/1.png");
+	num_img[2] = LoadGraph("Resource/Images/Number/2.png");
+	num_img[3] = LoadGraph("Resource/Images/Number/3.png");
+	num_img[4] = LoadGraph("Resource/Images/Number/4.png");
+	num_img[5] = LoadGraph("Resource/Images/Number/5.png");
+	num_img[6] = LoadGraph("Resource/Images/Number/6.png");
+	num_img[7] = LoadGraph("Resource/Images/Number/7.png");
+	num_img[8] = LoadGraph("Resource/Images/Number/8.png");
+	num_img[9] = LoadGraph("Resource/Images/Number/9.png");
 
 	////エラーチェック
 	//if (back_ground == -1)
@@ -69,6 +77,7 @@ void Result::Initialize()
 //更新処理
 eSceneType Result::Update(const float& delta_second)
 {
+
 	//Bボタンでランキングに遷移する
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
 	{
@@ -87,6 +96,11 @@ void Result::Draw() const
 	//スコア等表示領域
 	DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);
 	DrawBox(150, 150, 490, 330, GetColor(0, 0, 0), FALSE);
+
+	//スコア画像の描画
+	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/100], 0, 0);  //100の位
+	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/10], 0, 0);   //10の位
+	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/1], 0, 0);    //1の位
 
 	/*DrawBox(500, 0, 640, 480, GetColor(0, 153, 0), TRUE);
 
@@ -126,12 +140,12 @@ void Result::ReadResultData()
 {
 	//ファイルオープン
 	FILE* fp = nullptr;
-	errno_t result = fopen_s(&fp, "Resource/dat/result_data.csv", "r");
+	errno_t result = fopen_s(&fp, "Resource/dat/result.csv", "r");
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("Resource/dat/result_data.csvが読み込めません\n");
+		throw("Resource/dat/result.csvが読み込めません\n");
 	}
 
 	//結果を読み込む

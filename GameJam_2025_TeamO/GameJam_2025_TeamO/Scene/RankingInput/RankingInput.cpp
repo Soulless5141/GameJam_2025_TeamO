@@ -21,7 +21,7 @@
 //}
 
 RankingInputScene::RankingInputScene() : background_image(NULL),
-ranking(nullptr), score(0), name_num(0), cursor_x(0), cursor_y(0),
+ranking(nullptr), score(10), name_num(0), cursor_x(0), cursor_y(0),
 rankinginput_bgm(NULL), select_se(NULL), decision_se(NULL)
 {
 	memset(name, NULL, (sizeof(char) * 15));
@@ -75,12 +75,12 @@ void RankingInputScene::Initialize()
 	//リザルトデータを取得する
 	FILE* fp = nullptr;
 	//ファイルオープン
-	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "r");
+	errno_t result = fopen_s(&fp, "Resource/Data/result.csv", "r");
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("Resource/Data/ranking_data.csvが読み込めません\n");
+		throw("Resource/Data/result.csvが読み込めません\n");
 	}
 
 	//結果を読み込む
@@ -276,6 +276,7 @@ bool RankingInputScene::InputName()
 			if (cursor_x == 0) // 決定ボタン
 			{
 				name[name_num] = '\0';
+				Finalize();
 				return true;
 			}
 			else // 戻るボタン

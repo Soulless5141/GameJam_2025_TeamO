@@ -41,9 +41,10 @@ eSceneType HelpSceneUpdate(void)
 //ƒwƒ‹ƒv‰æ–Ê‚Ì•`‰æ
 void HelpSceneDraw(void)
 {
+	//”wŒi‰æ‘œ•`‰æ
+	DrawRotaGraph(640, 360, 0.77, 0, help_img, 0, 0);
+
 	DrawFormatString(50, 50, GetColor(255, 255, 255), "ƒwƒ‹ƒv‰æ–Ê");
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "BF–ß‚é");
 	DrawFormatString(640, 600, GetColor(255, 255, 255), "1@¨");
-
-	DrawRotaGraph(0, 0, 1.0, 0, help_img, 0, 0);
 }
