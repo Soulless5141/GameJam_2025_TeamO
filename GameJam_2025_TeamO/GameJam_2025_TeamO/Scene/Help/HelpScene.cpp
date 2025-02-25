@@ -9,6 +9,7 @@
 int help_scope;
 int help_nuigurumi;
 int help_bullet;
+int help_img;
 
 //ヘルプ画面の初期化
 void HelpSceneInit(void)
@@ -16,6 +17,7 @@ void HelpSceneInit(void)
 	help_scope = LoadGraph("Resource/Images/scope.png");
 	help_nuigurumi = LoadGraph("Resource/Images/keihin1.png");
 	help_bullet = LoadGraph("Resource/Images/bullet.png");
+	help_img = LoadGraph("Resource/Images/Help.jpg");
 }
 
 //ヘルプ画面のアップデート
@@ -43,6 +45,5 @@ void HelpSceneDraw(void)
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
 	DrawFormatString(640, 600, GetColor(255, 255, 255), "1　→");
 
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "弾は５発、打ち切ったら終了");
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "ゲージをためて...");
+	DrawRotaGraph(0, 0, 1.0, 0, help_img, 0, 0);
 }
