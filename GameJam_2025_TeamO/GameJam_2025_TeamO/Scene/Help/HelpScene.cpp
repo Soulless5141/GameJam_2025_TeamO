@@ -42,4 +42,7 @@ void HelpSceneDraw(void)
 	DrawFormatString(50, 50, GetColor(255, 255, 255), "ヘルプ画面");
 	DrawFormatString(900, 600, GetColor(255, 255, 255), "B：戻る");
 	DrawFormatString(640, 600, GetColor(255, 255, 255), "1　→");
+
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "弾は５発、打ち切ったら終了");
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "ゲージをためて...");
 }
