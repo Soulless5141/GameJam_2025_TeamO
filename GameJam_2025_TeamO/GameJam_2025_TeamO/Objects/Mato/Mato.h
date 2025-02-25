@@ -7,18 +7,26 @@ enum eHitState
 	none,
 };
 
+struct MatoInt
+{
+	int hp;       //的のHP
+	int score;    //スコア情報
+};
+
+
 class Mato:public GameObject
 {
 private:
 	//std::vector<int> image[3];
 	int mato_image[4];  //画像
 	int m_score;    //スコア
-	int hp;       //的のHP
 
 	Vector2D box_size;
 	eHitState hit_state;
+	
 
 public:
+
 	Mato();
 	virtual ~Mato();
 
@@ -28,6 +36,8 @@ public:
 	void Finalize() override;
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
+
+	int GetHp();
 
 	Vector2D GetboxSize() const
 	{

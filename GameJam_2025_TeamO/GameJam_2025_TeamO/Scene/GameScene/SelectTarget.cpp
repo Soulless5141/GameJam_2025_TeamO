@@ -89,8 +89,15 @@ eSceneType SelectTarget::Update(const float& delta_second)
 			if (IsHitCheck(player, mato[i]) == true)
 			{
 				damage *= gage->GetMeter();
+				mato[i]->GetHp();
 				mato[i]->DecreaseHp(damage);
-				score += 10;
+				if (mato[i]->hp==0)
+				{
+					mato[i]->Finalize();
+					score += 10;
+				}
+				
+				
 			}
 		};
 	}
