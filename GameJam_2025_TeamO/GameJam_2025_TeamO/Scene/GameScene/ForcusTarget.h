@@ -27,7 +27,5 @@ public:
 	eSceneType ForcusSceneUpdate();
 	void ForcusSceneDraw(void);
 
-	bool IsHitCheck(Player* p, Mato* m);
-
 	virtual const eSceneType GetNowSceneType() const override;
 };
