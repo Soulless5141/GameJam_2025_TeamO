@@ -4,6 +4,9 @@
 SelectTarget::SelectTarget()
 {
 	player = new Player;
+	gage = new Gage;
+	bullet = new RemainingBullets;
+	SelectFlg = FALSE;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // ‰æ‘œ‚ÌƒpƒX‚ðŽw’è
 	
@@ -12,6 +15,8 @@ SelectTarget::SelectTarget()
 SelectTarget::~SelectTarget()
 {
 	delete player;
+	delete gage;
+	delete bullet;
 	DeleteGraph(background);
 }
 
@@ -47,8 +52,30 @@ void SelectTarget::Initialize()
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
-	mato->Update(delta_second);
+	//mato->Update(delta_second);
+	gage->Update();
+	bullet->Update();
 	SceneBase::Update(delta_second);
+
+	//if (PAD_INPUT::OnButton(XINPUT_BUTTON_A) && SelectFlg == FALSE)
+	//{
+	//	SelectFlg = TRUE;
+	//}
+
+	////’e‚ðŒ‚‚Á‚ÄŠO‚µ‚½‚çŽc’e‚ðŒ¸ŽZ‚µ‚ÄƒV[ƒ“‘JˆÚ
+	//if (SelectFlg == TRUE)
+	//{
+	//	SelectFlg = FALSE;
+	//	bullet->LifeReduce();
+	//	return eForcusMode;
+	//}
+
+	////Žc’e‚ª‚È‚­‚È‚Á‚½‚çƒŠƒUƒ‹ƒg‚É‘JˆÚ
+	//if (bullet->GetLife() <= 0)
+	//{
+	//	return eResult;
+	//}
+
 	
 	//‘I‘ð‚µ‚½“I‚©‚çƒV[ƒ“‘JˆÚ
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
@@ -68,11 +95,15 @@ eSceneType SelectTarget::Update(const float& delta_second)
 
 void SelectTarget::Draw() const
 {
+
 	//”wŒi‰æ‘œ‚Ì•`‰æ
 	DrawRotaGraph(640, 375, 0.6, 0.0, background, TRUE);
 
 	// “I‚Ì‰¼•`‰æ
 	SceneBase::Draw();
+
+	gage->Draw();
+	bullet->Draw();
 }
 
 const eSceneType SelectTarget::GetNowSceneType() const

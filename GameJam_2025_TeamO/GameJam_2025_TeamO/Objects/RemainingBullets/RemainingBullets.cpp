@@ -23,10 +23,10 @@ void RemainingBullets::Initialize()
 
 void RemainingBullets::Update()
 {
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+	/*if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		LifeReduce();
-	}
+	}*/
 }
 
 void RemainingBullets::Draw()
