@@ -17,10 +17,11 @@ eSceneType HelpSceneUpdate(void)
 {
 	int key_help = GetJoypadInputState(DX_INPUT_PAD1);
 
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
 	{
 		return eTitle;
 	}
+
 	return eHelp;
 }
 
@@ -28,5 +29,5 @@ eSceneType HelpSceneUpdate(void)
 void HelpSceneDraw(void)
 {
 	DrawFormatString(100, 100, GetColor(255, 255, 255), "ÉwÉãÉvâÊñ ");
-	DrawFormatString(900, 600, GetColor(255, 255, 255), "AÅFñﬂÇÈ");
+	DrawFormatString(900, 600, GetColor(255, 255, 255), "BÅFñﬂÇÈ");
 }
