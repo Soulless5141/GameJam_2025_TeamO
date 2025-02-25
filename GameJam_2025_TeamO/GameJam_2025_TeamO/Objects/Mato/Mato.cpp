@@ -24,7 +24,7 @@ void Mato::Initialize()
 	//hit_state = eHitState::none; //ヒット状態なし
 	//eObjectType::mato; //オブジェクトの設定
 
-	int a = GetRand(2); //ランダム生成10個くらい
+	int a = GetRand(3); //ランダム生成10個くらい
 	SetTargetData(a);
 
 }
