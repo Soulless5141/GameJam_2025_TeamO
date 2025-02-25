@@ -23,11 +23,11 @@
 
 Result::Result() : back_ground(NULL), score(0), mileage(0)
 {
-	for (int i = 0; i < 3; i++)
-	{
-		enemy_image[i] = NULL;
-		enemy_count[i] = NULL;
-	}
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	enemy_image[i] = NULL;
+	//	enemy_count[i] = NULL;
+	//}
 }
 
 Result::~Result()
@@ -52,6 +52,8 @@ void Result::Initialize()
 	num_img[8] = LoadGraph("Resource/Images/Number/8.png");
 	num_img[9] = LoadGraph("Resource/Images/Number/9.png");
 
+	score = 345;
+
 	////エラーチェック
 	//if (back_ground == -1)
 	//{
@@ -71,7 +73,7 @@ void Result::Initialize()
 	//}
 
 	//ゲーム結果の読み込み
-	ReadResultData();
+	//ReadResultData();
 }
 
 //更新処理
@@ -91,16 +93,16 @@ eSceneType Result::Update(const float& delta_second)
 void Result::Draw() const
 {
 	//背景画像を描画
-	DrawGraph(0, 0, back_ground, TRUE);
+	//DrawGraph(0, 0, back_ground, TRUE);
 
 	//スコア等表示領域
 	DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);
 	DrawBox(150, 150, 490, 330, GetColor(0, 0, 0), FALSE);
 
 	//スコア画像の描画
-	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/100], 0, 0);  //100の位
-	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/10], 0, 0);   //10の位
-	//DrawRotaGraph(0, 0, 0.2, 0, num_img[score/1], 0, 0);    //1の位
+	DrawRotaGraph(10, 0, 0.2, 0, num_img[score/100], 0, 0);  //100の位
+	DrawRotaGraph(10, 10, 0.2, 0, num_img[score/10], 0, 0);   //10の位
+	DrawRotaGraph(10, 15, 0.2, 0, num_img[score/1], 0, 0);    //1の位
 
 	/*DrawBox(500, 0, 640, 480, GetColor(0, 153, 0), TRUE);
 
@@ -121,12 +123,12 @@ void Result::Draw() const
 //終了時処理
 void Result::Finalize()
 {
-	//読み込んだ画像を削除
-	DeleteGraph(back_ground);
-	for (int i = 0; i < 3; i++)
-	{
-		DeleteGraph(enemy_image[i]);
-	}
+	////読み込んだ画像を削除
+	//DeleteGraph(back_ground);
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	DeleteGraph(enemy_image[i]);
+	//}
 }
 
 //現在シーン情報を取得
