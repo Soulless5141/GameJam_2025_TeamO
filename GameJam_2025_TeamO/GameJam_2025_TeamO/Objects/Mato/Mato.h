@@ -11,11 +11,11 @@ class Mato:public GameObject
 {
 private:
 	//std::vector<int> image[3];
-	static int mato_image[3];  //画像
-	static int score;    //スコア
-	static int i_image[3];
-	static int s_score;  //
-	static int hp;       //的のHP
+	int mato_image[3];  //画像
+	int score;    //スコア
+	int i_image[3];
+	int s_score;  //
+	int hp;       //的のHP
 	Vector2D location;
 	Vector2D box_size;
 	eHitState hit_state;
