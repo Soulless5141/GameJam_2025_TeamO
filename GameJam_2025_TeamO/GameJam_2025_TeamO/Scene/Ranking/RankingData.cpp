@@ -27,12 +27,12 @@ void RankingData::Initialize()
 	FILE* fp = nullptr;
 
 	//ファイルオープン
-	errno_t result = fopen_s(&fp, "", "r"); //            Excelのパス
+	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "r"); //            Excelのパス
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("が開けませんでした\n");//                  Excelのパス
+		throw("Resource/Data/ranking_data.csvが開けませんでした\n");//                  Excelのパス
 	}
 
 	//対象ファイルから読み込む
@@ -125,12 +125,12 @@ void RankingData::SortData()
 	FILE* fp = nullptr;
 
 	//ファイルオープン
-	errno_t result = fopen_s(&fp, "Resource/dat/ranking_data.csv", "w");
+	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "w");
 
 	//エラーチェック
 	if (result != 0)
 	{
-		throw("Resource/dat/ranking_data.csvが開けませんでした\n");
+		throw("Resource/Data/ranking_data.csvが開けませんでした\n");
 	}
 
 	//対象ファイルに書き込み

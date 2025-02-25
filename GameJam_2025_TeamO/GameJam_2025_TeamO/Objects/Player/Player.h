@@ -1,7 +1,8 @@
 #pragma once
+#include "../../Utility/Vector2D.h"
+
 class Player
 {
-private:
 private:
     int background;
     int player;
@@ -12,6 +13,9 @@ private:
     float mv;           //加速度
 
     int angle;          //角度
+
+    Vector2D location;
+    Vector2D size;
 
     //サイン、コサインテーブル作成
     float fsin[360], fcos[360];
@@ -24,4 +28,16 @@ public:
 public:
     void Update();
     void Draw() const;
+
+    Vector2D GetLocation() const 
+    {
+        return location;
+    }
+
+    Vector2D GetSize() const
+    {
+        return size;
+    }
+
+    void SetLocation(Vector2D new_location);
 };

@@ -31,8 +31,14 @@ public:
 
 	virtual void OnHitCollision(GameObjectBase* hit_object) override;
 
-	Vector2D GetLocation()const;
-	Vector2D GetBoxsize() const;
+	Vector2D GetLocation()const
+	{
+		return location;
+	}
+	Vector2D GetBoxsize() const
+	{
+		return box_size;
+	}
 
 	void SetTargetData(int value);
 

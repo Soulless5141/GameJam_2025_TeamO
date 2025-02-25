@@ -3,6 +3,7 @@
 #include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include "../../Objects/Player/Player.h"
+#include "../../Objects/Mato/Mato.h"
 #include "../../Objects/Gage/Gage.h"
 #include "../../Objects/RemainingBullets/RemainingBullets.h"
 
@@ -25,6 +26,8 @@ public:
 	void ForcusSceneInit(void);
 	eSceneType ForcusSceneUpdate();
 	void ForcusSceneDraw(void);
+
+	bool IsHitCheck(Player* p, Mato* m);
 
 	virtual const eSceneType GetNowSceneType() const override;
 };
