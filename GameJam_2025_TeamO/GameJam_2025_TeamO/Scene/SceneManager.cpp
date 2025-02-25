@@ -80,6 +80,13 @@ void SceneManagerUpdate(void)
 
 		break;
 
+
+	case eHelp2:
+
+		next_scene_type = HelpScene2Update();
+
+		break;
+
 	case eEnd:
 
 		next_scene_type = eEnd;
@@ -145,6 +152,12 @@ void SceneManagerDraw(void)
 	case eHelp:
 
 		HelpSceneDraw();
+
+		break;
+
+	case eHelp2:
+
+		HelpScene2Draw();
 
 		break;
 
@@ -253,6 +266,12 @@ void SceneInit(eSceneType new_scene_type)
 		case eHelp:
 
 			HelpSceneInit();
+
+			break;
+
+		case eHelp2:
+
+			HelpScene2Init();
 
 			break;
 
