@@ -24,7 +24,7 @@ void ForcusSceneInit()
 
 eSceneType ForcusTarget::ForcusSceneUpdate()
 {
-	player->Update();
+	//player->Update();
 	gage->Update();
 	bullet->Update();
 
@@ -56,7 +56,7 @@ eSceneType ForcusTarget::ForcusSceneUpdate()
 
 void ForcusTarget::ForcusSceneDraw(void)
 {
-	player->Draw();
+	//player->Draw();
 	gage->Draw();
 	bullet->Draw();
 	DrawFormatString(0, 0, 0xffffff, "forcus scene");

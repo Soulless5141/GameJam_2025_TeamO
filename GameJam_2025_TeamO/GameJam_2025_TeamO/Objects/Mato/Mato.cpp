@@ -27,6 +27,7 @@ void Mato::Initialize()
 	int a = GetRand(3); //ƒ‰ƒ“ƒ_ƒ€¶¬10ŒÂ‚­‚ç‚¢
 	SetTargetData(a);
 
+	box_size = Vector2D(700, 800) * 0.2f;
 }
 
 void Mato::Update(float delta_second)

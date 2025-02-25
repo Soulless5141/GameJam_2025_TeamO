@@ -264,11 +264,15 @@ private:
 			return;
 		}
 		// オブジェクトリスト内のオブジェクトを削除する
-		for (GameObjectBase* obj : object_list)
+		for (int i = 0; i < object_list.size(); i++)
 		{
-			obj->Finalize();
-			delete obj;
+			if (object_list[i])
+			{
+				object_list[i]->Finalize();
+				delete object_list[i];
+			}
 		}
+		
 		// 動的配列の解放
 		object_list.clear();
 	}

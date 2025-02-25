@@ -14,7 +14,7 @@ public:
 	Player* player;
 	Gage* gage;
 	RemainingBullets* bullet;
-	Mato* mato;
+	Mato* mato[8];
 
 	int background;
 	int score;
@@ -23,6 +23,8 @@ private:
 	int ForcusFlg;
 private:
 	int SelectFlg;
+
+	Vector2D old_location;
 
 public:
 	SelectTarget();

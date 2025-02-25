@@ -176,17 +176,20 @@ void ChangeScene(eSceneType new_scene_type)
 	//シーンが切り替わる前にインスタンスを削除
 	if (current_scene_type == eSelectMode)
 	{
+		selectTarget->Finalize();
 		delete selectTarget;
 		selectTarget = nullptr;
 	}
 	else if (current_scene_type == eForcusMode)
 	{
+		forcusTarget->Finalize();
 		delete forcusTarget;
 		forcusTarget = nullptr;
 	}
 	
 	if (current_scene_type == eRanking)
 	{
+		rakingscene->Finalize();
 		delete rakingscene;
 		rakingscene = nullptr;
 	}

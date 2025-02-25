@@ -11,6 +11,7 @@ class GameObjectBase
 protected:
 	class SceneBase* owner_scene;	// 所有するシーン情報
 	Vector2D			location;		// 位置座標
+	Vector2D			size;			// サイズ
 	int					image;			// 画像情報
 	int					z_layer;		// レイヤー情報
 	Vector2D            velocity;       //移動量
@@ -58,6 +59,12 @@ public:
 	/// </summary>
 	/// <returns>位置座標情報</returns>
 	const Vector2D& GetLocation() const;
+
+	/// <summary>
+	/// サイズ取得処理
+	/// </summary>
+	/// <returns>サイズ情報</returns>
+	const Vector2D& GetSize() const;
 
 	/// <summary>
 	/// 位置情報変更処理
