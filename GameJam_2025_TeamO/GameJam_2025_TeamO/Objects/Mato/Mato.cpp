@@ -20,6 +20,7 @@ void Mato::Initialize()
 	mato_image[0] = rm->GetImages("Resource/Images/keihin1.png")[0];
 	mato_image[1] = rm->GetImages("Resource/Images/keihin2.png")[0];
 	mato_image[2] = rm->GetImages("Resource/Images/keihin3.png")[0];
+	mato_image[3] = rm->GetImages("Resource/Images/keihin4.png")[0];
 	//hit_state = eHitState::none; //ヒット状態なし
 	//eObjectType::mato; //オブジェクトの設定
 
@@ -60,21 +61,23 @@ void Mato::SetTargetData(int value)
 	{
 	case 0:
 		score = 10; //10点
-		i_image[0] = score;
 		image = mato_image[0];
 		hp = 10;
 		break;
 	case 1:
 		score = 50; //50
-		i_image[1] = score;
 		image = mato_image[1];
 		hp = 20;
 		break;
 	case 2:
 		score = 100; //100
-		i_image[2] = score;
 		image = mato_image[2];
 		hp = 30;
+		break;
+	case 3:
+		score = 200; //200
+		image = mato_image[3];
+		hp = 40;
 		break;
 	default:
 		break;
