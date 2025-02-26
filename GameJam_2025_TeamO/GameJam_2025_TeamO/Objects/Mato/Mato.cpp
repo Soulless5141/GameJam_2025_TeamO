@@ -44,7 +44,7 @@ void Mato::Draw(const Vector2D& screen_offset) const
 
 void Mato::Finalize()
 {
-	delete mato_image;
+	
 }
 
 void Mato::OnHitCollision(GameObjectBase* hit_object)
