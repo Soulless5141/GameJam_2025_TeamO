@@ -37,49 +37,24 @@ SelectTarget::~SelectTarget()
 	DeleteSoundMem(BGM);
 }
 
-//void SelectSceneInit()
-//{
-//}
-
 void SelectTarget::Initialize()
 {
 	Vector2D positions[8] =
 	{
-		{300,320},{300,550},{530,320},{530, 550},
-		{750, 320},{750, 550},{980, 320},{980,550}
+		{180,320},{180,550},{465,320},{465, 550},
+		{775, 320},{775, 550},{1005, 320},{1005,550}
 	};
 
+	//的の描画
 	for (int i = 0; i < 8; i++)
 	{
 		mato[i] = CreateObject<Mato>(positions[i]);
 	}
 
-	//的の描画
-	//CreateObject<Mato>(Vector2D(300, 320));
-	//CreateObject<Mato>(Vector2D(300, 550));
-	//CreateObject<Mato>(Vector2D(530, 320));
-	//CreateObject<Mato>(Vector2D(530, 550));
-	//CreateObject<Mato>(Vector2D(750, 320));
-	//CreateObject<Mato>(Vector2D(750, 550));
-	//CreateObject<Mato>(Vector2D(980, 320));
-	//CreateObject<Mato>(Vector2D(980, 550));
-
-	player = CreateObject<Player>(Vector2D(570, 320));
+	//プレイヤーカーソルの描画
+	player = CreateObject<Player>(Vector2D(630, 400));
 	PlaySoundMem(BGM, DX_PLAYTYPE_LOOP);
 }
-
-//eSceneType SelectTarget::SelectSceneUpdate()
-//{
-//	player->Update();
-//
-//	//選択した的からシーン遷移
-//	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
-//	{
-//		return eForcusMode;
-//	}
-//
-//	return eSelectMode;
-//}
 
 eSceneType SelectTarget::Update(const float& delta_second)
 {
@@ -156,13 +131,6 @@ eSceneType SelectTarget::Update(const float& delta_second)
 	return eSelectMode;
 }
 
-//void SelectTarget::SelectSceneDraw(void)
-//{
-//	player->Draw();
-//	DrawFormatString(0, 0, 0xffffff, "select scene");
-//	DrawGraph(0, 0, background, TRUE);
-//}
-
 void SelectTarget::Draw() const
 {
 
@@ -183,7 +151,34 @@ void SelectTarget::Draw() const
 
 	gage->Draw();
 	bullet->Draw();
+
+	// === ヒットボックスの可視化 ===
+	////デバッグ用
+	//for (int i = 0; i < 8; i++)
+	//{
+	//	if (mato[i] != nullptr && mato[i]->GetHp() > 0)
+	//	{
+	//		Vector2D matoPos = mato[i]->GetLocation();
+	//		Vector2D matoSize = mato[i]->GetboxSize();
+
+	//		DrawBox(
+	//			matoPos.x - matoSize.x / 2, matoPos.y - matoSize.y / 2,  // 左上
+	//			matoPos.x + matoSize.x / 2, matoPos.y + matoSize.y / 2,  // 右下
+	//			0xff0000, FALSE
+	//		);
+	//	}
+	//}
+
+	//// プレイヤーのヒットボックスも表示
+	//Vector2D playerPos = player->GetLocation();
+	//Vector2D playerSize = player->GetboxSize();
+	//DrawBox(
+	//	playerPos.x - playerSize.x / 2, playerPos.y - playerSize.y / 2,
+	//	playerPos.x + playerSize.x / 2, playerPos.y + playerSize.y / 2,
+	//	0x00ff00, FALSE
+	//);
 }
+
 
 bool SelectTarget::IsHitCheck(Player* p, Mato* m)
 {

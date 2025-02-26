@@ -14,8 +14,6 @@ private:
     int background;
     int playerImg;
 
-    //float playerX;      //xÀ•W
-    //float playerY;      //yÀ•W
     float px, py;       //ˆÚ“®—Ê
     float mv;           //‰Á‘¬“x
 
