@@ -35,6 +35,6 @@ void HelpScene2Draw(void)
 {
 	DrawRotaGraph(640, 360, 0.77, 0, help2_img, 0, 0);
 	SetFontSize(30);
-	DrawFormatString(580, 680, GetColor(0, 0, 0), "←　2");
+	DrawFormatString(380, 680, GetColor(0, 0, 0), "十字キー左で前のページへ");
 	DrawFormatString(1000, 680, GetColor(0, 0, 0), "B：戻る");
 }

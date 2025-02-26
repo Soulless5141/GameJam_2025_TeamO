@@ -12,7 +12,7 @@ rankinginput_bgm(NULL), select_se(NULL), decision_se(NULL)
 
 RankingInputScene::~RankingInputScene()
 {
-
+	
 }
 
 //初期化処理
@@ -264,7 +264,6 @@ bool RankingInputScene::InputName()
 			if (cursor_x == 0) // 決定ボタン
 			{
 				name[name_num] = '\0';
-				Finalize();
 				return true;
 			}
 			else // 戻るボタン
