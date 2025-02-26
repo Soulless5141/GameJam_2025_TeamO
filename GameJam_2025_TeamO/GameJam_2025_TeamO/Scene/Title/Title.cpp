@@ -17,6 +17,9 @@ void TitleSceneInit(void)
 	sentaku_img = LoadGraph("Resource/Images/bullet.png");
 	kettei_bgm = LoadSoundMem("Resource/Sounds/決定ボタンを押す3.mp3");
 	idou_bgm = LoadSoundMem("Resource/Sounds/カーソル移動5.mp3");
+	title_bgm = LoadSoundMem("Resource/Sounds/yomatsuri.mp3");
+
+	PlaySoundMem(title_bgm, DX_PLAYTYPE_LOOP, TRUE);
 }
 
 //タイトル画面のアップデート
@@ -32,18 +35,22 @@ eSceneType TitleSceneUpdate()
 		//シーンの切り替え
 		if (cursor_number == eStart_Title)
 		{
+			DeleteSoundMem(title_bgm);
 			return eSelectMode;
 		}
 		else if (cursor_number == eHelp_Title)
 		{
+			DeleteSoundMem(title_bgm);
 			return eHelp;
 		}
 		else if (cursor_number == eRanking_title)
 		{
+			DeleteSoundMem(title_bgm);
 			return eRanking_Scene;
 		}
 		else if (cursor_number == eEnd_title)
 		{
+			DeleteSoundMem(title_bgm);
 			return eEnd;
 		}
 	}
