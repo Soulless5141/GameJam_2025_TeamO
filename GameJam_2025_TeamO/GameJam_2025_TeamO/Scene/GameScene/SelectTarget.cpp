@@ -118,11 +118,20 @@ eSceneType SelectTarget::Update(const float& delta_second)
 		//return eForcusMode;
 	}
 
-	////Žc’e‚ª‚È‚­‚È‚Á‚½‚çƒŠƒUƒ‹ƒg‚É‘JˆÚ
-	//if (bullet->GetLife() <= 0)
-	//{
-	//	return eResult;
-	//}
+	//Žc’e‚ª‚È‚­‚È‚Á‚½‚çƒŠƒUƒ‹ƒg‚É‘JˆÚ
+	if (bullet->GetLife() <= 0)
+	{
+		FILE* fp = nullptr;
+		errno_t result = fopen_s(&fp, "Resource/Data/result.csv","w");
+
+		if (result != 0)
+		{
+			throw("Resource/Data/result.csv‚ªŠJ‚¯‚Ü‚¹‚ñ\n");
+		}
+		fprintf(fp, "%d\n", score);
+		fclose(fp);
+		return eResult;
+	}
 
 	old_location = player->GetLocation();
 
