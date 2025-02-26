@@ -106,9 +106,11 @@ void Result::ReadRankingData()
 	}
 
 	//結果を読み込む
-	for (int i = 0; i > 5; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		fscanf_s(fp, "%d,%d,%[,]\n", &r_score);
+		int rank;
+		char str[256] = {};
+		fscanf_s(fp, "%d,%d,%[^,]\n", &r_score, &rank, str, 256);
 	}
 	
 	//ファイルクローズ
