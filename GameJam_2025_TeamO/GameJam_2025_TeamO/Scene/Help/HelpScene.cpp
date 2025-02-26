@@ -50,5 +50,5 @@ void HelpSceneDraw(void)
 
 	SetFontSize(30);
 	DrawFormatString(1000, 680, GetColor(0, 0, 0), "B：戻る");
-	DrawFormatString(640, 680, GetColor(0, 0, 0), "1　→");
+	DrawFormatString(380, 680, GetColor(0, 0, 0), "十字キー右で次のページへ");
 }

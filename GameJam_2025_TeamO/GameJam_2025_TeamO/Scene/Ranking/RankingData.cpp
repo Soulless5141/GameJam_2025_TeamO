@@ -4,7 +4,7 @@
 
 RankingData::RankingData()
 {
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		score[i] = NULL;
 		rank[i] = NULL;
@@ -125,7 +125,7 @@ void RankingData::SortData()
 	FILE* fp = nullptr;
 
 	//ファイルオープン
-	errno_t result = fopen_s(&fp, "ranking_data.csv", "w");
+	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "w");
 
 	//エラーチェック
 	if (result != 0)

@@ -230,8 +230,9 @@ void ChangeScene(eSceneType new_scene_type)
 	}
 	else if (current_scene_type == eRanking_Input)
 	{
+		rankinginput->Finalize();
 		delete rankinginput;
-		rakingscene = nullptr;
+		rankinginput = nullptr;
 	}
 
 
