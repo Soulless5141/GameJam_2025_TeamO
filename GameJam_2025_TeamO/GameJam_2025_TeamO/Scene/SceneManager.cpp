@@ -31,7 +31,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eSelectMode);
+	ChangeScene(eTitle);
 }
 
 //シーンのアップデート
@@ -272,7 +272,7 @@ void SceneInit(eSceneType new_scene_type)
 			{
 				result = new Result();
 			}
-
+			result->Initialize();
 			break;
 
 		case eRanking_Scene:
