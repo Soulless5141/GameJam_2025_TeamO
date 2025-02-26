@@ -58,12 +58,12 @@ void Mato::SetTargetData(int value)
 	case 0:
 		info.m_score = 10; //10“_
 		image = mato_image[0];
-		info.hp = 30;
+		info.hp = 20;
 		break;
 	case 1:
 		info.m_score = 50; //50
 		image = mato_image[1];
-		info.hp = 70;
+		info.hp = 75;
 		break;
 	case 2:
 		info.m_score = 100; //100
@@ -73,7 +73,7 @@ void Mato::SetTargetData(int value)
 	case 3:
 		info.m_score = 25; //25
 		image = mato_image[3];
-		info.hp = 50;
+		info.hp = 40;
 		break;
 	default:
 		break;

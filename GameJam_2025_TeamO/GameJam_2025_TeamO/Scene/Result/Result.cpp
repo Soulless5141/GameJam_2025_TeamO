@@ -45,8 +45,11 @@ void Result::Draw() const
 	DrawRotaGraph(640, 360, 0.77, 0, back_ground, 0, 0);
 
 	//スコアの描画
-	DrawFormatString(180, 290, 0x000000, "      = %6d", score);
-	DrawFormatString(1000, 680, GetColor(0, 0, 0), "B：戻る");
+	SetFontSize(64);
+	DrawFormatString(200, 390, 0x000000, "      = %6d", score);
+
+	SetFontSize(48);
+	DrawFormatString(1000, 600, GetColor(0, 0, 0), "B：戻る");
 }
 //終了時処理
 void Result::Finalize()
