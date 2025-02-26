@@ -5,6 +5,7 @@
 #include "DxLib.h"
 
 
+
 Result::Result() : back_ground(NULL), score(0), mileage(0)
 {
 
@@ -23,17 +24,26 @@ void Result::Initialize()
 
 	//ゲーム結果の読み込み
 	ReadResultData();
+
+	//ランキングデータの読み込み
+	ReadRankingData();
 }
 
 //更新処理
 eSceneType Result::Update(const float& delta_second)
 {
 
-	//Bボタンでランキングに遷移する
-	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
+	//スコアが5位以上ならでランキングに遷移する
+	if (score > r_score)
 	{
 		return eSceneType::eRanking_Input;
 	}
+
+	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
+	{
+		return eTitle;
+	}
+
 
 	return GetNowSceneType();
 }
@@ -79,6 +89,28 @@ void Result::ReadResultData()
 	//結果を読み込む
 	fscanf_s(fp, "%6d,\n", &score);
 
+	//ファイルクローズ
+	fclose(fp);
+}
+
+void Result::ReadRankingData()
+{
+	//ファイルオープン
+	FILE* fp = nullptr;
+	errno_t result = fopen_s(&fp, "Resource/Data/ranking_data.csv", "r");
+
+	//エラーチェック
+	if (result != 0)
+	{
+		throw("Resource/Data/ranking_data.csvが読み込めません\n");
+	}
+
+	//結果を読み込む
+	for (int i = 0; i > 5; i++)
+	{
+		fscanf_s(fp, "%d,%d,%[,]\n", &r_score);
+	}
+	
 	//ファイルクローズ
 	fclose(fp);
 }
