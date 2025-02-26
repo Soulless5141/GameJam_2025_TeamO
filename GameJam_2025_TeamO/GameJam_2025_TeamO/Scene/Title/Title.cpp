@@ -12,9 +12,7 @@ int cursor_number = eStart_Title;
 void TitleSceneInit(void)
 {
 	title_background_image = LoadGraph("Resource/Images/Title.jpg");
-	title_bgm = LoadSoundMem("Resource/Sounds/yomatsuri.mp3");
 
-	PlaySoundMem(title_bgm, DX_PLAYTYPE_LOOP);
 }
 
 //タイトル画面のアップデート
