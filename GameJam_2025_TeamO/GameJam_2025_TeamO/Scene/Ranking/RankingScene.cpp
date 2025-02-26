@@ -50,6 +50,9 @@ void RankingScene::Draw() const
 	//背景画像の描画
 	DrawExtendGraph(0, 0, 1280, 720, background_image, FALSE);
 
+	SetFontSize(30);
+	DrawFormatString(1000, 680, GetColor(0, 0, 0), "B：戻る");
+
 	SetFontSize(40);
 
 	//取得したランキングデータを描画する

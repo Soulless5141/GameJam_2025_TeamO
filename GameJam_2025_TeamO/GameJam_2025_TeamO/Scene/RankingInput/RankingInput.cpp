@@ -3,23 +3,6 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-//int RankingInput_background_image;
-//
-//void RankingInputSceneInit(void)
-//{
-//
-//}
-//
-//eSceneType RankingInputSceneUpdate()
-//{
-//	return eRanking_Input;
-//}
-//
-//void RankingInputSceneDraw(void)
-//{
-//
-//}
-
 RankingInputScene::RankingInputScene() : background_image(NULL),
 ranking(nullptr), score(10), name_num(0), cursor_x(0), cursor_y(0),
 rankinginput_bgm(NULL), select_se(NULL), decision_se(NULL)
