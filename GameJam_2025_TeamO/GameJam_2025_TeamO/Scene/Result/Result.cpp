@@ -2,13 +2,13 @@
 #include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
 #include"../../Objects/Mato/Mato.h"
+#include"../Ranking/RankingData.h"
 #include "DxLib.h"
-
 
 
 Result::Result() : back_ground(NULL), score(0), mileage(0)
 {
-
+	
 }
 
 Result::~Result()
@@ -61,13 +61,12 @@ void Result::Finalize()
 //現在シーン情報を取得
 eSceneType const Result::GetNowSceneType() const
 {
+	RankingData rankingdata;
 	//スコアが5位以上ならでランキングに遷移する
-	for (int i = 0; i < 5; i++)
+	rankingdata.GetScore(4);
+	if (rankingdata.GetScore(4) < score)
 	{
-		if (score > r_score[i])
-		{
-			return eSceneType::eRanking_Input;
-		}
+		return eRanking_Input;
 	}
 
 	return eSceneType::eResult;
@@ -108,7 +107,7 @@ void Result::ReadRankingData()
 	//結果を読み込む
 	for (int i = 0; i < 5; i++)
 	{
-		int rank[5];
+        int rank[5];
 		char str[256] = {};
 		fscanf_s(fp, "%d,%d,%[^,]\n", &r_score[i], &rank[i], str[i], 256);
 	}
