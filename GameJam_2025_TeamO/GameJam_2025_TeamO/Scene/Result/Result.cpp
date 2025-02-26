@@ -41,7 +41,7 @@ Result::~Result()
 void Result::Initialize()
 {
 	//‰æ‘œ‚Ì“Ç‚İ‚İ
-	//back_ground = LoadGraph("Resource/images/back.bmp");
+	back_ground = LoadGraph("Resource/images/score_bgi.jpg");
 
 	num_img[0] = LoadGraph("Resource/Images/Number/0.png");
 	num_img[1] = LoadGraph("Resource/Images/Number/1.png");
@@ -96,7 +96,7 @@ eSceneType Result::Update(const float& delta_second)
 void Result::Draw() const
 {
 	//”wŒi‰æ‘œ‚ğ•`‰æ
-	//DrawGraph(0, 0, back_ground, TRUE);
+	DrawRotaGraph(640, 360, 0.77, 0, back_ground, 0, 0);
 
 	//ƒXƒRƒA“™•\¦—Ìˆæ
 	//DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);

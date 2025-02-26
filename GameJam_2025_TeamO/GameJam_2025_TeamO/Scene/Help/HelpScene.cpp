@@ -45,7 +45,6 @@ void HelpSceneDraw(void)
 	DrawRotaGraph(640, 360, 0.77, 0, help_img, 0, 0);
 
 	SetFontSize(30);
-	//DrawFormatString(50, 50, GetColor(0, 0, 0), "ÉwÉãÉvâÊñ ");
 	DrawFormatString(1000, 680, GetColor(0, 0, 0), "BÅFñﬂÇÈ");
 	DrawFormatString(640, 680, GetColor(0, 0, 0), "1Å@Å®");
 }
