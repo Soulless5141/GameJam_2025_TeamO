@@ -14,6 +14,7 @@ SelectTarget::SelectTarget()
 
 	SucSE = LoadSoundMem("Resource/Sounds/成功音.mp3");
 	FauSE = LoadSoundMem("Resource/Sounds/失敗音.mp3");
+	BanSE = LoadSoundMem("Resource/Sounds/拳銃を撃つ.mp3");
 	BGM = LoadSoundMem("Resource/Sounds/mainBGM.mp3");
 
 	for (int i = 0; i < 8; i++)
@@ -34,6 +35,7 @@ SelectTarget::~SelectTarget()
 
 	DeleteSoundMem(SucSE);
 	DeleteSoundMem(FauSE);
+	DeleteSoundMem(BanSE);
 	DeleteSoundMem(BGM);
 }
 
@@ -53,6 +55,7 @@ void SelectTarget::Initialize()
 
 	//プレイヤーカーソルの描画
 	player = CreateObject<Player>(Vector2D(630, 400));
+	SetVolumeMusic(50);
 	PlaySoundMem(BGM, DX_PLAYTYPE_LOOP);
 }
 
@@ -70,6 +73,8 @@ eSceneType SelectTarget::Update(const float& delta_second)
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
+		SetVolumeMusic(255);
+		PlaySoundMem(BanSE, DX_PLAYTYPE_BACK);
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -88,9 +93,10 @@ eSceneType SelectTarget::Update(const float& delta_second)
 				
 				
 			}
-			else
+			else if(IsHitCheck(player, mato[i]) == false)
 			{
-				PlaySoundMem(FauSE, DX_PLAYTYPE_BACK);
+					SetVolumeMusic(50);
+					PlaySoundMem(FauSE, DX_PLAYTYPE_BACK);
 			}
 		};
 	}
