@@ -2,13 +2,20 @@
 
 #include "../SceneBase.h"
 
+
 //void ResultSceneInit(void);
 //eSceneType ResultSceneUpdate();
 //void ResultSceneDraw(void);
 
 class Result : public SceneBase
 {
+public:
+	//Mato* mato[8];
+
+
 private:
+
+
 	int back_ground;      //”wŒi‰æ‘œ
 	int num_img[10];          //”š‰æ‘œ
 	int score;            //ƒXƒRƒA
