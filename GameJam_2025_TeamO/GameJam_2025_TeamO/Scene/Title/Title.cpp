@@ -11,8 +11,7 @@ int cursor_number = eStart_Title;
 //タイトル画面の初期化
 void TitleSceneInit(void)
 {
-	title_background_image = LoadGraph("Resource/Images/Title.png");
-	title_name= LoadGraph("Resource/Images/name.png");
+	title_background_image = LoadGraph("Resource/Images/Title.jpg");
 }
 
 //タイトル画面のアップデート
@@ -68,8 +67,7 @@ eSceneType TitleSceneUpdate()
 void TitleSceneDraw(void)
 {
 	/*描画する画像*/
-	DrawGraph(0, 0, title_background_image, TRUE);
-	DrawGraph(100, 20, title_name, TRUE);
+	DrawRotaGraph(640, 360, 0.77, 0, title_background_image, 0, 0);
 
 	/*描画する文字*/
 	SetFontSize(30);
