@@ -18,12 +18,42 @@ RankingInputScene::~RankingInputScene()
 //初期化処理
 void RankingInputScene::Initialize()
 {
+	//画像の読み込み
+	background_image = LoadGraph("Resource/images/BGI.jpg");
+
+	////BGMの読み込み
+	//rankinginput_bgm = LoadSoundMem("Resource/bgm/RankingInputBGM.wav");
+
+	//カーソル音読み込み
+	select_se = LoadSoundMem("Resource/Sounds/カーソル移動5.mp3");
+
+	//決定音読み込み
+	decision_se = LoadSoundMem("Resource/Sounds/決定ボタンを押す3.mp3");
+
+	//エラーチェック
+	if (background_image == -1)
+	{
+		throw("Resource/images/Ranking.pngがありません\n");
+	}
+
+	/*if (rankinginput_bgm == -1)
+	{
+		throw("Resource/bgm/RankingInputBGM.wavがありません\n");
+	}*/
+
+	if (select_se == -1)
+	{
+		throw("Resource/bgm/select.wavがありません\n");
+	}
+
+	if (decision_se == -1)
+	{
+		throw("Resource/Sounds/決定ボタンを押す3.mp3がありません\n");
+	}
+
 	//メモリの動的確保
 	ranking = new RankingData;
 	ranking->Initialize();
-
-	background_image = LoadGraph("Resource/images/BGI.jpg");
-
 
 	//リザルトデータを取得する
 	FILE* fp = nullptr;
@@ -149,7 +179,7 @@ bool RankingInputScene::InputName()
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		// カーソル音鳴らす
-		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_y == 4 && cursor_x == 0)
 		{
 			cursor_x = 1;
@@ -166,7 +196,7 @@ bool RankingInputScene::InputName()
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_RIGHT))
 	{
 		// カーソル音鳴らす
-		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+		PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_y == 4 && cursor_x == 1)
 		{
 			cursor_x = 0;
@@ -187,7 +217,7 @@ bool RankingInputScene::InputName()
 			if (cursor_y > 0)
 			{
 				// カーソル音鳴らす
-				//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+				PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 				cursor_y--;
 			}
 		}
@@ -196,7 +226,7 @@ bool RankingInputScene::InputName()
 			if (cursor_y < 4)
 			{
 				// カーソル音鳴らす
-				//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
+				PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
 				cursor_y++;
 				if (cursor_y == 4)
 				{
@@ -210,7 +240,7 @@ bool RankingInputScene::InputName()
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
 		// 決定音鳴らす
-		//PlaySoundMem(decision_se, DX_PLAYTYPE_BACK, TRUE);
+		PlaySoundMem(decision_se, DX_PLAYTYPE_BACK, TRUE);
 		if (cursor_y < 2)
 		{
 			name[name_num++] = 'a' + cursor_x + (cursor_y * 13);

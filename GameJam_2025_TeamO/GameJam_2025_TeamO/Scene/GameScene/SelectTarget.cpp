@@ -142,12 +142,12 @@ void SelectTarget::Draw() const
 
 	//player->Draw();
 	
-	DrawFormatString(0, 0, 0xffffff, "%d\n", score);
-	DrawFormatString(10, 50, 0xffffff, "%d\n", gage->GetMeter());
-	SetFontSize(48);
-	DrawFormatString(100, 100, 0xff0000, "%d\n", mato[0]->GetHp());
-	DrawFormatString(100, 150, 0xff0000, "%d\n", mato[0]->GetScore());
-	DrawFormatString(200, 200, 0xff0000, "%d\n", damage);
+	DrawFormatString(20, 110, 0x0000ff, "%d\n", score);
+	//DrawFormatString(10, 50, 0xffffff, "%d\n", gage->GetMeter());
+	//SetFontSize(48);
+	//DrawFormatString(100, 100, 0xff0000, "%d\n", mato[0]->GetHp());
+	//DrawFormatString(100, 150, 0xff0000, "%d\n", mato[0]->GetScore());
+	//DrawFormatString(200, 200, 0xff0000, "%d\n", damage);
 
 	gage->Draw();
 	bullet->Draw();
