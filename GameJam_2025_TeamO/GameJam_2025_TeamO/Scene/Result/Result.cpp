@@ -1,33 +1,13 @@
 #include "Result.h"
 #include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
+#include"../../Objects/Mato/Mato.h"
 #include "DxLib.h"
 
-//int result_background_image;  //”wŒiİ’è—p‚Ì•Ï”
-//int result_bgm;               //BGMİ’è—p‚Ì•Ï”
-//
-//void ResultSceneInit(void)
-//{
-//
-//}
-//
-//eSceneType ResultSceneUpdate(void)
-//{
-//	return eResult;
-//}
-//
-//void ResultSceneDraw(void)
-//{
-//	DrawFormatString(100, 100, GetColor(255, 255, 255), "ƒŠƒUƒ‹ƒg‰æ–Ê");
-//}
 
 Result::Result() : back_ground(NULL), score(0), mileage(0)
 {
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	enemy_image[i] = NULL;
-	//	enemy_count[i] = NULL;
-	//}
+
 }
 
 Result::~Result()
@@ -39,7 +19,7 @@ Result::~Result()
 void Result::Initialize()
 {
 	//‰æ‘œ‚Ì“Ç‚İ‚İ
-	//back_ground = LoadGraph("Resource/images/back.bmp");
+	back_ground = LoadGraph("Resource/images/score_bgi.jpg");
 
 	//ƒQ[ƒ€Œ‹‰Ê‚Ì“Ç‚İ‚İ
 	ReadResultData();
@@ -62,10 +42,11 @@ eSceneType Result::Update(const float& delta_second)
 void Result::Draw() const
 {
 	//”wŒi‰æ‘œ‚ğ•`‰æ
-	//DrawGraph(0, 0, back_ground, TRUE);
+	DrawRotaGraph(640, 360, 0.77, 0, back_ground, 0, 0);
 
-
+	//ƒXƒRƒA‚Ì•`‰æ
 	DrawFormatString(180, 290, 0x000000, "      = %6d", score);
+	DrawFormatString(1000, 680, GetColor(0, 0, 0), "BF–ß‚é");
 }
 //I—¹ˆ—
 void Result::Finalize()
