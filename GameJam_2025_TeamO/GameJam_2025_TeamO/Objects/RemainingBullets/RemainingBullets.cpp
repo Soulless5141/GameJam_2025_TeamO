@@ -2,7 +2,7 @@
 #include "RemainingBullets.h"
 #include "../../Utility/PadInput.h"
 
-#define MAX_BULLET_LIFE (15)
+#define MAX_BULLET_LIFE (10)
 
 RemainingBullets::RemainingBullets() : life_bullet(0)
 {
