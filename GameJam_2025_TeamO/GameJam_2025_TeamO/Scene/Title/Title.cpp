@@ -4,7 +4,9 @@
 #include "DxLib.h"
 
 int title_background_image;  //背景設定用の変数
-int title_name;              //ゲーム名
+int sentaku_img;                 //決定音
+int idou_bgm;                    //移動音
+int kettei_bgm;                  //決定音
 int title_bgm;               //BGM設定用の変数
 int cursor_number = eStart_Title;
 
@@ -12,6 +14,9 @@ int cursor_number = eStart_Title;
 void TitleSceneInit(void)
 {
 	title_background_image = LoadGraph("Resource/Images/Title.jpg");
+	sentaku_img = LoadGraph("Resource/Images/bullet.png");
+	kettei_bgm = LoadSoundMem("Resource/Sounds/決定ボタンを押す3.mp3");
+	idou_bgm = LoadSoundMem("Resource/Sounds/カーソル移動5.mp3");
 }
 
 //タイトル画面のアップデート
@@ -22,6 +27,7 @@ eSceneType TitleSceneUpdate()
 	//選択
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
+		PlaySoundMem(kettei_bgm, DX_PLAYTYPE_BACK,TRUE);
 		if (cursor_number == eStart_Title)
 		{
 			return eSelectMode;
@@ -42,6 +48,8 @@ eSceneType TitleSceneUpdate()
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN))
 	{
+		//PlaySoundMem(title_bgm, DX_PLAYTYPE_NORMAL, TRUE);
+		PlaySoundMem(idou_bgm, DX_PLAYTYPE_BACK, TRUE);
 		cursor_number++;
 
 		if (cursor_number > 3)
@@ -52,6 +60,7 @@ eSceneType TitleSceneUpdate()
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_UP))
 	{
+		PlaySoundMem(idou_bgm, DX_PLAYTYPE_BACK, TRUE);
 		cursor_number--;
 
 		if (cursor_number < 0)
@@ -75,5 +84,7 @@ void TitleSceneDraw(void)
 	DrawFormatString(580,530, GetColor(0, 0, 0),"ヘルプ");
 	DrawFormatString(580,560, GetColor(0, 0, 0),"ランキング");
 	DrawFormatString(580,590, GetColor(0, 0, 0),"エンド");
-	DrawCircle(550, 510 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
+
+	DrawRotaGraph(530, 515 + cursor_number * 31, 0.1, 12.55, sentaku_img, TRUE, TRUE);
+	//DrawCircle(550, 510 + cursor_number * 30, 15, GetColor(0, 0, 0), TRUE);
 }
