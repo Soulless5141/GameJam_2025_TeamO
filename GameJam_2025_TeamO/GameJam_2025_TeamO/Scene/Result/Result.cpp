@@ -24,21 +24,11 @@ void Result::Initialize()
 
 	//ゲーム結果の読み込み
 	ReadResultData();
-
-	//ランキングデータの読み込み
-	ReadRankingData();
 }
 
 //更新処理
 eSceneType Result::Update(const float& delta_second)
 {
-
-	//スコアが5位以上ならでランキングに遷移する
-	if (score > r_score)
-	{
-		return eSceneType::eRanking_Input;
-	}
-
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
 	{
@@ -71,6 +61,15 @@ void Result::Finalize()
 //現在シーン情報を取得
 eSceneType const Result::GetNowSceneType() const
 {
+	//スコアが5位以上ならでランキングに遷移する
+	for (int i = 0; i < 5; i++)
+	{
+		if (score > r_score[i])
+		{
+			return eSceneType::eRanking_Input;
+		}
+	}
+
 	return eSceneType::eResult;
 }
 
@@ -109,9 +108,9 @@ void Result::ReadRankingData()
 	//結果を読み込む
 	for (int i = 0; i < 5; i++)
 	{
-		int rank;
+		int rank[5];
 		char str[256] = {};
-		fscanf_s(fp, "%d,%d,%[^,]\n", &r_score, &rank, str, 256);
+		fscanf_s(fp, "%d,%d,%[^,]\n", &r_score[i], &rank[i], str[i], 256);
 	}
 	
 	//ファイルクローズ

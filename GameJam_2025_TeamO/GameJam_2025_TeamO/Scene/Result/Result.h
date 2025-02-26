@@ -14,7 +14,7 @@ private:
 	int back_ground;      //背景画像
 	int num_img[10];          //数字画像
 	int score;            //スコア
-	int r_score;
+	int r_score[5];
 	int mileage;		  //走行距離
 	int enemy_count[3];   //敵のカウント
 	int enemy_image[3];   //敵画像
