@@ -31,7 +31,7 @@ void SceneInit(eSceneType new_scene_type);
 void SceneManagerInitialize(void)
 {
 	is_end_flag = FALSE;
-	ChangeScene(eSelectMode);
+	ChangeScene(eResult);
 }
 
 //シーンのアップデート
@@ -145,8 +145,10 @@ void SceneManagerDraw(void)
 		}
 		break;
 	case eResult:
-
-		//ResultSceneDraw();
+		if (result)
+		{
+			result->Draw();
+		}
 
 		break;
 
@@ -266,8 +268,10 @@ void SceneInit(eSceneType new_scene_type)
 			}
 			break;
 		case eResult:
-
-			//ResultSceneInit();
+			if (not result)
+			{
+				result = new Result();
+			}
 
 			break;
 
