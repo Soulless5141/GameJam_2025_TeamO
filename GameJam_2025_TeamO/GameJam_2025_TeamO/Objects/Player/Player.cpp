@@ -126,8 +126,6 @@ void Player::Update(float delta_second)
 
 void Player::Draw(const Vector2D& screen_offset) const
 {
-    //DrawGraph(0, 0, background, FALSE);  // ”wŒi‚ð•`‰æ
-
     __super::Draw(screen_offset);
 }
 
