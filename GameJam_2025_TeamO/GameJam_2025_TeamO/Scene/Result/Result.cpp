@@ -100,7 +100,7 @@ void Result::Draw() const
 
 	//スコア等表示領域
 	//DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);
-    DrawBox(10, 10, 490, 330, GetColor(255, 255, 255), TRUE);
+   // DrawBox(10, 10, 490, 330, GetColor(255, 255, 255), TRUE);
 
 
 	//DrawFormatString(100, 150, 0xff0000, "%d\n", mato[8]->GetScore());
