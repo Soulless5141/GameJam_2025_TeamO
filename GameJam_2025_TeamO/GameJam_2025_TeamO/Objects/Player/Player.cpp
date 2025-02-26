@@ -14,8 +14,6 @@ Player::Player()
 
     pushFlg = FALSE;
 
-    //playerX = 570.0f;
-    //playerY = 320.0f;
     mv = 0.7f;
     px = 0.0f;
     py = 0.0f;
@@ -128,15 +126,7 @@ void Player::Update(float delta_second)
 
 void Player::Draw(const Vector2D& screen_offset) const
 {
-    DrawGraph(0, 0, background, FALSE);  // ”wŒi‚ð•`‰æ
-    //DrawGraph(playerCursorX, playerCursorY, player, TRUE);  // ƒvƒŒƒCƒ„[‰æ‘œ‚ð•`‰æ
-    //DrawCircleAA(playerX, playerY, 15, 100, GetColor(255, 0, 0), TRUE);
-
-    //DrawGraphF(playerX, playerY, playerImg, FALSE);
-
-    //// ƒIƒtƒZƒbƒg’l‚ðŠî‚É‰æ‘œ‚Ì•`‰æ‚ðs‚¤
-    //Vector2D graph_location = this->location + screen_offset;
-    //DrawRotaGraphF(playerX, playerY, 1.0, 0.0, image, TRUE, this->flip_flag);
+    //DrawGraph(0, 0, background, FALSE);  // ”wŒi‚ð•`‰æ
 
     __super::Draw(screen_offset);
 }
