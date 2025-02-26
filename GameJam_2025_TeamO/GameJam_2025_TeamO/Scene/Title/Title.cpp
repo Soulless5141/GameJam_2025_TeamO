@@ -27,7 +27,9 @@ eSceneType TitleSceneUpdate()
 	//‘I‘ð
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
 	{
-		PlaySoundMem(kettei_bgm, DX_PLAYTYPE_BACK,TRUE);
+		PlaySoundMem(kettei_bgm, DX_PLAYTYPE_BACK,TRUE); //‰¹Œ¹‚ÌÄ¶
+
+		//ƒV[ƒ“‚ÌØ‚è‘Ö‚¦
 		if (cursor_number == eStart_Title)
 		{
 			return eSelectMode;
@@ -48,8 +50,10 @@ eSceneType TitleSceneUpdate()
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_DOWN))
 	{
+		//‰¹Œ¹‚ÌÄ¶
 		//PlaySoundMem(title_bgm, DX_PLAYTYPE_NORMAL, TRUE);
 		PlaySoundMem(idou_bgm, DX_PLAYTYPE_BACK, TRUE);
+
 		cursor_number++;
 
 		if (cursor_number > 3)

@@ -5,6 +5,8 @@
 
 //int help_background_image;  //背景設定用の変数
 //int help_bgm;               //BGM設定用の変数
+int help_idou;
+int help_kettei;
 
 int help_scope;
 int help_nuigurumi;
@@ -18,6 +20,7 @@ void HelpSceneInit(void)
 	help_nuigurumi = LoadGraph("Resource/Images/keihin1.png");
 	help_bullet = LoadGraph("Resource/Images/bullet.png");
 	help_img = LoadGraph("Resource/Images/Help.jpg");
+	help_idou = LoadSoundMem("Resource/Sounds/カーソル移動5.mp3");
 }
 
 //ヘルプ画面のアップデート
@@ -32,6 +35,7 @@ eSceneType HelpSceneUpdate(void)
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_RIGHT))
 	{
+		PlaySoundMem(help_idou, DX_PLAYTYPE_BACK, TRUE);
 		return eHelp2;
 	}
 

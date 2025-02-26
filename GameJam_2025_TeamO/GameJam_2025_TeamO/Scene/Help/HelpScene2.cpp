@@ -3,11 +3,14 @@
 #include "../../Utility/PadInput.h"
 #include "DxLib.h"
 
-int help2_img;
+int help2_img;  //”wŒi‰æ‘œ
+int help2_kettei;  //Œˆ’è‰¹
+int help2_idou;    //ˆÚ“®‰¹
 
 void HelpScene2Init(void)
 {
 	help2_img = LoadGraph("Resource/Images/Help2.jpg");
+	help2_idou = LoadSoundMem("Resource/Sounds/ƒJ[ƒ\ƒ‹ˆÚ“®5.mp3");
 }
 
 eSceneType HelpScene2Update(void)
@@ -21,6 +24,7 @@ eSceneType HelpScene2Update(void)
 
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_DPAD_LEFT))
 	{
+		PlaySoundMem(help2_idou, DX_PLAYTYPE_BACK, TRUE);
 		return eHelp;
 	}
 
