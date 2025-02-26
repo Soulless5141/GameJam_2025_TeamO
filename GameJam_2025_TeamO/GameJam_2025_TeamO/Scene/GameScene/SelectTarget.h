@@ -20,6 +20,13 @@ public:
 	int damage = 1;
 
 	int background;
+	int SuccessImg;
+	int FaultImg;
+
+	int SucSE;
+	int FauSE;
+	int BGM;
+
 	int score;
 	
 private:

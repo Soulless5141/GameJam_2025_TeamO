@@ -9,12 +9,17 @@ SelectTarget::SelectTarget()
 	SelectFlg = FALSE;
 	ForcusFlg = FALSE;
 	background = LoadGraph("Resource/Images/BGI.jpg");  // 画像のパスを指定
-	
+	SuccessImg = LoadGraph("Resource/Images/seikou.jpg");  // 画像のパスを指定
+	FaultImg = LoadGraph("Resource/Images/sippai.jpg");  // 画像のパスを指定
+
+	SucSE = LoadSoundMem("Resource/Sounds/成功音.mp3");
+	FauSE = LoadSoundMem("Resource/Sounds/失敗音.mp3");
+	BGM = LoadSoundMem("Resource/Sounds/mainBGM.mp3");
+
 	for (int i = 0; i < 8; i++)
 	{
 		mato[i] = nullptr;
 	}
-
 }
 
 SelectTarget::~SelectTarget()
@@ -24,6 +29,12 @@ SelectTarget::~SelectTarget()
 	delete bullet;
 	
 	DeleteGraph(background);
+	DeleteGraph(SuccessImg);
+	DeleteGraph(FaultImg);
+
+	DeleteSoundMem(SucSE);
+	DeleteSoundMem(FauSE);
+	DeleteSoundMem(BGM);
 }
 
 //void SelectSceneInit()
@@ -54,6 +65,7 @@ void SelectTarget::Initialize()
 	//CreateObject<Mato>(Vector2D(980, 550));
 
 	player = CreateObject<Player>(Vector2D(570, 320));
+	PlaySoundMem(BGM, DX_PLAYTYPE_LOOP);
 }
 
 //eSceneType SelectTarget::SelectSceneUpdate()
@@ -95,10 +107,15 @@ eSceneType SelectTarget::Update(const float& delta_second)
 				if (mato[i]->GetHp() == 0)
 				{
 					score += mato[i]->GetScore();
-					mato[i]->Finalize();
+					PlaySoundMem(SucSE, DX_PLAYTYPE_BACK);
+					DestroyObject(mato[i]);
 				}
 				
 				
+			}
+			else
+			{
+				PlaySoundMem(FauSE, DX_PLAYTYPE_BACK);
 			}
 		};
 	}
@@ -130,6 +147,7 @@ eSceneType SelectTarget::Update(const float& delta_second)
 		}
 		fprintf(fp, "%d\n", score);
 		fclose(fp);
+		StopSoundMem(BGM);
 		return eResult;
 	}
 
