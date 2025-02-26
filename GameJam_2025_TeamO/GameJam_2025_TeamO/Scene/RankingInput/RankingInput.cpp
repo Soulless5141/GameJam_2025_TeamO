@@ -22,6 +22,9 @@ void RankingInputScene::Initialize()
 	ranking = new RankingData;
 	ranking->Initialize();
 
+	background_image = LoadGraph("Resource/images/BGI.jpg");
+
+
 	//リザルトデータを取得する
 	FILE* fp = nullptr;
 	//ファイルオープン
@@ -67,12 +70,12 @@ eSceneType RankingInputScene::Update()
 void RankingInputScene::Draw() const
 {
 	//背景画像の描画
-	//DrawGraph(0, 0, background_image, TRUE);
-	DrawBox(0, 0, 1280, 720, GetColor(255, 255, 255), true);
+	DrawGraph(0, 0, background_image, TRUE);
+	DrawBox(220, 200, 1000, 700, GetColor(255, 255, 255), true);
 
 	//名前入力指示文字列
 	SetFontSize(60);
-	DrawString(420, 50, "ランキング登録", 0x000000);
+	DrawString(120, 70, "ランキング登録", 0x000000);
 
 	SetFontSize(32);
 	DrawFormatString(400, 220, GetColor(0, 0, 0), ">%s", name);
