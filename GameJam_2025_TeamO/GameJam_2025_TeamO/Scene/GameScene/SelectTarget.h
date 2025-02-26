@@ -25,6 +25,7 @@ public:
 
 	int SucSE;
 	int FauSE;
+	int BanSE;
 	int BGM;
 
 	int score;
