@@ -11,6 +11,8 @@ class Result : public SceneBase
 {
 private:
 
+
+
 	int back_ground;      //”wŒi‰æ‘œ
 	int num_img[10];          //”š‰æ‘œ
 	int score;            //ƒXƒRƒA
