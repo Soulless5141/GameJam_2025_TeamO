@@ -4,37 +4,15 @@
 #include"../../Objects/Mato/Mato.h"
 #include "DxLib.h"
 
-//int result_background_image;  //背景設定用の変数
-//int result_bgm;               //BGM設定用の変数
-//
-//void ResultSceneInit(void)
-//{
-//
-//}
-//
-//eSceneType ResultSceneUpdate(void)
-//{
-//	return eResult;
-//}
-//
-//void ResultSceneDraw(void)
-//{
-//	DrawFormatString(100, 100, GetColor(255, 255, 255), "リザルト画面");
-//}
 
 Result::Result() : back_ground(NULL), score(0), mileage(0)
 {
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	enemy_image[i] = NULL;
-	//	enemy_count[i] = NULL;
-	//}
-	//mato[8] = new Mato;
+
 }
 
 Result::~Result()
 {
-	//delete mato[8];
+
 }
 
 //初期化処理
@@ -57,8 +35,6 @@ eSceneType Result::Update(const float& delta_second)
 		return eSceneType::eRanking_Input;
 	}
 
-	//mato[8]->GetScore();
-
 	return GetNowSceneType();
 }
 
@@ -68,8 +44,9 @@ void Result::Draw() const
 	//背景画像を描画
 	DrawRotaGraph(640, 360, 0.77, 0, back_ground, 0, 0);
 
-
+	//スコアの描画
 	DrawFormatString(180, 290, 0x000000, "      = %6d", score);
+	DrawFormatString(1000, 680, GetColor(0, 0, 0), "B：戻る");
 }
 //終了時処理
 void Result::Finalize()

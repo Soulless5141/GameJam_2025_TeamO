@@ -21,14 +21,12 @@ void Mato::Initialize()
 	mato_image[1] = rm->GetImages("Resource/Images/keihin2.png")[0];
 	mato_image[2] = rm->GetImages("Resource/Images/keihin3.png")[0];
 	mato_image[3] = rm->GetImages("Resource/Images/keihin4.png")[0];
-	//hit_state = eHitState::none; //ヒット状態なし
-	//eObjectType::mato; //オブジェクトの設定
 
 	int a = GetRand(3); //ランダム生成10個くらい
 	SetTargetData(a);
 
+	//当たり判定
 	box_size = Vector2D(700, 800) * 0.2f;
-	//hp = NULL;
 }
 
 void Mato::Update(float delta_second)
@@ -54,6 +52,7 @@ void Mato::OnHitCollision(GameObjectBase* hit_object)
 
 void Mato::SetTargetData(int value)
 {
+	//的のランダム表示,HPとScoreの設定
 	switch (value)
 	{
 	case 0:
@@ -88,6 +87,7 @@ void Mato::AnimationControl(float delta_second)
 
 void Mato::DecreaseHp(int value)
 {
+	//Hpを減らす処理
 	info.hp -= value;
 	if (info.hp < 0)
 	{
@@ -95,11 +95,13 @@ void Mato::DecreaseHp(int value)
 	}
 }
 
+//HP情報取得
 int Mato::GetHp() const
 {
 	return info.hp;
 }
 
+//Score情報取得
 int Mato::GetScore() const
 {
 	return info.m_score;

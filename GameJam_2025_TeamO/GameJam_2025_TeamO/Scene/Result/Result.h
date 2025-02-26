@@ -9,12 +9,7 @@
 
 class Result : public SceneBase
 {
-public:
-	//Mato* mato[8];
-
-
 private:
-
 
 	int back_ground;      //”wŒi‰æ‘œ
 	int num_img[10];          //”š‰æ‘œ
