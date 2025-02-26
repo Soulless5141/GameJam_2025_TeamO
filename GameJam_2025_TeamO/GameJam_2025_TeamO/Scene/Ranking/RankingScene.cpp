@@ -17,13 +17,13 @@ RankingScene::~RankingScene()
 void RankingScene::Initialize()
 {
 	//画像の読み込み
-	//background_image = LoadGraph("Resource/images/Ranking.png");
+	background_image = LoadGraph("Resource/images/Ranking.jpg");
 
-	////エラーチェック
-	//if (background_image == -1)
-	//{
-	//	throw("Resource/images/Ranking.pngがありません\n");
-	//}
+	//エラーチェック
+	if (background_image == -1)
+	{
+		throw("Resource/images/Ranking.pngがありません\n");
+	}
 
 	//ランキング情報を取得
 	ranking = new RankingData;
@@ -48,19 +48,14 @@ eSceneType RankingScene::Update(const float& delta_second)
 void RankingScene::Draw() const
 {
 	//背景画像の描画
-	//DrawGraph(0, 0, background_image, FALSE);
-	DrawBox(0, 0, 1000, 700, GetColor(255, 255, 255), true);
+	DrawExtendGraph(0, 0, 1280, 720, background_image, FALSE);
 
-	SetFontSize(48);
-	DrawString(200, 50, "ランキング", 0x000000);
-
-
-	SetFontSize(16);
+	SetFontSize(40);
 
 	//取得したランキングデータを描画する
 	for (int i = 0; i < 5; i++)
 	{
-		DrawFormatString(50, 170 + i * 25, 0x000000, "%2d %6d %-15s", ranking->GetRank(i), ranking->GetScore(i), ranking->GetName(i));
+		DrawFormatString(380, 200 + i * 92, 0x000000, "スコア: %4d   名前: %-15s", ranking->GetScore(i), ranking->GetName(i));
 	}
 }
 
