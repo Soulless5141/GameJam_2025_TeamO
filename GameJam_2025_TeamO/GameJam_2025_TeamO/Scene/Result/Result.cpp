@@ -1,6 +1,7 @@
 #include "Result.h"
 #include "../SceneBase.h"
 #include "../../Utility/PadInput.h"
+#include"../../Objects/Mato/Mato.h"
 #include "DxLib.h"
 
 //int result_background_image;  //背景設定用の変数
@@ -28,11 +29,12 @@ Result::Result() : back_ground(NULL), score(0), mileage(0)
 	//	enemy_image[i] = NULL;
 	//	enemy_count[i] = NULL;
 	//}
+	//mato[8] = new Mato;
 }
 
 Result::~Result()
 {
-
+	//delete mato[8];
 }
 
 //初期化処理
@@ -52,7 +54,6 @@ void Result::Initialize()
 	num_img[8] = LoadGraph("Resource/Images/Number/8.png");
 	num_img[9] = LoadGraph("Resource/Images/Number/9.png");
 
-	score = 345;
 
 	////エラーチェック
 	//if (back_ground == -1)
@@ -86,6 +87,8 @@ eSceneType Result::Update(const float& delta_second)
 		return eSceneType::eRanking_Input;
 	}
 
+	//mato[8]->GetScore();
+
 	return GetNowSceneType();
 }
 
@@ -96,13 +99,12 @@ void Result::Draw() const
 	//DrawGraph(0, 0, back_ground, TRUE);
 
 	//スコア等表示領域
-	DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);
-	DrawBox(150, 150, 490, 330, GetColor(0, 0, 0), FALSE);
+	//DrawBox(150, 150, 490, 330, GetColor(0, 153, 0), TRUE);
+   // DrawBox(10, 10, 490, 330, GetColor(255, 255, 255), TRUE);
 
-	//スコア画像の描画
-	DrawRotaGraph(10, 0, 0.2, 0, num_img[score/100], 0, 0);  //100の位
-	DrawRotaGraph(10, 10, 0.2, 0, num_img[score/10], 0, 0);   //10の位
-	DrawRotaGraph(10, 15, 0.2, 0, num_img[score/1], 0, 0);    //1の位
+
+	//DrawFormatString(100, 150, 0xff0000, "%d\n", mato[8]->GetScore());
+
 
 	/*DrawBox(500, 0, 640, 480, GetColor(0, 153, 0), TRUE);
 
