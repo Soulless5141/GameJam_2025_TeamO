@@ -2,7 +2,7 @@
 #include "RemainingBullets.h"
 #include "../../Utility/PadInput.h"
 
-#define MAX_BULLET_LIFE (5)
+#define MAX_BULLET_LIFE (15)
 
 RemainingBullets::RemainingBullets() : life_bullet(0)
 {
@@ -26,20 +26,20 @@ void RemainingBullets::Initialize()
 
 void RemainingBullets::Update()
 {
-	/*if (PAD_INPUT::OnButton(XINPUT_BUTTON_A))
-	{
-		LifeReduce();
-	}*/
+
 }
 
 void RemainingBullets::Draw()
 {
-	DrawBox(930, 15, 1250, 95, GetColor(0, 0, 0), true);
+	// å„ÇÎÇÃçïÇ¢éläp
+	DrawBox(930, 15, 1230, 95, GetColor(0, 0, 0), true);
 
-	for (int i = 0; i < life_bullet; i++)
-	{
-		DrawRotaGraph(970 + (i * 60), 55, 0.12, 1, image[0], TRUE);
-	}
+	// íeä€âÊëúï`âÊ
+	DrawRotaGraph(970, 55, 0.14, 1, image[0], TRUE);
+
+	// écÇËíeä€êîÇÃï`âÊ
+	SetFontSize(90);
+	DrawFormatString(1015, 10, GetColor(255,255,255), "Å~%d",life_bullet);
 	
 }
 

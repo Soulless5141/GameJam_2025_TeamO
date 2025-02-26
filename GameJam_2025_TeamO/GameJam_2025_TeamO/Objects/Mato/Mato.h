@@ -1,12 +1,6 @@
 #pragma once
 #include"../GameObject.h"
 
-enum eHitState
-{
-	hit, 
-	none,
-};
-
 struct MatoInfo
 {
 	int hp;       //“I‚ÌHP
@@ -21,8 +15,7 @@ private:
 	//std::vector<int> image[3];
 	int mato_image[4];  //‰æ‘œ
 
-	Vector2D box_size;
-	eHitState hit_state;
+	Vector2D box_size;  //“–‚½‚è”»’è‘å‚«‚³
 	
 
 public:
@@ -39,6 +32,7 @@ public:
 
 	int GetHp() const;
 	int GetScore() const;
+
 
 	Vector2D GetboxSize() const
 	{
