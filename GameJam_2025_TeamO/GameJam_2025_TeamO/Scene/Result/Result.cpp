@@ -39,6 +39,7 @@ eSceneType Result::Update(const float& delta_second)
 		return eSceneType::eRanking_Input;
 	}
 
+
 	if (PAD_INPUT::OnButton(XINPUT_BUTTON_B))
 	{
 		return eTitle;
