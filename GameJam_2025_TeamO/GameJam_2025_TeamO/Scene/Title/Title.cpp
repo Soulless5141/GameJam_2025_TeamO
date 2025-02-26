@@ -4,6 +4,7 @@
 #include "DxLib.h"
 
 int title_background_image;  //背景設定用の変数
+int title_name;              //ゲーム名
 int title_bgm;               //BGM設定用の変数
 int cursor_number = eStart_Title;
 
@@ -11,6 +12,7 @@ int cursor_number = eStart_Title;
 void TitleSceneInit(void)
 {
 	title_background_image = LoadGraph("Resource/Images/Title.png");
+	title_name= LoadGraph("Resource/Images/name.png");
 }
 
 //タイトル画面のアップデート
@@ -67,6 +69,7 @@ void TitleSceneDraw(void)
 {
 	/*描画する画像*/
 	DrawGraph(0, 0, title_background_image, TRUE);
+	DrawGraph(100, 20, title_name, TRUE);
 
 	/*描画する文字*/
 	SetFontSize(30);
