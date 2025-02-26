@@ -118,35 +118,32 @@ void RankingInputScene::Draw() const
 {
 	//背景画像の描画
 	//DrawGraph(0, 0, background_image, TRUE);
-	DrawBox(0, 0, 1000, 700, GetColor(255, 255, 255), true);
+	DrawBox(0, 0, 1280, 720, GetColor(255, 255, 255), true);
 
 	//名前入力指示文字列
+	SetFontSize(60);
+	DrawString(420, 50, "ランキング登録", 0x000000);
 
-
-	SetFontSize(48);
-	DrawString(140, 50, "ランキング登録", 0x000000);
-
-	SetFontSize(16);
-	//DrawString(150, 100, "ランキングに登録します", 0x000000);
-	DrawFormatString(100, 220, GetColor(0, 0, 0), ">%s", name);
+	SetFontSize(32);
+	DrawFormatString(400, 220, GetColor(0, 0, 0), ">%s", name);
 
 	//選択文字を描画
-	const int font_size = 25;
+	const int font_size = 50;
 	for (int i = 0; i < 26; i++)
 	{
-		int x = (i % 13) * font_size + 15;
+		int x = (i % 13) * font_size + 315;
 		int y = (i / 13) * font_size + 300;
 		DrawFormatString(x, y, GetColor(0, 0, 0), "%-3c", 'a' + i);
 		y = ((i / 13) + 2) * font_size + 300;
 		DrawFormatString(x, y, GetColor(0, 0, 0), "%-3c", 'A' + i);
 	}
-	DrawString(40, 405, "決定", GetColor(0, 0, 0));
-	DrawString(40 + font_size * 2, 405, "消す", GetColor(0, 0, 0));
+	DrawString(440, 605, "決定", GetColor(0, 0, 0));
+	DrawString(640 + font_size * 2, 605, "消す", GetColor(0, 0, 0));
 
 	//選択文字をフォーカスする
 	if (cursor_y < 4)
 	{
-		int x = cursor_x * font_size + 10;
+		int x = cursor_x * font_size + 300;
 		int y = cursor_y * font_size + 295;
 		DrawBox(x, y, x + font_size, y + font_size, GetColor(0, 0, 0), FALSE);
 	}
@@ -154,11 +151,11 @@ void RankingInputScene::Draw() const
 	{
 		if (cursor_x == 0)
 		{
-			DrawBox(35, 400, 35 + font_size * 2, 400 + font_size, GetColor(0, 0, 0), FALSE);
+			DrawBox(435, 600, 420 + font_size * 2, 600 + font_size, GetColor(0, 0, 0), FALSE);
 		}
 		else
 		{
-			DrawBox(85, 400, 85 + font_size * 2, 400 + font_size, GetColor(0, 0, 0), FALSE);
+			DrawBox(725, 600, 725 + font_size * 2, 600 + font_size, GetColor(0, 0, 0), FALSE);
 		}
 	}
 }
@@ -200,7 +197,11 @@ bool RankingInputScene::InputName()
 	{
 		// カーソル音鳴らす
 		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
-		if (cursor_x > 0)
+		if (cursor_y == 4 && cursor_x == 0)
+		{
+			cursor_x = 1;
+		}
+		else if (cursor_x > 0)
 		{
 			cursor_x--;
 		}
@@ -213,7 +214,11 @@ bool RankingInputScene::InputName()
 	{
 		// カーソル音鳴らす
 		//PlaySoundMem(select_se, DX_PLAYTYPE_BACK, TRUE);
-		if (cursor_x < 12)
+		if (cursor_y == 4 && cursor_x == 1)
+		{
+			cursor_x = 0;
+		}
+		else if (cursor_x < 12)
 		{
 			cursor_x++;
 		}
